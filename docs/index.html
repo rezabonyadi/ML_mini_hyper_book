@@ -5,20 +5,20 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>The hyper-book of machine learning</title>
-  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="description" content="." />
   <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
   <meta property="og:title" content="The hyper-book of machine learning" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
-  
+  <meta property="og:description" content="." />
+  <meta name="github-repo" content="rezabontadi/machine-learning-hyper-book" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="The hyper-book of machine learning" />
   
-  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="twitter:description" content="." />
   
 
 <meta name="author" content="Reza Bonyadi" />
@@ -31,7 +31,7 @@
   
   
 
-
+<link rel="next" href="introduction.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -123,7 +123,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="#prerequisites"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#including-plots"><i class="fa fa-check"></i><b>1.1</b> Including Plots</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -145,15 +148,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1 class="title">The hyper-book of machine learning</h1>
 <p class="author"><em>Reza Bonyadi</em></p>
 </div>
-<div id="prerequisites" class="section level1">
-<h1><span class="header-section-number">1</span> Prerequisites</h1>
-<p>This is a <em>sample</em> book written in <strong>Markdown</strong>. You can use anything that Pandoc’s Markdown supports, e.g., a math equation <span class="math inline">\(a^2 + b^2 = c^2\)</span>.</p>
-<p>The <strong>bookdown</strong> package can be installed from CRAN or Github:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>)</a>
-<a class="sourceLine" id="cb1-2" title="2"><span class="co"># or the development version</span></a>
-<a class="sourceLine" id="cb1-3" title="3"><span class="co"># devtools::install_github(&quot;rstudio/bookdown&quot;)</span></a></code></pre></div>
-<p>Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading <code>#</code>.</p>
-<p>To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <a href="https://yihui.name/tinytex/" class="uri">https://yihui.name/tinytex/</a>.</p>
+<div id="preface" class="section level1 unnumbered">
+<h1>Preface</h1>
+<p>I wrote my first machine learning (ML) project in the year 1999, which was a characters hand-written recognition in the Pascal language, and I quite enjoyed the topic ever since. The field is growing astronomically fast these days and everyday I am learning something new. This document is meant to maintain my learnings and provides the best links, descriptions, and material in each topic.</p>
 
 </div>
             </section>
@@ -162,7 +159,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 
-
+<a href="introduction.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -207,19 +204,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
