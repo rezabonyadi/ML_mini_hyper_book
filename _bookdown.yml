@@ -1,1 +1,2 @@
 rmd_files: ["index.Rmd", "chapters/01-intro.RMD"]
+output_dir: "docs"
