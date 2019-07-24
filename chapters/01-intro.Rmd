@@ -1,5 +1,3 @@
-# (PART\*) Part I
-
+# (PART) Part I {-} 
 # Introduction
-
 
