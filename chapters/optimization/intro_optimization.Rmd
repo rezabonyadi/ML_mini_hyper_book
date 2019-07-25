@@ -1,0 +1,10 @@
+# (PART) Optimziation {-} 
+# Introduction
+
+
+
+- What is optimziation
+- Examples
+- Derivative-free vs with derivative
+
+

@@ -1,2 +1,4 @@
-rmd_files: ["index.Rmd", "chapters/01-intro.RMD"]
+rmd_files: ["index.Rmd", 
+  "chapters/machine_learning/intro_machine_learning.RMD",
+  "chapters/optimization/intro_optimization.RMD"]
 output_dir: "docs"
