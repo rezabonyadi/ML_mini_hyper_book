@@ -1,4 +1,38 @@
-rmd_files: ["index.Rmd", 
-  "chapters/machine_learning/intro_machine_learning.RMD",
-  "chapters/optimization/intro_optimization.RMD"]
+chapter_name: "Chapter "
+rmd_files: 
+  - "index.RMD"
+  - chapters/machine_learning/01_intro_machine_learning.rmd
+  - chapters/machine_learning/02_classification/01_classification.rmd
+  - chapters/machine_learning/02_classification/02_logistic_regression.rmd
+  - chapters/machine_learning/02_classification/03_support_vector.rmd
+  - chapters/machine_learning/02_classification/04_decision_tree_classifier.rmd
+  - chapters/machine_learning/02_classification/05_k_nearest_neighbor.rmd
+  - chapters/machine_learning/03_regression/01_regression.rmd
+  - chapters/machine_learning/03_regression/02_linear_regression.rmd
+  - chapters/machine_learning/03_regression/03_decision_tree_regression.rmd
+  - chapters/machine_learning/04_dimensionality_reduction/01_dimensionality_reduction.rmd
+  - chapters/machine_learning/04_dimensionality_reduction/02_principle_component.rmd
+  - chapters/machine_learning/04_dimensionality_reduction/03_singular_value_decomposition.rmd
+  - chapters/machine_learning/05_metrics_learning/01_metrics_learning.rmd
+  - chapters/machine_learning/05_metrics_learning/02_large_margin_nearest_neighbor.rmd
+  - chapters/machine_learning/06_neural_networks/01_neural_networks.rmd
+  - chapters/machine_learning/06_neural_networks/02_multi_layer_perceptrons.rmd
+  - chapters/machine_learning/06_neural_networks/03_mixed_density_networks.rmd
+  - chapters/machine_learning/06_neural_networks/04_convolutional.rmd
+  - chapters/machine_learning/06_neural_networks/05_autoencoders.rmd
+  - chapters/machine_learning/07_bayesian_estimations/bayesian_inference.rmd
+  - chapters/machine_learning/08_ensembles/01_ensembles.rmd
+  - chapters/machine_learning/08_ensembles/02_random_forest.rmd
+  - chapters/machine_learning/08_ensembles/03_ensembling_techniques.rmd
+  - chapters/machine_learning/08_reinforcement_learning/01_reinforcement_learning.rmd
+  - chapters/machine_learning/08_reinforcement_learning/02_q_learning.rmd
+  - chapters/machine_learning/09_bagging_boosting/01_bagging_boosting.rmd
+  - chapters/machine_learning/09_bagging_boosting/02_xgboost.rmd
+  - chapters/optimization/01_intro_optimization.rmd
+  - chapters/optimization/02_optimization_problems/01_optimization_problems.rmd
+  - chapters/optimization/03_derivative_based/01_derivatives.rmd
+  - chapters/optimization/04_derivative_free/01_derivative_free.rmd
+  - chapters/optimization/04_derivative_free/02_finite_different.rmd
+  - chapters/optimization/04_derivative_free/03_population_based.rmd
+
 output_dir: "docs"

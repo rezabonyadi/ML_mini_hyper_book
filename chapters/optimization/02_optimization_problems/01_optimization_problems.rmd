@@ -1,0 +1,8 @@
+# Optimization problems
+
+## Single and Multi objective
+
+## Constrains in problems
+
+## Dynamic optimization problems
+

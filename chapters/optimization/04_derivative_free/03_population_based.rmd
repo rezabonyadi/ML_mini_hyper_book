@@ -1,0 +1,12 @@
+## Population-based optimization
+
+### Genetic algorithm
+
+### Evolutionary strategy
+
+### Covariance matrix adaptation
+
+### Particle swarm optimization
+
+
+

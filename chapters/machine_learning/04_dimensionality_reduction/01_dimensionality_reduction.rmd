@@ -1,0 +1,5 @@
+# Dimensionality reduction
+
+- What is it
+- Supervised and unsupervised
+- 

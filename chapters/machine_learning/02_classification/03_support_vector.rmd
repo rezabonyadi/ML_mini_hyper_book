@@ -1,0 +1,8 @@
+## Support vector machines
+
+- What is support vector machine
+- 
+
+### Kernel tricks
+
+### Implementations 
