@@ -24,7 +24,7 @@
 <meta name="author" content="Reza Bonyadi, Ph.D." />
 
 
-<meta name="date" content="2019-07-25" />
+<meta name="date" content="2019-07-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -65,16 +65,16 @@
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="part"><span><b>I Machine learning</b></span></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
-<li class="chapter" data-level="2" data-path="classficiation.html"><a href="classficiation.html"><i class="fa fa-check"></i><b>2</b> Classficiation</a><ul>
-<li class="chapter" data-level="2.1" data-path="classficiation.html"><a href="classficiation.html#logistic-regression"><i class="fa fa-check"></i><b>2.1</b> Logistic regression</a><ul>
-<li class="chapter" data-level="2.1.1" data-path="classficiation.html"><a href="classficiation.html#variable-importance-in-lr"><i class="fa fa-check"></i><b>2.1.1</b> Variable importance in LR</a></li>
+<li class="chapter" data-level="2" data-path="classification.html"><a href="classification.html"><i class="fa fa-check"></i><b>2</b> Classification</a><ul>
+<li class="chapter" data-level="2.1" data-path="classification.html"><a href="classification.html#logistic-regression"><i class="fa fa-check"></i><b>2.1</b> Logistic regression</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="classification.html"><a href="classification.html#variable-importance-in-lr"><i class="fa fa-check"></i><b>2.1.1</b> Variable importance in LR</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="classficiation.html"><a href="classficiation.html#support-vector-machines"><i class="fa fa-check"></i><b>2.2</b> Support vector machines</a><ul>
-<li class="chapter" data-level="2.2.1" data-path="classficiation.html"><a href="classficiation.html#kernel-tricks"><i class="fa fa-check"></i><b>2.2.1</b> Kernel tricks</a></li>
-<li class="chapter" data-level="2.2.2" data-path="classficiation.html"><a href="classficiation.html#implementations"><i class="fa fa-check"></i><b>2.2.2</b> Implementations</a></li>
+<li class="chapter" data-level="2.2" data-path="classification.html"><a href="classification.html#support-vector-machines"><i class="fa fa-check"></i><b>2.2</b> Support vector machines</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="classification.html"><a href="classification.html#kernel-tricks"><i class="fa fa-check"></i><b>2.2.1</b> Kernel tricks</a></li>
+<li class="chapter" data-level="2.2.2" data-path="classification.html"><a href="classification.html#implementations"><i class="fa fa-check"></i><b>2.2.2</b> Implementations</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="classficiation.html"><a href="classficiation.html#decision-tree"><i class="fa fa-check"></i><b>2.3</b> Decision tree</a></li>
-<li class="chapter" data-level="2.4" data-path="classficiation.html"><a href="classficiation.html#k-nearest-neighbor"><i class="fa fa-check"></i><b>2.4</b> K-nearest neighbor</a></li>
+<li class="chapter" data-level="2.3" data-path="classification.html"><a href="classification.html#decision-tree"><i class="fa fa-check"></i><b>2.3</b> Decision tree</a></li>
+<li class="chapter" data-level="2.4" data-path="classification.html"><a href="classification.html#k-nearest-neighbor"><i class="fa fa-check"></i><b>2.4</b> K-nearest neighbor</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>3</b> Regression</a><ul>
 <li class="chapter" data-level="3.1" data-path="regression.html"><a href="regression.html#linear-regression"><i class="fa fa-check"></i><b>3.1</b> Linear regression</a></li>
@@ -200,6 +200,19 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
