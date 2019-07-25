@@ -1,2 +1,6 @@
-# Classficiation
+# Classification
+
+Classification refers to learning by examples to categorize instances. For example, you are given a data-set of people who got a heart attach or no heart attack after their 50. Each instance has been characterized by attributes such as smoking habits, history of heart attack in the family, number of hours of exercise per day, hight, weight, among others. The task is to estimate, for a given characteristics of a new person, if the person is going to have a heart attack after their 50. Another example of classification is that given some attributes of a tumor (e.g., shape, color, genetic information, history of the patient, among others), estimate if the tumor type is benign, type 1, type 2, or type 3.    
+
+In a more general framework, given a set of instances ($X$, which has $m$ rows and $n$ columns, each row is an instance and each column is an attribute) and their associated classes ($Y$, which has $m$ rows, containing a categorical value in each row), we seek a mathematical *rule* which can generate the class label, $y$, for any given instance, $x$ ($1$ row and $n$ columns). 
 

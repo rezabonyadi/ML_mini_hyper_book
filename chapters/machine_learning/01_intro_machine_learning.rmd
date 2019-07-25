@@ -1,4 +1,8 @@
 # (PART) Machine learning {-} 
 # Introduction
 
+Machine learning refers to a set of algorithms which make a machine (with a computer as its brain) to apparently learn. Learning is not 
 
+
+
+Not fully observed, hence, there need to be assumptions as the solutions is not unique
