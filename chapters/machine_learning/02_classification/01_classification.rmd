@@ -2,5 +2,15 @@
 
 Classification refers to learning by examples to categorize instances. For example, you are given a data-set of people who got a heart attach or no heart attack after their 50. Each instance has been characterized by attributes such as smoking habits, history of heart attack in the family, number of hours of exercise per day, hight, weight, among others. The task is to estimate, for a given characteristics of a new person, if the person is going to have a heart attack after their 50. Another example of classification is that given some attributes of a tumor (e.g., shape, color, genetic information, history of the patient, among others), estimate if the tumor type is benign, type 1, type 2, or type 3.    
 
-In a more general framework, given a set of instances ($X$, which has $m$ rows and $n$ columns, each row is an instance and each column is an attribute) and their associated classes ($Y$, which has $m$ rows, containing a categorical value in each row), we seek a mathematical *rule* which can generate the class label, $y$, for any given instance, $x$ ($1$ row and $n$ columns). 
+Let's assume we have two attributes per instance and two groups of instances (blue and red). The aim of classification (binary in this case) is to find a line (separatory line, hyper-plane in higher number of dimensions) which separates the two classes (see figure). 
+
+<figure>
+<img src="images/classification/classification.png" alt="Classification general" width="60%" height="60%" align="centre">
+<figcaption>Fig 1: Two attributes (horizontal and vertical axes), two classes (red and blue), and three lines which can separate the classes successfully. </figcaption>
+</figure>
+
+
+As usually the given instances do not represent all possible instances for a given problem, therefore, any line, in any shape and form, that separates the given instances is acceptable (purple, green, and orange in the figure). Hence, defining "the best separator line" (a line that not only separates the given instances but also all other unseen instances) is not possible. This leads to different assumptions upon which different classifiers are formulated. For example, support vector machines assume that the line which has the maximum distance from each class is preferred and more empirically robust against potential uncertainties in unseen instances.
+
+In a more general framework, given a set of instances ($X$, which has $m$ rows and $n$ columns, each row is an instance and each column is an attribute) and their associated classes ($Y$, which has $m$ rows, containing a categorical value in each row), we seek a mathematical *rule* (line and hyper-plane are special case of this) which can generate the class label, $y$, for any given instance, $x$ ($1$ row and $n$ columns). 
 

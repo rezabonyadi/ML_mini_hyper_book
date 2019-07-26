@@ -1,5 +1,5 @@
 ## Logistic regression
-
+Logistic regression seeks a separator line (hyper-plane) that separates 
 
 
 ### Variable importance in LR
