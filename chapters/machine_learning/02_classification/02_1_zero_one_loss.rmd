@@ -4,7 +4,7 @@ Let's assume that the discriminatory rule in a classification problem is represe
 
 <figure>
 <img src="images/classification/0_1_loss_1.PNG" alt="0/1 loss" width="80%" height="80%" align="centre">
-<figcaption>Fig 2: Two candidate lines, green gives 4/30 and the orange gives 3/30 loss value according to the 0/1 loss function. </figcaption>
+<figcaption>Fig 2: Two candidate lines, green gives 4/30 and the orange gives 4/30 loss value according to the 0/1 loss function. </figcaption>
 </figure>
 
 &nbsp;
@@ -15,6 +15,15 @@ The 0/1 loss function does not take into account the *importance* of number of m
 
 To address this issue, it has been proposed in [this](https://arxiv.org/abs/1804.09891) [@bonyadi2019optimal] article to minimize the average of the 0/1 loss values of over the classes rather than than the summation of the 0/1 function across all instances [@bonyadi2019optimal]. To implement this idea, for a given discriminatory line, one can iterate over all instances of each class and calculate the 0/1 loss function for each class separately and then average those loss values across all classes. In Fig. 2, for example, this average for the green line is $\frac{(2/10+2/20)}{2}$ (2 miss-classified instances from each class) and for the orange line is $\frac{3/10+1/20}{2}$ (3 miss-classified from blue and 1 from red). Hence, the green line would be preferred. 
 
-The 0/1 loss function in both above-mentioned forms is unbiased and not sensitive to outliers as any outlier would only contribute 1 unit to the loss function if it is miss-classified. Finding a line that minimizes the average of the 0/1 loss function in both above-mentioned forms is not easy (see [this](http://proceedings.mlr.press/v28/nguyen13a.pdf) [@doerr2015direct] and [this](https://arxiv.org/abs/1804.09891) [@bonyadi2019optimal]). One issue is that this line is not unique. For example, both orange and green lines in Fig. 1 have the same accuracy in terms of discriminating between the classes. This is solved by selecting the line which has the maximum distance from the instances of both classes (see this [paper](https://arxiv.org/abs/1804.09891) [@bonyadi2019optimal]). The basic idea is, if there are multiple lines which separate instances from each class with the same accuracy, the one which has the maximum distance from each class is preferred. The Python, Java, and Matlab code is available for that article (https://github.com/rezabonyadi/LinearOEC). Another issue is that optimizing the 0/1 loss function in the formed mentioned before is not practical, i.e., it is NP-Complete. This has encouraged introduction to lots of new loss functions which approximate the 0/1 loss function while they are differentiable. 
+The 0/1 loss function in both above-mentioned forms is unbiased and not sensitive to outliers as any outlier would only contribute 1 unit to the loss function if it is miss-classified. 
+
+<figure>
+<img src="images/classification/0_1_loss_2.PNG" alt="0/1 loss robustness" width="80%" height="80%" align="centre">
+<figcaption>Fig 3: 0/1 loss function is not sensitive to outliers while other loss functions are (other loss functions are described in next sections). The figure was taken from [@doerr2015direct]. </figcaption>
+</figure>
+
+&nbsp;
+
+Finding a line that minimizes the average of the 0/1 loss function in both above-mentioned forms is not easy (see [this](http://proceedings.mlr.press/v28/nguyen13a.pdf) [@doerr2015direct] and [this](https://arxiv.org/abs/1804.09891) [@bonyadi2019optimal]). One issue is that this line is not unique. For example, both orange and green lines in Fig. 1 have the same accuracy in terms of discriminating between the classes. This is solved by selecting the line which has the maximum distance from the instances of both classes (see this [paper](https://arxiv.org/abs/1804.09891) [@bonyadi2019optimal]). The basic idea is, if there are multiple lines which separate instances from each class with the same accuracy, the one which has the maximum distance from each class is preferred. The Python, Java, and Matlab code is available for that article (https://github.com/rezabonyadi/LinearOEC). Another issue is that optimizing the 0/1 loss function in the formed mentioned before is not practical, i.e., it is NP-Complete. This has encouraged introduction to lots of new loss functions which approximate the 0/1 loss function while they are differentiable. 
 
 
