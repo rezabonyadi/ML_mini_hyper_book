@@ -1,5 +1,6 @@
 ## Logistic regression
-Logistic regression seeks a separator line (hyper-plane) that separates 
+
+Logistic regression introduces a loss function that estimates the 0/1 loss function with a differentiable alternative, hence, can be optimized effectively by gradient descent. 
 
 
 ### Variable importance in LR

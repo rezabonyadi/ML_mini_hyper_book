@@ -24,7 +24,7 @@
 <meta name="author" content="Reza Bonyadi, Ph.D." />
 
 
-<meta name="date" content="2019-07-27" />
+<meta name="date" content="2019-07-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -66,15 +66,16 @@
 <li class="part"><span><b>I Machine learning</b></span></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
 <li class="chapter" data-level="2" data-path="classification.html"><a href="classification.html"><i class="fa fa-check"></i><b>2</b> Classification</a><ul>
-<li class="chapter" data-level="2.1" data-path="classification.html"><a href="classification.html#logistic-regression"><i class="fa fa-check"></i><b>2.1</b> Logistic regression</a><ul>
-<li class="chapter" data-level="2.1.1" data-path="classification.html"><a href="classification.html#variable-importance-in-lr"><i class="fa fa-check"></i><b>2.1.1</b> Variable importance in LR</a></li>
+<li class="chapter" data-level="2.1" data-path="classification.html"><a href="classification.html#the-optimal-binary-classifier"><i class="fa fa-check"></i><b>2.1</b> The optimal binary classifier</a></li>
+<li class="chapter" data-level="2.2" data-path="classification.html"><a href="classification.html#logistic-regression"><i class="fa fa-check"></i><b>2.2</b> Logistic regression</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="classification.html"><a href="classification.html#variable-importance-in-lr"><i class="fa fa-check"></i><b>2.2.1</b> Variable importance in LR</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="classification.html"><a href="classification.html#support-vector-machines"><i class="fa fa-check"></i><b>2.2</b> Support vector machines</a><ul>
-<li class="chapter" data-level="2.2.1" data-path="classification.html"><a href="classification.html#kernel-tricks"><i class="fa fa-check"></i><b>2.2.1</b> Kernel tricks</a></li>
-<li class="chapter" data-level="2.2.2" data-path="classification.html"><a href="classification.html#implementations"><i class="fa fa-check"></i><b>2.2.2</b> Implementations</a></li>
+<li class="chapter" data-level="2.3" data-path="classification.html"><a href="classification.html#support-vector-machines"><i class="fa fa-check"></i><b>2.3</b> Support vector machines</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="classification.html"><a href="classification.html#kernel-tricks"><i class="fa fa-check"></i><b>2.3.1</b> Kernel tricks</a></li>
+<li class="chapter" data-level="2.3.2" data-path="classification.html"><a href="classification.html#implementations"><i class="fa fa-check"></i><b>2.3.2</b> Implementations</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="classification.html"><a href="classification.html#decision-tree"><i class="fa fa-check"></i><b>2.3</b> Decision tree</a></li>
-<li class="chapter" data-level="2.4" data-path="classification.html"><a href="classification.html#k-nearest-neighbor"><i class="fa fa-check"></i><b>2.4</b> K-nearest neighbor</a></li>
+<li class="chapter" data-level="2.4" data-path="classification.html"><a href="classification.html#decision-tree"><i class="fa fa-check"></i><b>2.4</b> Decision tree</a></li>
+<li class="chapter" data-level="2.5" data-path="classification.html"><a href="classification.html#k-nearest-neighbor"><i class="fa fa-check"></i><b>2.5</b> K-nearest neighbor</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>3</b> Regression</a><ul>
 <li class="chapter" data-level="3.1" data-path="regression.html"><a href="regression.html#linear-regression"><i class="fa fa-check"></i><b>3.1</b> Linear regression</a></li>
@@ -139,44 +140,63 @@
             <section class="normal" id="section-">
 <div id="classification" class="section level1">
 <h1><span class="header-section-number">Chapter 2</span> Classification</h1>
-<p>Classification refers to learning by examples to categorize instances. For example, you are given a data-set of people who got a heart attach or no heart attack after their 50. Each instance has been characterized by attributes such as smoking habits, history of heart attack in the family, number of hours of exercise per day, hight, weight, among others. The task is to estimate, for a given characteristics of a new person, if the person is going to have a heart attack after their 50. Another example of classification is that given some attributes of a tumor (e.g., shape, color, genetic information, history of the patient, among others), estimate if the tumor type is benign, type 1, type 2, or type 3.</p>
-<p>Let’s assume we have two attributes per instance and two groups of instances (blue and red). The aim of classification (binary in this case) is to find a line (separatory line) which separates the two classes (see figure).</p>
+<p>Classification refers to learning by examples to categorize instances. For example, you are given a data-set of people who got a heart attach or no heart attack after their 50’s. Each instance has been characterized by attributes such as smoking habits, history of heart attack in the family, number of hours of exercise per day, hight, weight, among others. The task is to find a generic rule which estimates, for any given new person with given characteristics, if the person is going to have a heart attack after their 50s. Another example of classification is that, given some attributes of a tumor (e.g., shape, color, genetic information, history of the patient, among others), find a generic rule that estimates the tumor type for any tumor: benign, type 1, type 2, or type 3.</p>
+<p>In a more general framework, given a set of instances (<span class="math inline">\(X\)</span>, which has <span class="math inline">\(m\)</span> rows and <span class="math inline">\(n\)</span> columns, each row is an instance and each column is an attribute) and their associated classes (<span class="math inline">\(Y\)</span>, which has <span class="math inline">\(m\)</span> rows, containing a categorical value in each row), we seek a mathematical <em>rule</em> (line and hyper-plane are special case of this) which can generate the class label, <span class="math inline">\(y\)</span>, for any given instance, <span class="math inline">\(x\)</span> (<span class="math inline">\(1\)</span> row and <span class="math inline">\(n\)</span> columns).</p>
+<p>A synthetic classification problem has been given in Fig. 1. In this problem, we have two attributes per instance and two groups of instances (blue and red), and the discriminatory rule has been assumed to be represented by a line. The aim of classification (binary in this case) with these assumptions is to find a line (discriminatory line, hyper-plane in higher number of dimensions) which discriminates between the two classes “optimally” (see figure).</p>
 <figure>
-<img src="images/classification/classification.png" alt="Classification general" width="60%" height="60%" align="centre">
+<img src="images/classification/classification.png" alt="Classification general" width="80%" height="80%" align="centre">
 <figcaption>
-Fig 1: Two attributes (horizontal and vertical axes), two classes (red and blue), and
+Fig 1: Two attributes (horizontal and vertical axes), two classes (red and blue), and three lines which can separate the classes successfully.
 </figcaption>
 </figure>
-<p>As usually the given instances do not represent all possible instances for a given problem, therefore, any line, in any shape and form, that separates the given instances is acceptable (purple, green, and orange in the figure). This leads to different assumptions upon which different classifiers are formulated. For example, support vector machines assume that the line which has the maximum distance from each class is preferred and more empirically robust against potential uncertainties in unseen instances.</p>
-<p>In a more general framework, given a set of instances (<span class="math inline">\(X\)</span>, which has <span class="math inline">\(m\)</span> rows and <span class="math inline">\(n\)</span> columns, each row is an instance and each column is an attribute) and their associated classes (<span class="math inline">\(Y\)</span>, which has <span class="math inline">\(m\)</span> rows, containing a categorical value in each row), we seek a mathematical <em>rule</em> (line and hyper-plane are special case of this) which can generate the class label, <span class="math inline">\(y\)</span>, for any given instance, <span class="math inline">\(x\)</span> (<span class="math inline">\(1\)</span> row and <span class="math inline">\(n\)</span> columns).</p>
+<p> </p>
+<p>As usually the given instances do not represent all possible instances for a given problem, therefore, any rule, in any shape and form, that separates the given instances is acceptable (purple, green, and orange lines in the figure). Hence, defining “the best discriminatory rule” (a rule that not only separates the given instances but also all other unseen instances) is not possible. This leads to different assumptions upon which different classifiers are formulated. For example, support vector machines assume that the discriminatory rule is represented by a line which has the maximum distance from the instances in each class. The idea is that such line is more empirically robust against potential uncertainties in unseen instances.</p>
+<p>See <a href="https://arxiv.org/pdf/1804.09891.pdf">this article</a> <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimal">2019</a>)</span> for a formal definition of discriminative classification.</p>
 
+<div id="the-optimal-binary-classifier" class="section level2">
+<h2><span class="header-section-number">2.1</span> The optimal binary classifier</h2>
+<p>Let’s assume that the discriminatory rule in a classification problem is represented by a line, and we want to find a line that “optimally” discriminates between two classes. This optimality should be measured by an objective function, a function that assigns a “wrongness” score to each line (called the loss function), which needs to be minimized. One simple function would be the number of instances that are not in the correct side of the line. To implement this loss function, one can use a <span class="math inline">\(0/1\)</span> function that returns a <span class="math inline">\(0\)</span> if an instance is in the correct side of the given line and a <span class="math inline">\(1\)</span> otherwise. The sum of the 0/1 function over all instances is called the “0/1 loss function”, which is minimized by an optimization algorithm. The outcome of this minimization is a line which has a minimum 0/1 loss value.</p>
+<figure>
+<img src="images/classification/0_1_loss_1.PNG" alt="0/1 loss" width="80%" height="80%" align="centre">
+<figcaption>
+Fig 2: Two candidate lines, green gives 4/30 and the orange gives 3/30 loss value according to the 0/1 loss function.
+</figcaption>
+</figure>
+<p> </p>
+<p>In Fig. 2, for example, the 0/1 loss value is the same for the green line and the orange line.</p>
+<p>The 0/1 loss function does not take into account the <em>importance</em> of number of miss-classified instances from different classes (all classes are assumed to be equally important). In the previous example (Fig. 2), the number of blue instances is smaller than the number of red instances, which means miss-classification of blue instances leads to a larger natural loss comparing to the red instances. For example, the orange line has a very high accuracy on red instances while its accuracy on the blue is not as high as the green line.</p>
+<p>To address this issue, it has been proposed in <a href="https://arxiv.org/abs/1804.09891">this</a> <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimal">2019</a>)</span> article to minimize the average of the 0/1 loss values of over the classes rather than than the summation of the 0/1 function across all instances <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimal">2019</a>)</span>. To implement this idea, for a given discriminatory line, one can iterate over all instances of each class and calculate the 0/1 loss function for each class separately and then average those loss values across all classes. In Fig. 2, for example, this average for the green line is <span class="math inline">\(\frac{(2/10+2/20)}{2}\)</span> (2 miss-classified instances from each class) and for the orange line is <span class="math inline">\(\frac{3/10+1/20}/2\)</span> (e miss-classified from blue and 1 from red). Hence, the green line would be preferred.</p>
+<p>The 0/1 loss function in both above-mentioned forms is unbiased and not sensitive to outliers as any outlier would only contribute 1 unit to the loss function if it is miss-classified. Finding a line that minimizes the average of the 0/1 loss function in both above-mentioned forms is not easy (see <a href="http://proceedings.mlr.press/v28/nguyen13a.pdf">this</a> <span class="citation">(Doerr et al. <a href="#ref-doerr2015direct">2015</a>)</span> and <a href="https://arxiv.org/abs/1804.09891">this</a> <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimal">2019</a>)</span>). One issue is that this line is not unique. For example, both orange and green lines in Fig. 1 have the same accuracy in terms of discriminating between the classes. This is solved by selecting the line which has the maximum distance from the instances of both classes (see this <a href="https://arxiv.org/abs/1804.09891">paper</a> <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimal">2019</a>)</span>). The basic idea is, if there are multiple lines which separate instances from each class with the same accuracy, the one which has the maximum distance from each class is preferred. The Python, Java, and Matlab code is available for that article (<a href="https://github.com/rezabonyadi/LinearOEC" class="uri">https://github.com/rezabonyadi/LinearOEC</a>). Another issue is that optimizing the 0/1 loss function in the formed mentioned before is not practical, i.e., it is NP-Complete. This has encouraged introduction to lots of new loss functions which approximate the 0/1 loss function while they are differentiable.</p>
+
+</div>
 <div id="logistic-regression" class="section level2">
-<h2><span class="header-section-number">2.1</span> Logistic regression</h2>
+<h2><span class="header-section-number">2.2</span> Logistic regression</h2>
+<p>Logistic regression introduces a loss function that estimates the 0/1 loss function with a differentiable alternative, hence, can be optimized effectively by gradient descent.</p>
 <div id="variable-importance-in-lr" class="section level3">
-<h3><span class="header-section-number">2.1.1</span> Variable importance in LR</h3>
+<h3><span class="header-section-number">2.2.1</span> Variable importance in LR</h3>
 
 </div>
 </div>
 <div id="support-vector-machines" class="section level2">
-<h2><span class="header-section-number">2.2</span> Support vector machines</h2>
+<h2><span class="header-section-number">2.3</span> Support vector machines</h2>
 <ul>
 <li>What is support vector machine</li>
 <li></li>
 </ul>
 <div id="kernel-tricks" class="section level3">
-<h3><span class="header-section-number">2.2.1</span> Kernel tricks</h3>
+<h3><span class="header-section-number">2.3.1</span> Kernel tricks</h3>
 </div>
 <div id="implementations" class="section level3">
-<h3><span class="header-section-number">2.2.2</span> Implementations</h3>
+<h3><span class="header-section-number">2.3.2</span> Implementations</h3>
 
 </div>
 </div>
 <div id="decision-tree" class="section level2">
-<h2><span class="header-section-number">2.3</span> Decision tree</h2>
+<h2><span class="header-section-number">2.4</span> Decision tree</h2>
 
 </div>
 <div id="k-nearest-neighbor" class="section level2">
-<h2><span class="header-section-number">2.4</span> K-nearest neighbor</h2>
+<h2><span class="header-section-number">2.5</span> K-nearest neighbor</h2>
 <ul>
 <li>What is it</li>
 <li>Why does it work</li>
@@ -184,6 +204,15 @@ Fig 1: Two attributes (horizontal and vertical axes), two classes (red and blue)
 <li>How to implement</li>
 </ul>
 
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-bonyadi2019optimal">
+<p>Bonyadi, Mohammad Reza, and David C Reutens. 2019. “Optimal-Margin Evolutionary Classifier.” <em>IEEE Transactions on Evolutionary Computation</em>. IEEE.</p>
+</div>
+<div id="ref-doerr2015direct">
+<p>Doerr, Andreas, Nathan D Ratliff, Jeannette Bohg, Marc Toussaint, and Stefan Schaal. 2015. “Direct Loss Minimization Inverse Optimal Control.” In <em>Robotics: Science and Systems</em>.</p>
 </div>
 </div>
             </section>
