@@ -1,6 +1,11 @@
 ## K-nearest neighbor 
 
-- What is it
+The k-nearest neighbor (KNN) classifier assumes that the instances "close" to one another have the same class label. Hence, to assign a class label to a new instances, KNN finds the $k$ "closest" instances from the training data set and use their labels to vote for the class label of the new instance. 
+
+### Pros and cons
+
+*Pros*: 
+
 - Why does it work
 - 
 - How to implement
