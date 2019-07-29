@@ -18,7 +18,10 @@ As usually the given instances do not represent all possible instances for a giv
 
 See [this article](https://arxiv.org/pdf/1804.09891.pdf) [@bonyadi2019optimal] for a formal definition of discriminative classification. 
 
-> Key points:
+> **Key points**:
+>
 >- Classification aims to find a mathematical rule that provides the category to which an instance belong using a set of given examples.
+>
 >- As the training data-set is a subset of all possible data points, some assumptions need to be made to ensure that the "optimal" rule performs well not only on the training data-set but also on unseen instances (generalization ability). These assumptions lead to different classification algorithms.
+>
 >- These assumptions include the shapes of the mathematical rule (a line, "if-then" rules, etc.) and the *performance measure* by which the rule is evaluated.

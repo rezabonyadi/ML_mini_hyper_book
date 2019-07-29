@@ -156,7 +156,12 @@ Fig 1: Two attributes (horizontal and vertical axes), two classes (red and blue)
 <p>As usually the given instances do not represent all possible instances for a given problem, therefore, any rule, in any shape and form, that separates the given instances and optimizes the performance measure is acceptable (purple, green, and orange lines in the figure). Hence, defining “the best discriminatory rule”, a rule that not only separates the given instances but also all other unseen instances, is not possible. This leads to different assumptions upon which different classifiers are formulated. For example, support vector machines assume that the discriminatory rule is represented by a line which has the maximum distance from the instances in each class. The idea is that such line is more empirically robust against potential uncertainties in unseen instances.</p>
 <p>See <a href="https://arxiv.org/pdf/1804.09891.pdf">this article</a> <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimal">2019</a>)</span> for a formal definition of discriminative classification.</p>
 <blockquote>
-<p>Key points: - Classification aims to find a mathematical rule that provides the category to which an instance belong using a set of given examples. - As the training data-set is a subset of all possible data points, some assumptions need to be made to ensure that the “optimal” rule performs well not only on the training data-set but also on unseen instances (generalization ability). These assumptions lead to different classification algorithms. - These assumptions include the shapes of the mathematical rule (a line, “if-then” rules, etc.) and the <em>performance measure</em> by which the rule is evaluated.</p>
+<p><strong>Key points</strong>:</p>
+<ul>
+<li><p>Classification aims to find a mathematical rule that provides the category to which an instance belong using a set of given examples.</p></li>
+<li><p>As the training data-set is a subset of all possible data points, some assumptions need to be made to ensure that the “optimal” rule performs well not only on the training data-set but also on unseen instances (generalization ability). These assumptions lead to different classification algorithms.</p></li>
+<li><p>These assumptions include the shapes of the mathematical rule (a line, “if-then” rules, etc.) and the <em>performance measure</em> by which the rule is evaluated.</p></li>
+</ul>
 </blockquote>
 
 <div id="the-optimal-binary-classifier" class="section level2">
