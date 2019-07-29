@@ -31,7 +31,7 @@ rmd_files:
   - chapters/machine_learning/07_bayesian_estimations/bayesian_inference.rmd
   - chapters/machine_learning/08_ensembles/01_ensembles.rmd
   - chapters/machine_learning/08_ensembles/02_random_forest.rmd
-  - chapters/machine_learning/08_ensembles/03_ensembling_techniques.rmd
+  - chapters/machine_learning/08_ensembles/03_gradient_boost_tree.rmd
   - chapters/machine_learning/08_reinforcement_learning/01_reinforcement_learning.rmd
   - chapters/machine_learning/08_reinforcement_learning/02_q_learning.rmd
   - chapters/machine_learning/09_bagging_boosting/01_bagging_boosting.rmd

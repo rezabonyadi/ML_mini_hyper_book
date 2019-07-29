@@ -1,5 +1,7 @@
 ## Support vector machines
 
+
+
 - What is support vector machine
 - 
 
