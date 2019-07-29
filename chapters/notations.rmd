@@ -1,0 +1,3 @@
+# Terms and notations
+
+Attributes of instances: Instances are characterized by their attributes. Dimensions, variables, dependent variables, 
