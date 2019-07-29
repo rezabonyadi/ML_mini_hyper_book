@@ -1,6 +1,6 @@
 # Classification
 
-Classification refers to learning to category instances by examples. For example,
+Classification refers to learning to categorize instances by examples. For example,
 learning if a person going to have a heart attach after their 50's given person's characteristics such as smoking habits, history of heart attack in the family, number of hours of exercise per day, hight, weight, among others. The task is to find a generic rule which estimates, for any given new person with given characteristics, if the person is going to have a heart attack after their 50s. Another example of classification is, given some attributes of a set of tumors (e.g., shape, color, genetic information, history of the patient, among others) and their categories (benign, type 1, type 2, or type 3), find a generic rule that estimates the tumor type for any tumor. 
 
 In a more general framework, given a set of instances, $X$, with $m$ rows and $n$ columns (each row is an instance and each column is an attribute) and their associated classes, $Y$, with $m$ rows (containing a categorical value in each row), find a mathematical *rule* (line and hyper-plane are special cases of this) which can generate the class label, $y$, for any given instance, $x$ ($1$ row and $n$ columns). 

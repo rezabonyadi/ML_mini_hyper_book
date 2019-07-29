@@ -5,6 +5,8 @@ The k-nearest neighbor (KNN) classifier assumes that the instances "close" to on
 ```{r KnnDemons, echo = FALSE, fig.cap = 'Example of how KNN works. The "closest" instances to a new instance (green) are used to vote for its class label.'}
 knitr::include_graphics('./images/classification/01_knn_1.png')
 ```
+
+### Improvements
 In KNN, some attributes may lead to biasing the distance. For example, if one of the attributes is in the order of 1,000 and another is in the order of 0.1, the latter would have a small impact on the calculation of the distance. This is usually resolved by standardizing the space, which ensures all attributes are in the same range. This method, however, may break some structural integrity of the instances.
 
 Another issue is that some attributes might be misleading and their impact is better to be reduced. For example, Fig. \@ref(fig:KnnDimesions) indicates that the horizontal dimension is responsible for the green instance to be of the type "red". This, however, may not be correct as if the horizontal dimension shrinks then the green instance becomes closer to blue instances, which makes it a blue class.

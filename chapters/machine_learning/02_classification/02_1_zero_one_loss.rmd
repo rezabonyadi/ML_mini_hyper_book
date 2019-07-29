@@ -9,11 +9,13 @@ knitr::include_graphics('images/classification/0_1_loss_1.PNG')
 
 In Fig. \@ref(fig:loss01), for example, the 0/1 loss value is the same for the green line and the orange line. 
 
+### Improvements
+
 The 0/1 loss function in its original form does not take into account the *importance* of the instances from different classes (all classes are assumed to be equally important). In the previous example (Fig. \@ref(fig:loss01)), the number of blue instances is smaller than the number of red instances, which means miss-classification of blue instances leads to a larger natural loss comparing to the red instances (blue instances are rare, hence more important to be classified correctly). For example, the orange line has a very high accuracy on red instances while its accuracy on the blue is not as high as the green line. 
 
-To address this issue, it has been proposed in [this](https://arxiv.org/abs/1804.09891) [@bonyadi2019optimal] article to minimize the average of the 0/1 loss values over the classes rather than than the summation of the 0/1 function across all instances [@bonyadi2019optimal]. In Fig. \@ref(fig:loss01), for example, this average for the green line is $\frac{(2/10+2/20)}{2}$ (2 miss-classified instances from each class) and for the orange line is $\frac{3/10+1/20}{2}$ (3 miss-classified from blue and 1 from red). Hence, the green line would be preferred. 
+To address this issue, it has been proposed in [@bonyadi2019optimal] to minimize the average of the 0/1 loss values over the classes rather than than the summation of the 0/1 function across all instances [@bonyadi2019optimal]. In Fig. \@ref(fig:loss01), for example, this average for the green line is $\frac{(2/10+2/20)}{2}$ (2 miss-classified instances from each class) and for the orange line is $\frac{3/10+1/20}{2}$ (3 miss-classified from blue and 1 from red). Hence, the green line would be preferred. 
 
-Finding a line, or a hyper-plane in larger number of dimensions, that minimizes the average of the 0/1 loss function in both above-mentioned forms is not easy (see [this](http://proceedings.mlr.press/v28/nguyen13a.pdf) [@doerr2015direct] and [this](https://arxiv.org/abs/1804.09891) [@bonyadi2019optimal]). One issue is that this line is not unique. For example, both orange and green lines in Fig. 1 have the same accuracy in terms of discriminating between the classes. This is solved by selecting the line (hyper plane) which has the maximum distance from the instances of both classes (see this [paper](https://arxiv.org/abs/1804.09891) [@bonyadi2019optimal]), which is called maximum margin hyper-plane. The basic idea is, if there are multiple lines (hyper-planes) which separate instances from each class with the same accuracy, the one which has the maximum distance from each class is preferred.
+Finding a line, or a hyper-plane in larger number of dimensions, that minimizes the average of the 0/1 loss function in both above-mentioned forms is not easy (see [@doerr2015direct] and [@bonyadi2019optimal]). One issue is that this line is not unique. For example, both orange and green lines in Fig. 1 have the same accuracy in terms of discriminating between the classes. This is solved by selecting the line (hyper plane) which has the maximum distance from the instances of both classes (see this [@bonyadi2019optimal]), which is called maximum margin hyper-plane. The basic idea is, if there are multiple lines (hyper-planes) which separate instances from each class with the same accuracy, the one which has the maximum distance from each class is preferred.
 
 ###Pros and cons
 
@@ -26,12 +28,12 @@ knitr::include_graphics('images/classification/0_1_loss_2.PNG')
 
 &nbsp;
 
-*Cons*: The main issue with this idea (optimal 0/1 binary classification, with or without maximum margin idea) is that optimizing the 0/1 loss function in the formed mentioned before is not practical, i.e., it is NP-Complete. Hence, all algorithms which implement this idea are rather slow. The only practically fast implementation has been described in this [paper](https://arxiv.org/abs/1804.09891) [@bonyadi2019optimal]. This has encouraged introduction to lots of new loss functions which approximate the 0/1 loss function while they are differentiable. 
+*Cons*: The main issue with this idea (optimal 0/1 binary classification, with or without maximum margin idea) is that optimizing the 0/1 loss function in the formed mentioned before is not practical, i.e., it is NP-Complete. Hence, all algorithms which implement this idea are rather slow. The only practically fast implementation has been described in [@bonyadi2019optimal]. This has encouraged introduction to lots of new loss functions which approximate the 0/1 loss function while they are differentiable. 
 
-### How to implement it
+### How to implement
 
-There are multiple ways to find a hyper-plane which minimizes the original 0/1 loss function (sum of 0/1 losses), which have been described in details in [this](http://proceedings.mlr.press/v28/nguyen13a.pdf) [@doerr2015direct]. 
+There are multiple ways to find a hyper-plane which minimizes the original 0/1 loss function (sum of 0/1 losses), which have been described in details in [@doerr2015direct]. 
 
-The Python, Java, and Matlab code for this [paper](https://arxiv.org/abs/1804.09891) [@bonyadi2019optimal] is available at (https://github.com/rezabonyadi/LinearOEC). 
+The Python, Java, and Matlab code for [@bonyadi2019optimal] is available [@bonyadi2019optimalcode]. 
 
 

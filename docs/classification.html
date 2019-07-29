@@ -68,8 +68,9 @@
 <li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
 <li class="chapter" data-level="3" data-path="classification.html"><a href="classification.html"><i class="fa fa-check"></i><b>3</b> Classification</a><ul>
 <li class="chapter" data-level="3.1" data-path="classification.html"><a href="classification.html#the-optimal-binary-classifier"><i class="fa fa-check"></i><b>3.1</b> The optimal binary classifier</a><ul>
-<li class="chapter" data-level="3.1.1" data-path="classification.html"><a href="classification.html#pros-and-cons"><i class="fa fa-check"></i><b>3.1.1</b> Pros and cons</a></li>
-<li class="chapter" data-level="3.1.2" data-path="classification.html"><a href="classification.html#how-to-implement-it"><i class="fa fa-check"></i><b>3.1.2</b> How to implement it</a></li>
+<li class="chapter" data-level="3.1.1" data-path="classification.html"><a href="classification.html#improvements"><i class="fa fa-check"></i><b>3.1.1</b> Improvements</a></li>
+<li class="chapter" data-level="3.1.2" data-path="classification.html"><a href="classification.html#pros-and-cons"><i class="fa fa-check"></i><b>3.1.2</b> Pros and cons</a></li>
+<li class="chapter" data-level="3.1.3" data-path="classification.html"><a href="classification.html#how-to-implement"><i class="fa fa-check"></i><b>3.1.3</b> How to implement</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="classification.html"><a href="classification.html#logistic-regression"><i class="fa fa-check"></i><b>3.2</b> Logistic regression</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="classification.html"><a href="classification.html#variable-importance-in-lr"><i class="fa fa-check"></i><b>3.2.1</b> Variable importance in LR</a></li>
@@ -80,8 +81,9 @@
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="classification.html"><a href="classification.html#sec:descisiontree"><i class="fa fa-check"></i><b>3.4</b> Decision tree</a></li>
 <li class="chapter" data-level="3.5" data-path="classification.html"><a href="classification.html#sec:KNN"><i class="fa fa-check"></i><b>3.5</b> K-nearest neighbor</a><ul>
-<li class="chapter" data-level="3.5.1" data-path="classification.html"><a href="classification.html#pros-and-cons-1"><i class="fa fa-check"></i><b>3.5.1</b> Pros and cons</a></li>
-<li class="chapter" data-level="3.5.2" data-path="classification.html"><a href="classification.html#how-to-implement"><i class="fa fa-check"></i><b>3.5.2</b> How to implement</a></li>
+<li class="chapter" data-level="3.5.1" data-path="classification.html"><a href="classification.html#improvements-1"><i class="fa fa-check"></i><b>3.5.1</b> Improvements</a></li>
+<li class="chapter" data-level="3.5.2" data-path="classification.html"><a href="classification.html#pros-and-cons-1"><i class="fa fa-check"></i><b>3.5.2</b> Pros and cons</a></li>
+<li class="chapter" data-level="3.5.3" data-path="classification.html"><a href="classification.html#how-to-implement-1"><i class="fa fa-check"></i><b>3.5.3</b> How to implement</a></li>
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="classification.html"><a href="classification.html#gaussianprocessclassifier"><i class="fa fa-check"></i><b>3.6</b> Gaussian process classifier</a></li>
 <li class="chapter" data-level="3.7" data-path="classification.html"><a href="classification.html#turning-binary-classifiers-to-multi-class"><i class="fa fa-check"></i><b>3.7</b> Turning binary classifiers to multi-class</a></li>
@@ -154,7 +156,7 @@
             <section class="normal" id="section-">
 <div id="classification" class="section level1">
 <h1><span class="header-section-number">Chapter 3</span> Classification</h1>
-<p>Classification refers to learning to category instances by examples. For example, learning if a person going to have a heart attach after their 50’s given person’s characteristics such as smoking habits, history of heart attack in the family, number of hours of exercise per day, hight, weight, among others. The task is to find a generic rule which estimates, for any given new person with given characteristics, if the person is going to have a heart attack after their 50s. Another example of classification is, given some attributes of a set of tumors (e.g., shape, color, genetic information, history of the patient, among others) and their categories (benign, type 1, type 2, or type 3), find a generic rule that estimates the tumor type for any tumor.</p>
+<p>Classification refers to learning to categorize instances by examples. For example, learning if a person going to have a heart attach after their 50’s given person’s characteristics such as smoking habits, history of heart attack in the family, number of hours of exercise per day, hight, weight, among others. The task is to find a generic rule which estimates, for any given new person with given characteristics, if the person is going to have a heart attack after their 50s. Another example of classification is, given some attributes of a set of tumors (e.g., shape, color, genetic information, history of the patient, among others) and their categories (benign, type 1, type 2, or type 3), find a generic rule that estimates the tumor type for any tumor.</p>
 <p>In a more general framework, given a set of instances, <span class="math inline">\(X\)</span>, with <span class="math inline">\(m\)</span> rows and <span class="math inline">\(n\)</span> columns (each row is an instance and each column is an attribute) and their associated classes, <span class="math inline">\(Y\)</span>, with <span class="math inline">\(m\)</span> rows (containing a categorical value in each row), find a mathematical <em>rule</em> (line and hyper-plane are special cases of this) which can generate the class label, <span class="math inline">\(y\)</span>, for any given instance, <span class="math inline">\(x\)</span> (<span class="math inline">\(1\)</span> row and <span class="math inline">\(n\)</span> columns).</p>
 <p>A synthetic classification problem has been shown in Fig. <a href="classification.html#fig:classExample">3.1</a>. In this problem, we have two attributes per instance and two groups of instances (blue and red), and the discriminatory rule has been assumed to be represented by a line. The aim of classification (binary in this case) with these assumptions is to find the “best” discriminatory line (hyper-plane in higher number of dimensions) which discriminates between the two classes “optimally” (see figure). Ideally, this optimality needs to make sure that the rule not only works for the given data (training data) based on a performance measure but also for any unseen data point (test data), referred to as the <em>generalization ability</em> of the rule.</p>
 <div class="figure"><span id="fig:classExample"></span>
@@ -186,11 +188,14 @@ Figure 3.2: Two candidate lines, green gives 4/30 and the orange gives 4/30 loss
 </div>
 <p> </p>
 <p>In Fig. <a href="classification.html#fig:loss01">3.2</a>, for example, the 0/1 loss value is the same for the green line and the orange line.</p>
+<div id="improvements" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> Improvements</h3>
 <p>The 0/1 loss function in its original form does not take into account the <em>importance</em> of the instances from different classes (all classes are assumed to be equally important). In the previous example (Fig. <a href="classification.html#fig:loss01">3.2</a>), the number of blue instances is smaller than the number of red instances, which means miss-classification of blue instances leads to a larger natural loss comparing to the red instances (blue instances are rare, hence more important to be classified correctly). For example, the orange line has a very high accuracy on red instances while its accuracy on the blue is not as high as the green line.</p>
-<p>To address this issue, it has been proposed in <a href="https://arxiv.org/abs/1804.09891">this</a> <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimal">2019</a>)</span> article to minimize the average of the 0/1 loss values over the classes rather than than the summation of the 0/1 function across all instances <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimal">2019</a>)</span>. In Fig. <a href="classification.html#fig:loss01">3.2</a>, for example, this average for the green line is <span class="math inline">\(\frac{(2/10+2/20)}{2}\)</span> (2 miss-classified instances from each class) and for the orange line is <span class="math inline">\(\frac{3/10+1/20}{2}\)</span> (3 miss-classified from blue and 1 from red). Hence, the green line would be preferred.</p>
-<p>Finding a line, or a hyper-plane in larger number of dimensions, that minimizes the average of the 0/1 loss function in both above-mentioned forms is not easy (see <a href="http://proceedings.mlr.press/v28/nguyen13a.pdf">this</a> <span class="citation">(Doerr et al. <a href="#ref-doerr2015direct">2015</a>)</span> and <a href="https://arxiv.org/abs/1804.09891">this</a> <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimal">2019</a>)</span>). One issue is that this line is not unique. For example, both orange and green lines in Fig. 1 have the same accuracy in terms of discriminating between the classes. This is solved by selecting the line (hyper plane) which has the maximum distance from the instances of both classes (see this <a href="https://arxiv.org/abs/1804.09891">paper</a> <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimal">2019</a>)</span>), which is called maximum margin hyper-plane. The basic idea is, if there are multiple lines (hyper-planes) which separate instances from each class with the same accuracy, the one which has the maximum distance from each class is preferred.</p>
+<p>To address this issue, it has been proposed in <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimal">2019</a>)</span> to minimize the average of the 0/1 loss values over the classes rather than than the summation of the 0/1 function across all instances <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimal">2019</a>)</span>. In Fig. <a href="classification.html#fig:loss01">3.2</a>, for example, this average for the green line is <span class="math inline">\(\frac{(2/10+2/20)}{2}\)</span> (2 miss-classified instances from each class) and for the orange line is <span class="math inline">\(\frac{3/10+1/20}{2}\)</span> (3 miss-classified from blue and 1 from red). Hence, the green line would be preferred.</p>
+<p>Finding a line, or a hyper-plane in larger number of dimensions, that minimizes the average of the 0/1 loss function in both above-mentioned forms is not easy (see <span class="citation">(Doerr et al. <a href="#ref-doerr2015direct">2015</a>)</span> and <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimal">2019</a>)</span>). One issue is that this line is not unique. For example, both orange and green lines in Fig. 1 have the same accuracy in terms of discriminating between the classes. This is solved by selecting the line (hyper plane) which has the maximum distance from the instances of both classes (see this <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimal">2019</a>)</span>), which is called maximum margin hyper-plane. The basic idea is, if there are multiple lines (hyper-planes) which separate instances from each class with the same accuracy, the one which has the maximum distance from each class is preferred.</p>
+</div>
 <div id="pros-and-cons" class="section level3">
-<h3><span class="header-section-number">3.1.1</span> Pros and cons</h3>
+<h3><span class="header-section-number">3.1.2</span> Pros and cons</h3>
 <p><em>Pros</em>: The 0/1 loss function in both above-mentioned forms is unbiased and not sensitive to outliers as any outlier would only contribute 1 unit to the loss function if it is miss-classified (see Fig. <a href="classification.html#fig:lossesExamples">3.3</a>).</p>
 <div class="figure"><span id="fig:lossesExamples"></span>
 <img src="images/classification/0_1_loss_2.PNG" alt="0/1 loss function is not sensitive to outliers while other loss functions are (other loss functions are described in next sections). The figure was taken from [@doerr2015direct]"  />
@@ -199,12 +204,12 @@ Figure 3.3: 0/1 loss function is not sensitive to outliers while other loss func
 </p>
 </div>
 <p> </p>
-<p><em>Cons</em>: The main issue with this idea (optimal 0/1 binary classification, with or without maximum margin idea) is that optimizing the 0/1 loss function in the formed mentioned before is not practical, i.e., it is NP-Complete. Hence, all algorithms which implement this idea are rather slow. The only practically fast implementation has been described in this <a href="https://arxiv.org/abs/1804.09891">paper</a> <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimal">2019</a>)</span>. This has encouraged introduction to lots of new loss functions which approximate the 0/1 loss function while they are differentiable.</p>
+<p><em>Cons</em>: The main issue with this idea (optimal 0/1 binary classification, with or without maximum margin idea) is that optimizing the 0/1 loss function in the formed mentioned before is not practical, i.e., it is NP-Complete. Hence, all algorithms which implement this idea are rather slow. The only practically fast implementation has been described in <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimal">2019</a>)</span>. This has encouraged introduction to lots of new loss functions which approximate the 0/1 loss function while they are differentiable.</p>
 </div>
-<div id="how-to-implement-it" class="section level3">
-<h3><span class="header-section-number">3.1.2</span> How to implement it</h3>
-<p>There are multiple ways to find a hyper-plane which minimizes the original 0/1 loss function (sum of 0/1 losses), which have been described in details in <a href="http://proceedings.mlr.press/v28/nguyen13a.pdf">this</a> <span class="citation">(Doerr et al. <a href="#ref-doerr2015direct">2015</a>)</span>.</p>
-<p>The Python, Java, and Matlab code for this <a href="https://arxiv.org/abs/1804.09891">paper</a> <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimal">2019</a>)</span> is available at (<a href="https://github.com/rezabonyadi/LinearOEC" class="uri">https://github.com/rezabonyadi/LinearOEC</a>).</p>
+<div id="how-to-implement" class="section level3">
+<h3><span class="header-section-number">3.1.3</span> How to implement</h3>
+<p>There are multiple ways to find a hyper-plane which minimizes the original 0/1 loss function (sum of 0/1 losses), which have been described in details in <span class="citation">(Doerr et al. <a href="#ref-doerr2015direct">2015</a>)</span>.</p>
+<p>The Python, Java, and Matlab code for <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimal">2019</a>)</span> is available <span class="citation">(“Optimal-Margin Evolutionary Classifier–source Code” <a href="#ref-bonyadi2019optimalcode">2018</a>)</span>.</p>
 
 </div>
 </div>
@@ -244,6 +249,8 @@ Figure 3.3: 0/1 loss function is not sensitive to outliers while other loss func
 Figure 3.4: Example of how KNN works. The “closest” instances to a new instance (green) are used to vote for its class label.
 </p>
 </div>
+<div id="improvements-1" class="section level3">
+<h3><span class="header-section-number">3.5.1</span> Improvements</h3>
 <p>In KNN, some attributes may lead to biasing the distance. For example, if one of the attributes is in the order of 1,000 and another is in the order of 0.1, the latter would have a small impact on the calculation of the distance. This is usually resolved by standardizing the space, which ensures all attributes are in the same range. This method, however, may break some structural integrity of the instances.</p>
 <p>Another issue is that some attributes might be misleading and their impact is better to be reduced. For example, Fig. <a href="classification.html#fig:KnnDimesions">3.5</a> indicates that the horizontal dimension is responsible for the green instance to be of the type “red”. This, however, may not be correct as if the horizontal dimension shrinks then the green instance becomes closer to blue instances, which makes it a blue class.</p>
 <div class="figure"><span id="fig:KnnDimesions"></span>
@@ -253,8 +260,9 @@ Figure 3.5: Example of how KNN works. The “closest” instances to a new insta
 </p>
 </div>
 <p>This indeed leads to in-accuracy of KNN; the algorithm does not take into account the importance of attributes. This can be addressed by optimizing a metric which shrinks/contracts the space along different attributes to achieve the best transformation in which KNN performs best. See Section <a href="sec-metricslearning.html#sec:metricslearning">6</a> for details.</p>
+</div>
 <div id="pros-and-cons-1" class="section level3">
-<h3><span class="header-section-number">3.5.1</span> Pros and cons</h3>
+<h3><span class="header-section-number">3.5.2</span> Pros and cons</h3>
 <p><em>Pros</em>:</p>
 <ul>
 <li>It is easy to implement.</li>
@@ -270,8 +278,8 @@ Figure 3.5: Example of how KNN works. The “closest” instances to a new insta
 <li>KNN does not provide any information about the importance of attributes. This, however, is resolved by optimizing a metric to transform the space to represent the training data optimally (see section <a href="sec-metricslearning.html#sec:metricslearning">6</a>)</li>
 </ul>
 </div>
-<div id="how-to-implement" class="section level3">
-<h3><span class="header-section-number">3.5.2</span> How to implement</h3>
+<div id="how-to-implement-1" class="section level3">
+<h3><span class="header-section-number">3.5.3</span> How to implement</h3>
 
 </div>
 </div>
@@ -292,10 +300,13 @@ Figure 3.5: Example of how KNN works. The “closest” instances to a new insta
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-bonyadi2019optimal">
-<p>Bonyadi, Mohammad Reza, and David C Reutens. 2019. “Optimal-Margin Evolutionary Classifier.” <em>IEEE Transactions on Evolutionary Computation</em>. IEEE.</p>
+<p>Bonyadi, Mohammad Reza, and David C Reutens. 2019. “Optimal-Margin Evolutionary Classifier.” <em>IEEE Transactions on Evolutionary Computation</em>. IEEE. <a href="https://arxiv.org/abs/1804.09891" class="uri">https://arxiv.org/abs/1804.09891</a>.</p>
 </div>
 <div id="ref-doerr2015direct">
-<p>Doerr, Andreas, Nathan D Ratliff, Jeannette Bohg, Marc Toussaint, and Stefan Schaal. 2015. “Direct Loss Minimization Inverse Optimal Control.” In <em>Robotics: Science and Systems</em>.</p>
+<p>Doerr, Andreas, Nathan D Ratliff, Jeannette Bohg, Marc Toussaint, and Stefan Schaal. 2015. “Direct Loss Minimization Inverse Optimal Control.” In <em>Robotics: Science and Systems</em>. <a href="http://proceedings.mlr.press/v28/nguyen13a.pdf" class="uri">http://proceedings.mlr.press/v28/nguyen13a.pdf</a>.</p>
+</div>
+<div id="ref-bonyadi2019optimalcode">
+<p>“Optimal-Margin Evolutionary Classifier–source Code.” 2018. Accessed June 30. <a href="https://github.com/rezabonyadi/LinearOEC" class="uri">https://github.com/rezabonyadi/LinearOEC</a>.</p>
 </div>
 </div>
             </section>
