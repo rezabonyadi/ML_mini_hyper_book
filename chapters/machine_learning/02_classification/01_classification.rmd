@@ -5,12 +5,11 @@ learning if a person going to have a heart attach after their 50's given person'
 
 In a more general framework, given a set of instances, $X$, with $m$ rows and $n$ columns (each row is an instance and each column is an attribute) and their associated classes, $Y$, with $m$ rows (containing a categorical value in each row), find a mathematical *rule* (line and hyper-plane are special cases of this) which can generate the class label, $y$, for any given instance, $x$ ($1$ row and $n$ columns). 
 
-A synthetic classification problem has been shown in Fig. 1. In this problem, we have two attributes per instance and two groups of instances (blue and red), and the discriminatory rule has been assumed to be represented by a line. The aim of classification (binary in this case) with these assumptions is to find the "best" discriminatory line (hyper-plane in higher number of dimensions) which discriminates between the two classes "optimally" (see figure). Ideally, this optimality needs to make sure that the rule not only works for the given data (training data) based on a performance measure but also for any unseen data point (test data), referred to as the *generalization ability* of the rule.
+A synthetic classification problem has been shown in Fig. \@ref(fig:classExample). In this problem, we have two attributes per instance and two groups of instances (blue and red), and the discriminatory rule has been assumed to be represented by a line. The aim of classification (binary in this case) with these assumptions is to find the "best" discriminatory line (hyper-plane in higher number of dimensions) which discriminates between the two classes "optimally" (see figure). Ideally, this optimality needs to make sure that the rule not only works for the given data (training data) based on a performance measure but also for any unseen data point (test data), referred to as the *generalization ability* of the rule.
 
-<figure>
-<img src="images/classification/classification.png" alt="Classification general" width="80%" height="80%" align="centre">
-<figcaption>Fig 1: Two attributes (horizontal and vertical axes), two classes (red and blue), and three lines which can separate the classes successfully. </figcaption>
-</figure>
+```{r classExample, echo = FALSE, fig.cap = 'Two attributes (horizontal and vertical axes), two classes (red and blue), and three lines which can separate the classes successfully.'}
+knitr::include_graphics('./images/classification/classification.png')
+```
 
 &nbsp;
 

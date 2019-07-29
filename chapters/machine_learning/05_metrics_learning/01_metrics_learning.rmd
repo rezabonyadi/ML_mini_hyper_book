@@ -1,4 +1,4 @@
-# Metrics learning
+# Metrics learning {#sec:metricslearning}
 
 - What is it
 - 

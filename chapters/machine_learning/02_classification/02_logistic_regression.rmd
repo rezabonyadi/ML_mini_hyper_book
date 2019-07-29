@@ -2,6 +2,7 @@
 
 Logistic regression is a classification technique that introduces a loss function that estimates the 0/1 loss function with a differentiable alternative, hence, can be optimized effectively by gradient descent. The 0/1 loss function is estimated by function that 
 
+http://ufldl.stanford.edu/tutorial/supervised/LogisticRegression/
 
 ### Variable importance in LR
 

@@ -1,11 +1,29 @@
-## K-nearest neighbor 
+## K-nearest neighbor {#sec:KNN}
 
-The k-nearest neighbor (KNN) classifier assumes that the instances "close" to one another have the same class label. Hence, to assign a class label to a new instances, KNN finds the $k$ "closest" instances from the training data set and use their labels to vote for the class label of the new instance. 
+The k-nearest neighbor (KNN) classifier assumes that the instances "close" to one another have the same class label. Hence, to assign a class label to a new instances, KNN finds $k$ instances from the training data set to which the new instance is "closest" and use those labels to vote for the class label of the new instance (see Fig. \@ref(fig:KnnDemons)). 
+
+```{r KnnDemons, echo = FALSE, fig.cap = 'Example of how KNN works. The "closest" instances to a new instance (green) are used to vote for its class label.'}
+knitr::include_graphics('./images/classification/01_knn_1.png')
+```
+In KNN, some attributes may lead to biasing the distance. For example, if one of the attributes is in the order of 1,000 and another is in the order of 0.1, the latter would have a small impact on the calculation of the distance. This is usually resolved by standardizing the space, which ensures all attributes are in the same range. This method, however, may break some structural integrity of the instances.
+
+Another issue is that the 
+
+see Section \@ref(sec:metricslearning)
+
 
 ### Pros and cons
-
 *Pros*: 
+- It is easy to implement.
+- It can model non-linearity.
+- The assumption behind KNN is not parametric and only depends on the given data.
 
-- Why does it work
-- 
-- How to implement
+*Cons*:
+- Requires storage of the training data. This can be reduced as proposed by [???]
+- The closeness need to be defined. Euclidean distance is an obvious choice, however, it is not always optimal [????].
+- Requires searching for the closest instances in the training set, which is slow. This can be resolved by using smart search methods [????]
+- Some of the dimensions may lead to biasing the distance
+- KNN does not provide any information about the importance of attributes. This, however, is resolved by optimizing a metric to transform the space to represent the training data optimally (see section \@ref(sec:metricslearning))
+
+### How to implement
+

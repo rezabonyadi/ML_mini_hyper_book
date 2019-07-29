@@ -2,29 +2,27 @@
 
 Let's assume that the discriminatory rule in a classification problem is represented by a line (hyper-plane in more than 2 dimensions), and we want to find a line that "optimally" discriminates between two classes. This optimality can be measured by a function that assigns a "wrongness" score to each line (called the *loss function*), which needs to be minimized. One simple function would be the number of instances that are not in the correct side of the line. This loss function returns a $0$ if an instance is in the correct side of the given line and a $1$ otherwise. Adding the output of this function for over all given instances provides a measure of how wrong the given line and is called the "0/1 loss function". The aim is to find a line (hyper-plane) which minimizes this function by an optimization algorithm. The outcome of this minimization is a line which has a minimum 0/1 loss value, i.e., the number of instances that are in the wrong side of the line is minimized.
 
-<figure>
-<img src="images/classification/0_1_loss_1.PNG" alt="0/1 loss" width="80%" height="80%" align="centre">
-<figcaption>Fig 2: Two candidate lines, green gives 4/30 and the orange gives 4/30 loss value according to the 0/1 loss function. </figcaption>
-</figure>
-
+```{r loss01, echo = FALSE, fig.cap = 'Two candidate lines, green gives 4/30 and the orange gives 4/30 loss value according to the 0/1 loss function.'}
+knitr::include_graphics('images/classification/0_1_loss_1.PNG')
+```
 &nbsp;
 
-In Fig. 2, for example, the 0/1 loss value is the same for the green line and the orange line. 
+In Fig. \@ref(fig:loss01), for example, the 0/1 loss value is the same for the green line and the orange line. 
 
-The 0/1 loss function in its original form does not take into account the *importance* of the instances from different classes (all classes are assumed to be equally important). In the previous example (Fig. 2), the number of blue instances is smaller than the number of red instances, which means miss-classification of blue instances leads to a larger natural loss comparing to the red instances (blue instances are rare, hence more important to be classified correctly). For example, the orange line has a very high accuracy on red instances while its accuracy on the blue is not as high as the green line. 
+The 0/1 loss function in its original form does not take into account the *importance* of the instances from different classes (all classes are assumed to be equally important). In the previous example (Fig. \@ref(fig:loss01)), the number of blue instances is smaller than the number of red instances, which means miss-classification of blue instances leads to a larger natural loss comparing to the red instances (blue instances are rare, hence more important to be classified correctly). For example, the orange line has a very high accuracy on red instances while its accuracy on the blue is not as high as the green line. 
 
-To address this issue, it has been proposed in [this](https://arxiv.org/abs/1804.09891) [@bonyadi2019optimal] article to minimize the average of the 0/1 loss values over the classes rather than than the summation of the 0/1 function across all instances [@bonyadi2019optimal]. In Fig. 2, for example, this average for the green line is $\frac{(2/10+2/20)}{2}$ (2 miss-classified instances from each class) and for the orange line is $\frac{3/10+1/20}{2}$ (3 miss-classified from blue and 1 from red). Hence, the green line would be preferred. 
+To address this issue, it has been proposed in [this](https://arxiv.org/abs/1804.09891) [@bonyadi2019optimal] article to minimize the average of the 0/1 loss values over the classes rather than than the summation of the 0/1 function across all instances [@bonyadi2019optimal]. In Fig. \@ref(fig:loss01), for example, this average for the green line is $\frac{(2/10+2/20)}{2}$ (2 miss-classified instances from each class) and for the orange line is $\frac{3/10+1/20}{2}$ (3 miss-classified from blue and 1 from red). Hence, the green line would be preferred. 
 
 Finding a line, or a hyper-plane in larger number of dimensions, that minimizes the average of the 0/1 loss function in both above-mentioned forms is not easy (see [this](http://proceedings.mlr.press/v28/nguyen13a.pdf) [@doerr2015direct] and [this](https://arxiv.org/abs/1804.09891) [@bonyadi2019optimal]). One issue is that this line is not unique. For example, both orange and green lines in Fig. 1 have the same accuracy in terms of discriminating between the classes. This is solved by selecting the line (hyper plane) which has the maximum distance from the instances of both classes (see this [paper](https://arxiv.org/abs/1804.09891) [@bonyadi2019optimal]), which is called maximum margin hyper-plane. The basic idea is, if there are multiple lines (hyper-planes) which separate instances from each class with the same accuracy, the one which has the maximum distance from each class is preferred.
 
 ###Pros and cons
 
-*Pros*: The 0/1 loss function in both above-mentioned forms is unbiased and not sensitive to outliers as any outlier would only contribute 1 unit to the loss function if it is miss-classified (see Fig. 3). 
+*Pros*: The 0/1 loss function in both above-mentioned forms is unbiased and not sensitive to outliers as any outlier would only contribute 1 unit to the loss function if it is miss-classified (see Fig. \@ref(fig:lossesExamples)). 
 
-<figure>
-<img src="images/classification/0_1_loss_2.PNG" alt="0/1 loss robustness" width="80%" height="80%" align="centre">
-<figcaption>Fig 3: 0/1 loss function is not sensitive to outliers while other loss functions are (other loss functions are described in next sections). The figure was taken from [@doerr2015direct]. </figcaption>
-</figure>
+
+```{r lossesExamples, echo = FALSE, fig.cap = '0/1 loss function is not sensitive to outliers while other loss functions are (other loss functions are described in next sections). The figure was taken from [@doerr2015direct]'}
+knitr::include_graphics('images/classification/0_1_loss_2.PNG')
+```
 
 &nbsp;
 
