@@ -5,6 +5,15 @@
 - What is support vector machine
 - 
 
-### Kernel tricks
+### Kernel trick
 
-### Implementations 
+
+### Some improvements
+
+
+### More details
+
+* **Mathematics**: 
+* **Implementation**:
+* **API**:
+

@@ -1,28 +1,51 @@
 ## The optimal binary classifier
 
-Let's assume that the discriminatory rule in a classification problem is represented by a line (hyper-plane in more than 2 dimensions), and we want to find a line that "optimally" discriminates between two classes. This optimality can be measured by a function that assigns a "wrongness" score to each line (called the *loss function*), which needs to be minimized. One simple function would be the number of instances that are not in the correct side of the line. This loss function returns a $0$ if an instance is in the correct side of the given line and a $1$ otherwise. Adding the output of this function for over all given instances provides a measure of how wrong the given line and is called the "0/1 loss function". The aim is to find a line (hyper-plane) which minimizes this function by an optimization algorithm. The outcome of this minimization is a line which has a minimum 0/1 loss value, i.e., the number of instances that are in the wrong side of the line is minimized.
+Let's assume that the discriminatory rule in a classification problem is represented by a line (hyperplane in more than 2 dimensions), and we want to find a hyperplane that "optimally" discriminates between the two classes. This optimality is measured by a function that assigns a "wrongness" score to each hyperplane (called the *loss function*), which needs to be minimized. Ideally, we expect to find a hyperplane for which all instances from each class fall in one side of it and the instances from the other class fall in the other side of the hyperplane. Hence, one simple function would be the number of instances that are not in the "correct" side of the hyperplane, which is called the 0/1 loss function. 
+The aim is to find a line (hyper-plane) which minimizes this function by an optimization algorithm. The outcome of this minimization is a hyperplane which has a minimum 0/1 loss value, i.e., the number of instances that are in the wrong side of the line is minimized.
 
-```{r loss01, echo = FALSE, fig.cap = 'Two candidate lines, green gives 4/30 and the orange gives 4/30 loss value according to the 0/1 loss function.'}
+```{r loss01, echo = FALSE, out.width = '50%', fig.cap = 'Two candidate lines, green gives 4/30 and the orange gives 4/30 loss value according to the 0/1 loss function.'}
 knitr::include_graphics('images/classification/0_1_loss_1.PNG')
 ```
 &nbsp;
 
-In Fig. \@ref(fig:loss01), for example, the 0/1 loss value is the same for the green line and the orange line. 
+One should note that there might be many hyperplanes which have the same 0/1 loss value, which means the solutions to the 0/1 loss function is not unique. In Fig. \@ref(fig:loss01), for example, the 0/1 loss value is the same for the green line and the orange line. 
 
 ### Improvements
 
-The 0/1 loss function in its original form does not take into account the *importance* of the instances from different classes (all classes are assumed to be equally important). In the previous example (Fig. \@ref(fig:loss01)), the number of blue instances is smaller than the number of red instances, which means miss-classification of blue instances leads to a larger natural loss comparing to the red instances (blue instances are rare, hence more important to be classified correctly). For example, the orange line has a very high accuracy on red instances while its accuracy on the blue is not as high as the green line. 
+The 0/1 loss function in its original form does not take into account the *importance* of the instances from different classes (all classes are assumed to be equally important). In the previous example (Fig. \@ref(fig:loss01)), the number of blue instances is smaller than the number of red instances, which means miss-classification of blue instances leads to a larger natural loss comparing to the red instances (blue instances are rare, hence more important to be classified correctly). For example, the orange line has a very high accuracy on red instances while its accuracy on the blue is not as high as the green line. To address this issue, it has been proposed in [@bonyadi2019optimal] to minimize the average of the 0/1 loss values over the classes rather than than the summation of the 0/1 function across all instances [@bonyadi2019optimal]. In Fig. \@ref(fig:loss01), for example, this average for the green line is $\frac{(2/10+2/20)}{2}$ (2 miss-classified instances from each class) and for the orange line is $\frac{3/10+1/20}{2}$ (3 miss-classified from blue and 1 from red). Hence, the green line would be preferred. 
 
-To address this issue, it has been proposed in [@bonyadi2019optimal] to minimize the average of the 0/1 loss values over the classes rather than than the summation of the 0/1 function across all instances [@bonyadi2019optimal]. In Fig. \@ref(fig:loss01), for example, this average for the green line is $\frac{(2/10+2/20)}{2}$ (2 miss-classified instances from each class) and for the orange line is $\frac{3/10+1/20}{2}$ (3 miss-classified from blue and 1 from red). Hence, the green line would be preferred. 
+Finding a line, or a hyper-plane in larger number of dimensions, that minimizes the average of the 0/1 loss function in both above-mentioned forms is not easy (see [@doerr2015direct] and [@bonyadi2019optimal]). One issue is that this line is not unique. For example, both orange and green lines in Fig. 1 have the same accuracy in terms of discriminating between the classes. This is solved by selecting the line (hyperplane) which has the maximum distance from the instances of both classes (see this [@bonyadi2019optimal]), which is called maximum margin hyperplane. The basic idea is, if there are multiple lines (hyperplanes) which separate instances from each class with the same accuracy, the one which has the maximum distance from each class is preferred.
 
-Finding a line, or a hyper-plane in larger number of dimensions, that minimizes the average of the 0/1 loss function in both above-mentioned forms is not easy (see [@doerr2015direct] and [@bonyadi2019optimal]). One issue is that this line is not unique. For example, both orange and green lines in Fig. 1 have the same accuracy in terms of discriminating between the classes. This is solved by selecting the line (hyper plane) which has the maximum distance from the instances of both classes (see this [@bonyadi2019optimal]), which is called maximum margin hyper-plane. The basic idea is, if there are multiple lines (hyper-planes) which separate instances from each class with the same accuracy, the one which has the maximum distance from each class is preferred.
+### More details {#sec:01lossMath}
 
-###Pros and cons
+Any hyperplane can be represented by its normal vector (norm), $\vec w$, and an intercept, $b$, $<\vec w, b>$. An instance $\vec x_i$ is classified by a given hyperplane as class 0 if $\vec w \vec x_i^T+b<0$ ($T$ is the transpose) and class 1 otherwise. The loss function is then as follows:
+$$
+\sum_i y_i(1-f(\vec x_i))+(1-y_i)f(\vec x_i)
+$$
+For the 0/1 loss function, $f(.): \mathbb{R}^n \to \mathbb{R}$ is defined by:
+$$
+f(\vec x)=
+\begin{cases}
+0 & \vec w \vec x_i^T+b<0\\
+1 & otherwise\\
+\end{cases}
+$$
+
+There are two equivalent geometrical views to this. One is that the hyperplane, defined by $<\vec w, b>$, separates the two classes, which means it is placed somewhere between the instances from two classes in a way that (ideally) all instances from one class are in one side and all instances from the other class are on the other side of that hyperplane. The other view is that $\vec w$ is a linear transformation which transforms each instance $\vec x_i$ to a one dimensional line. The scalar $b$ then is the threshold to determine the class label of the transformed instances.
+
+
+```{r geometrical, echo = FALSE, out.width = '49%', fig.show = "hold", fig.cap = 'Two geometrical views: The given hyperplane equation defines a discriminatory hyperplane to separate the classes (black line in the left panel) OR the norm of the hyperplane transforms the instances to a one dimensional space (green line, and the right panel) and the intercept separates the classes.'}
+knitr::include_graphics(c('images/classification/01_gemetrical_two_views.PNG', 'images/classification/01_geometrical_1.PNG'))
+```
+
+There are multiple ways to find a hyper-plane which minimizes the original 0/1 loss function (sum of 0/1 losses), which have been described in details in [@doerr2015direct]. Find also more detailes in [@bonyadi2019optimal].
+
+### Pros and cons
 
 *Pros*: The 0/1 loss function in both above-mentioned forms is unbiased and not sensitive to outliers as any outlier would only contribute 1 unit to the loss function if it is miss-classified (see Fig. \@ref(fig:lossesExamples)). 
 
 
-```{r lossesExamples, echo = FALSE, fig.cap = '0/1 loss function is not sensitive to outliers while other loss functions are (other loss functions are described in next sections). The figure was taken from [@doerr2015direct]'}
+```{r lossesExamples, echo = FALSE, out.width = '50%', fig.cap = '0/1 loss function is not sensitive to outliers while other loss functions are (other loss functions are described in next sections). The figure was taken from [@doerr2015direct]'}
 knitr::include_graphics('images/classification/0_1_loss_2.PNG')
 ```
 
@@ -30,10 +53,7 @@ knitr::include_graphics('images/classification/0_1_loss_2.PNG')
 
 *Cons*: The main issue with this idea (optimal 0/1 binary classification, with or without maximum margin idea) is that optimizing the 0/1 loss function in the formed mentioned before is not practical, i.e., it is NP-Complete. Hence, all algorithms which implement this idea are rather slow. The only practically fast implementation has been described in [@bonyadi2019optimal]. This has encouraged introduction to lots of new loss functions which approximate the 0/1 loss function while they are differentiable. 
 
-### How to implement
+### Implementation 
 
-There are multiple ways to find a hyper-plane which minimizes the original 0/1 loss function (sum of 0/1 losses), which have been described in details in [@doerr2015direct]. 
-
-The Python, Java, and Matlab code for [@bonyadi2019optimal] is available [@bonyadi2019optimalcode]. 
-
+Methods described in [@doerr2015direct] are in an algorithmic, step by step, format which makes implementation easier. The Python, Java, and Matlab code for [@bonyadi2019optimal] is available [@bonyadi2019optimalcode]. 
 

@@ -1,8 +1,27 @@
 ## Logistic regression
 
-Logistic regression is a classification technique that introduces a loss function that estimates the 0/1 loss function with a differentiable alternative, hence, can be optimized effectively by gradient descent. The 0/1 loss function is estimated by function that 
+Logistic regression seeks a hyperplane which best discriminates two classes. The hyperplane is evaluated by a loss function which is a smooth (differentiable) alternative of the 0/1 loss function, hence, can be optimized effectively by gradient descent. For a given hyperplane, the estimation provides a value between 0 and 1 (rather than 0 or 1 as it was the case in the 0/1 loss function) for each instance that represents to what extent the instance has been classified correctly by that hyperplane. While there might be many different choices for such function, logistic regression uses the logarithm sigmoid function that looks like Fig. ????.
+
+\@ref(sec:01lossMath)
+
+
+It is clear that this function provides values between 0 and 1 for a given instance, after transforming by the hyperplane equation.  
+
 
 http://ufldl.stanford.edu/tutorial/supervised/LogisticRegression/
 
+### Variable importance
+
+
 ### Variable importance in LR
+
+
+### Pros and cons
+
+
+### More details
+
+* **Mathematics**: 
+* **Implementation**:  http://ufldl.stanford.edu/tutorial/supervised/LogisticRegression/
+* **API**: Scipy and Sikit-Learn
 
