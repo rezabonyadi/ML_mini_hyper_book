@@ -1,5 +1,5 @@
 ---
-title: "Machine Learning, optimization, and statistics: A collection of intuitions"
+title: "Machine learning, statistics, and optimization: A collection of intuitions"
 author: "Reza Bonyadi, Ph.D."
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site

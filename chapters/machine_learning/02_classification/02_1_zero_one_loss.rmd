@@ -19,7 +19,7 @@ Finding a line, or a hyperplane in larger number of dimensions, that minimizes t
 
 Any hyperplane can be represented by its normal vector (norm), $\vec w$, and an intercept, $b$, $<\vec w, b>$. An instance $\vec x_i$ is classified by a given hyperplane as class 0 if $\vec w \vec x_i^T+b<0$ ($T$ is the transpose) and class 1 otherwise. One way to define this loss function is then as follows:
 $$
-\frac{1}{N}\sum_i y_i(1-f(\vec x_i))+(1-y_i)f(\vec x_i)
+\frac{1}{N}\sum_i y_i(1-f(\vec x_i))+(1-y_i)f(\vec x_i) (\#eq:binaryloss)
 $$
 where $N$ is the number of instances. For the 0/1 loss function, $f(.): \mathbb{R}^n \to \mathbb{R}$ is defined by:
 $$
@@ -27,13 +27,15 @@ f(\vec x)=
 \begin{cases}
 0 & \vec w \vec x_i^T+b<0\\
 1 & otherwise\\
-\end{cases}
+\end{cases} (\#eq:01lossf)
 $$
 
 The loss function was revised in [@bonyadi2019optimal] as follows:
+
 $$
-\frac{1}{K} \sum_{i=1}^K (\frac{1}{N_i}\sum_{j=1}^{N_i} y_j(1-f(\vec x_j))+(1-y_j)f(\vec x_j))
+\frac{1}{K} \sum_{i=1}^K \left( \frac{1}{N_i}\sum_{j=1}^{N_i} \left[ y_j(1-f(\vec x_j))+(1-y_j)f(\vec x_j)\right] \right) 
 $$
+
 This formulation is less biased in the case of imbalance number of instances in different classes. The value of k was set to 2 in that paper. 
 
 There are two equivalent geometrical views to imagine the separation by a hyperplane. One is that the hyperplane, defined by $<\vec w, b>$, separates the two classes, which means it is placed somewhere between the instances from two classes in a way that (ideally) all instances from one class are in one side and all instances from the other class are on the other side of that hyperplane. The other view is that $\vec w$ is a linear transformation which transforms each instance $\vec x_i$ to a one dimensional line. The scalar $b$ then is the threshold to determine the class label of the transformed instances.

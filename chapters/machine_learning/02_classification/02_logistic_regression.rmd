@@ -1,6 +1,6 @@
 ## Logistic regression
 
-Logistic regression seeks a hyperplane which best discriminates two classes. The hyperplane is evaluated by a loss function which is a smooth (differentiable) estimation of the function used 0/1 loss function (see Section \@ref(sec:01lossMath)), hence, can be optimized effectively by a gradient descent. For a given hyperplane, the estimation provides a value between 0 and 1 (rather than 0 or 1 as it was the case in the 0/1 loss function) for each instance that represents to what extent the instance has been classified correctly by that hyperplane. While there might be many different choices for such function, logistic regression uses the logarithm sigmoid function that looks like Fig. ????.
+Logistic regression seeks a hyperplane which best discriminates two classes. The hyperplane is evaluated by a loss function which is a smooth (differentiable) estimation of the function used in the 0/1 loss function (see Section \@ref(sec:01lossMath)), hence, can be optimized effectively by a gradient descent. For a given hyperplane, the estimation provides a value between 0 and 1 (rather than 0 or 1 as it was the case in the 0/1 loss function) for each instance that represents to what extent the instance has been classified correctly by that hyperplane. While there might be many different choices for such function, logistic regression uses the logarithm sigmoid function that looks like Fig. ????.
 
 The idea is, 
 It is clear that this function provides values between 0 and 1 for a given instance, after transforming by the hyperplane equation.  
@@ -9,17 +9,16 @@ It is clear that this function provides values between 0 and 1 for a given insta
 http://ufldl.stanford.edu/tutorial/supervised/LogisticRegression/
 
 ### Variable importance
+The coefficients of the hyperplane found by the logistic regression cannot be interpreted directly as indicator for variable importance. The reason is that the variables ranges might be inherently different, meaning that some coefficients need to be larger to compensate for larger values. For example, if the values of one variable is in the range of 1000 and the other is in the range of 0.1, it is expected that the coefficients related to the first variable to be larger. This, however, does not show that the first variable is more important than the second.
 
-
-### Variable importance in LR
-
+If the value of variables are standardized (see Section \@ref(sec:preprocessing)), however, the coefficients can be used as indicators of importance. The idea is that, the smaller the absolute value of a coefficient is the less important that variable is. To imagine this, think of a variable that is not important at all (see Fig. ???). We expect the discriminatory hyperplane to have a small or zero coefficient value for that variable. 
 
 ### Pros and cons
 
 
 ### More details
 
-* **Mathematics**: 
-* **Implementation**:  http://ufldl.stanford.edu/tutorial/supervised/LogisticRegression/
-* **API**: Scipy and Sikit-Learn
+### Implementation  
+http://ufldl.stanford.edu/tutorial/supervised/LogisticRegression/
+Scipy and Sikit-Learn
 
