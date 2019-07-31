@@ -13,11 +13,11 @@ In KNN, some attributes may lead to a biased distance. For example, if one of th
 
 Another issue is that some attributes might be misleading and their impact is better to be reduced. For example, Fig. \@ref(fig:KnnDimesions) indicates that the horizontal dimension is responsible for the green instance to be of the type "red". This, however, may not be correct as if the horizontal dimension shrinks then the green instance becomes closer to blue instances, which makes it a blue class.
 
-```{r KnnDimesions, echo = FALSE, fig.cap = 'Example of how KNN works. The "closest" instances to a new instance (green) are used to vote for its class label.'}
+```{r KnnDimesions, echo = FALSE, out.width = '50%', fig.cap = 'Example of how KNN works. The "closest" instances to a new instance (green) are used to vote for its class label.'}
 knitr::include_graphics('./images/classification/knn_scale.png')
 ```
 
-This indeed leads to in-accuracy in KNN; the algorithm does not take into account the importance of attributes. This can be addressed by optimizing a metric which shrinks/contracts the space along different attributes to achieve the best transformation in which KNN performs best. See Section \@ref(sec:metricslearning) for details.
+This indeed leads to an in-accuracy in KNN; the algorithm does not take into account the importance of attributes. This can be addressed by optimizing a metric which shrinks/contracts the space along different attributes to achieve the best transformation in which KNN performs best. See Section \@ref(sec:metricslearning) for details.
 
 
 ### Pros and cons
@@ -35,5 +35,7 @@ This indeed leads to in-accuracy in KNN; the algorithm does not take into accoun
 * Some of the dimensions may lead to biasing the distance
 * KNN does not provide any information about the importance of attributes. This, however, is resolved by optimizing a metric to transform the space to represent the training data optimally (see section \@ref(sec:metricslearning))
 
-### How to implement
+### More details
+
+
 

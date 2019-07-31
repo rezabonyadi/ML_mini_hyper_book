@@ -1,10 +1,8 @@
 ## Logistic regression
 
-Logistic regression seeks a hyperplane which best discriminates two classes. The hyperplane is evaluated by a loss function which is a smooth (differentiable) alternative of the 0/1 loss function, hence, can be optimized effectively by gradient descent. For a given hyperplane, the estimation provides a value between 0 and 1 (rather than 0 or 1 as it was the case in the 0/1 loss function) for each instance that represents to what extent the instance has been classified correctly by that hyperplane. While there might be many different choices for such function, logistic regression uses the logarithm sigmoid function that looks like Fig. ????.
+Logistic regression seeks a hyperplane which best discriminates two classes. The hyperplane is evaluated by a loss function which is a smooth (differentiable) estimation of the function used 0/1 loss function (see Section \@ref(sec:01lossMath)), hence, can be optimized effectively by a gradient descent. For a given hyperplane, the estimation provides a value between 0 and 1 (rather than 0 or 1 as it was the case in the 0/1 loss function) for each instance that represents to what extent the instance has been classified correctly by that hyperplane. While there might be many different choices for such function, logistic regression uses the logarithm sigmoid function that looks like Fig. ????.
 
-\@ref(sec:01lossMath)
-
-
+The idea is, 
 It is clear that this function provides values between 0 and 1 for a given instance, after transforming by the hyperplane equation.  
 
 
