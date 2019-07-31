@@ -17,18 +17,22 @@ Finding a line, or a hyperplane in larger number of dimensions, that minimizes t
 
 ### More details {#sec:01lossMath}
 
-Any hyperplane can be represented by its normal vector (norm), $\vec w$, and an intercept, $b$, $<\vec w, b>$. An instance $\vec x_i$ is classified by a given hyperplane as class 0 if $\vec w \vec x_i^T+b<0$ ($T$ is the transpose) and class 1 otherwise. One way to define this loss function is then as follows:
-$$
-\frac{1}{N}\sum_i y_i(1-f(\vec x_i))+(1-y_i)f(\vec x_i) (\#eq:binaryloss)
-$$
+Any hyperplane can be represented by its normal vector (norm), $\vec w$, and an intercept, $b$, $<\vec w, b>$. An instance $\vec x_i$ is classified by a given hyperplane as class 0 if $\vec w \vec x_i^T+b<0$ ($T$ is the transpose) and class 1 otherwise. One way to define this loss function is then as follwos:
+\begin{equation}
+\frac{1}{N}\sum_i y_i(1-f(\vec x_i))+(1-y_i)f(\vec x_i) (\#eq:binadyLoss)
+\end{equation}
+
+Eq. \@ref(eq:binadyLoss)
 where $N$ is the number of instances. For the 0/1 loss function, $f(.): \mathbb{R}^n \to \mathbb{R}$ is defined by:
-$$
+
+\begin{equation}
 f(\vec x)=
 \begin{cases}
 0 & \vec w \vec x_i^T+b<0\\
 1 & otherwise\\
 \end{cases} (\#eq:01lossf)
-$$
+\end{equation}
+
 
 The loss function was revised in [@bonyadi2019optimal] as follows:
 

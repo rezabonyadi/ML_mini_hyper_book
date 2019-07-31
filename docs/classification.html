@@ -207,15 +207,18 @@ Figure 3.2: Two candidate lines, green gives 4/30 and the orange gives 4/30 loss
 </div>
 <div id="sec:01lossMath" class="section level3">
 <h3><span class="header-section-number">3.1.2</span> More details</h3>
-<p>Any hyperplane can be represented by its normal vector (norm), <span class="math inline">\(\vec w\)</span>, and an intercept, <span class="math inline">\(b\)</span>, <span class="math inline">\(&lt;\vec w, b&gt;\)</span>. An instance <span class="math inline">\(\vec x_i\)</span> is classified by a given hyperplane as class 0 if <span class="math inline">\(\vec w \vec x_i^T+b&lt;0\)</span> (<span class="math inline">\(T\)</span> is the transpose) and class 1 otherwise. One way to define this loss function is then as follows: <span class="math display">\[
-\frac{1}{N}\sum_i y_i(1-f(\vec x_i))+(1-y_i)f(\vec x_i) (\#eq:binaryloss)
-\]</span> where <span class="math inline">\(N\)</span> is the number of instances. For the 0/1 loss function, <span class="math inline">\(f(.): \mathbb{R}^n \to \mathbb{R}\)</span> is defined by: <span class="math display">\[
+Any hyperplane can be represented by its normal vector (norm), <span class="math inline">\(\vec w\)</span>, and an intercept, <span class="math inline">\(b\)</span>, <span class="math inline">\(&lt;\vec w, b&gt;\)</span>. An instance <span class="math inline">\(\vec x_i\)</span> is classified by a given hyperplane as class 0 if <span class="math inline">\(\vec w \vec x_i^T+b&lt;0\)</span> (<span class="math inline">\(T\)</span> is the transpose) and class 1 otherwise. One way to define this loss function is then as follwos:
+<span class="math display" id="eq:binadyLoss">\[\begin{equation}
+\frac{1}{N}\sum_i y_i(1-f(\vec x_i))+(1-y_i)f(\vec x_i) \tag{3.1}
+\end{equation}\]</span>
+<p>Eq. <a href="classification.html#eq:binadyLoss">(3.1)</a> where <span class="math inline">\(N\)</span> is the number of instances. For the 0/1 loss function, <span class="math inline">\(f(.): \mathbb{R}^n \to \mathbb{R}\)</span> is defined by:</p>
+<span class="math display" id="eq:01lossf">\[\begin{equation}
 f(\vec x)=
 \begin{cases}
 0 &amp; \vec w \vec x_i^T+b&lt;0\\
 1 &amp; otherwise\\
-\end{cases} (\#eq:01lossf)
-\]</span></p>
+\end{cases} \tag{3.2}
+\end{equation}\]</span>
 <p>The loss function was revised in <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimal">2019</a>)</span> as follows:</p>
 <p><span class="math display">\[
 \frac{1}{K} \sum_{i=1}^K \left( \frac{1}{N_i}\sum_{j=1}^{N_i} \left[ y_j(1-f(\vec x_j))+(1-y_j)f(\vec x_j)\right] \right) 
