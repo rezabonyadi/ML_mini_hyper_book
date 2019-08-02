@@ -24,7 +24,7 @@
 <meta name="author" content="Reza Bonyadi, Ph.D." />
 
 
-<meta name="date" content="2019-08-01" />
+<meta name="date" content="2019-08-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -81,17 +81,20 @@
 <li class="chapter" data-level="3.2.3" data-path="classification.html"><a href="classification.html#more-details"><i class="fa fa-check"></i><b>3.2.3</b> More details</a></li>
 <li class="chapter" data-level="3.2.4" data-path="classification.html"><a href="classification.html#implementation-1"><i class="fa fa-check"></i><b>3.2.4</b> Implementation</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="classification.html"><a href="classification.html#bayes-classifier"><i class="fa fa-check"></i><b>3.3</b> Bayes classifier</a></li>
+<li class="chapter" data-level="3.3" data-path="classification.html"><a href="classification.html#bayes-classifier"><i class="fa fa-check"></i><b>3.3</b> Bayes classifier</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="classification.html"><a href="classification.html#more-details-1"><i class="fa fa-check"></i><b>3.3.1</b> More details</a></li>
+<li class="chapter" data-level="3.3.2" data-path="classification.html"><a href="classification.html#implementation-2"><i class="fa fa-check"></i><b>3.3.2</b> Implementation</a></li>
+</ul></li>
 <li class="chapter" data-level="3.4" data-path="classification.html"><a href="classification.html#support-vector-machines"><i class="fa fa-check"></i><b>3.4</b> Support vector machines</a><ul>
 <li class="chapter" data-level="3.4.1" data-path="classification.html"><a href="classification.html#kernel-trick"><i class="fa fa-check"></i><b>3.4.1</b> Kernel trick</a></li>
 <li class="chapter" data-level="3.4.2" data-path="classification.html"><a href="classification.html#some-improvements"><i class="fa fa-check"></i><b>3.4.2</b> Some improvements</a></li>
-<li class="chapter" data-level="3.4.3" data-path="classification.html"><a href="classification.html#more-details-1"><i class="fa fa-check"></i><b>3.4.3</b> More details</a></li>
+<li class="chapter" data-level="3.4.3" data-path="classification.html"><a href="classification.html#more-details-2"><i class="fa fa-check"></i><b>3.4.3</b> More details</a></li>
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="classification.html"><a href="classification.html#sec:descisiontree"><i class="fa fa-check"></i><b>3.5</b> Decision tree</a></li>
 <li class="chapter" data-level="3.6" data-path="classification.html"><a href="classification.html#sec:KNN"><i class="fa fa-check"></i><b>3.6</b> K-nearest neighbor</a><ul>
 <li class="chapter" data-level="3.6.1" data-path="classification.html"><a href="classification.html#improvements-1"><i class="fa fa-check"></i><b>3.6.1</b> Improvements</a></li>
 <li class="chapter" data-level="3.6.2" data-path="classification.html"><a href="classification.html#pros-and-cons-2"><i class="fa fa-check"></i><b>3.6.2</b> Pros and cons</a></li>
-<li class="chapter" data-level="3.6.3" data-path="classification.html"><a href="classification.html#more-details-2"><i class="fa fa-check"></i><b>3.6.3</b> More details</a></li>
+<li class="chapter" data-level="3.6.3" data-path="classification.html"><a href="classification.html#more-details-3"><i class="fa fa-check"></i><b>3.6.3</b> More details</a></li>
 </ul></li>
 <li class="chapter" data-level="3.7" data-path="classification.html"><a href="classification.html#gaussianprocessclassifier"><i class="fa fa-check"></i><b>3.7</b> Gaussian process classifier</a></li>
 <li class="chapter" data-level="3.8" data-path="classification.html"><a href="classification.html#general-additive-model"><i class="fa fa-check"></i><b>3.8</b> General additive model</a></li>
@@ -191,27 +194,33 @@ Figure 3.1: Two attributes (horizontal and vertical axes), two classes (red and 
 
 <div id="loss-function-for-classification" class="section level2">
 <h2><span class="header-section-number">3.1</span> 0/1 loss function for classification</h2>
-<p>Let’s assume that the discriminatory rule in a classification problem is represented by a line (hyperplane in more than 2 dimensions). The objective is to find a hyperplane that “optimally” discriminates between two classes. This optimality is measured by a function that assigns a “wrongness” score to each hyperplane (called the <em>loss function</em>), which needs to be minimized. Ideally, we expect to find a hyperplane for which all instances from each class fall in one side of it and the instances from the other class fall in the other side of the hyperplane. Hence, one simple function would be to count the number of instances that are not in the “correct” side of the hyperplane, which is called the <em>0/1 loss function</em>. The aim is to find a hyperplane which minimizes this function by an optimization algorithm. The outcome of this minimization is a hyperplane which has a minimum 0/1 loss value, i.e., the number of instances that are in the wrong side of the line is minimized.</p>
+<p>Let’s assume that the discriminatory rule (model) in a two-class classification problem , aka a binary classification problem, is represented by a line (hyperplane in more than 2 dimensions). The objective is to find a hyperplane that “optimally” discriminates between the classes. To do so, we need an evaluation procedure which measures a “wrongness” score for any given hyperplane (called the <em>loss function</em>). Then, an optimization algorithm searches over all possible hyperplanes to find the one which minimizes the loss function (see Fig. <a href="classification.html#fig:findingLine">3.2</a>).</p>
+<div class="figure"><span id="fig:findingLine"></span>
+<img src="images/classification/finding_line_n.gif" alt="The objective is to find a line/hyperplane that separates the instances optimally. The search continues until a suitable hyperplane, evaluated by the loss function, is found. The final line found in this example classifies all instances correctly except one." width="50%" />
+<p class="caption">
+Figure 3.2: The objective is to find a line/hyperplane that separates the instances optimally. The search continues until a suitable hyperplane, evaluated by the loss function, is found. The final line found in this example classifies all instances correctly except one.
+</p>
+</div>
+<p>Ideally, we expect the optimizer to find a hyperplane for which all instances from each class fall in one side of it and the instances from the other class fall in the other side of the hyperplane. Hence, one simple loss function would be to count the number of instances that are not in the “correct” side of the hyperplane, which is called the <em>0/1 loss function</em>. The outcome of this minimization is a hyperplane which has a minimum 0/1 loss value, i.e., the number of instances that are in the wrong side of the hyperplane is minimized.</p>
 <div class="figure"><span id="fig:loss01"></span>
 <img src="images/classification/0_1_loss_1.PNG" alt="Two candidate lines, green gives 4/30 and the orange gives 4/30 loss value according to the 0/1 loss function." width="50%" />
 <p class="caption">
-Figure 3.2: Two candidate lines, green gives 4/30 and the orange gives 4/30 loss value according to the 0/1 loss function.
+Figure 3.3: Two candidate lines, green gives 4/30 and the orange gives 4/30 loss value according to the 0/1 loss function.
 </p>
 </div>
-<p> </p>
-<p>One should note that there might be many hyperplanes which have the same 0/1 loss value, which means the solutions to the 0/1 loss function is not unique. In Fig. <a href="classification.html#fig:loss01">3.2</a>, for example, the 0/1 loss value is the same for the green line and the orange line.</p>
+<p>  One should note that there might be many hyperplanes which have the same 0/1 loss value, which means the solutions to the 0/1 loss function is not unique. In Fig. <a href="classification.html#fig:loss01">3.3</a>, for example, the 0/1 loss value is the same for the green line and the orange line.</p>
 <div id="improvements" class="section level3">
 <h3><span class="header-section-number">3.1.1</span> Improvements</h3>
-<p>The 0/1 loss function in its original form does not take into account the <em>importance</em> of the instances from different classes (all classes are assumed to be equally important). In the previous example (Fig. <a href="classification.html#fig:loss01">3.2</a>), the number of blue instances is smaller than the number of red instances, which means miss-classification of blue instances leads to a larger natural loss comparing to the red instances (blue instances are rare, hence more important to be classified correctly). For example, the orange line has a very high accuracy on red instances while its accuracy on the blue is not as high as the green line. To address this issue, it has been proposed in <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimal">2019</a>)</span> to minimize the average percentage of mis-classified instances accross all classes rather than counting the number of mis-classified instances. In Fig. <a href="classification.html#fig:loss01">3.2</a>, for example, this average for the green line is <span class="math inline">\(\frac{(2/10+2/20)}{2}\)</span> (2 miss-classified instances from each class) and for the orange line is <span class="math inline">\(\frac{3/10+1/20}{2}\)</span> (3 miss-classified from blue and 1 from red). Hence, the green line would be preferred.</p>
+<p>The 0/1 loss function in its original form does not take into account the <em>importance</em> of the instances from different classes (all classes are assumed to be equally important). In the previous example (Fig. <a href="classification.html#fig:loss01">3.3</a>), the number of blue instances is smaller than the number of red instances, which means miss-classification of blue instances leads to a larger natural loss comparing to the red instances (blue instances are rare, hence more important to be classified correctly). For example, the orange line has a very high accuracy on red instances while its accuracy on the blue is not as high as the green line. To address this issue, it has been proposed in <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimal">2019</a>)</span> to minimize the average percentage of mis-classified instances accross all classes rather than counting the number of mis-classified instances. In Fig. <a href="classification.html#fig:loss01">3.3</a>, for example, this average for the green line is <span class="math inline">\(\frac{(2/10+2/20)}{2}\)</span> (2 miss-classified instances from each class) and for the orange line is <span class="math inline">\(\frac{3/10+1/20}{2}\)</span> (3 miss-classified from blue and 1 from red). Hence, the green line would be preferred.</p>
 <p>Finding a line, or a hyperplane in larger number of dimensions, that minimizes the average of the 0/1 loss function in both above-mentioned forms is not easy (see <span class="citation">(Doerr et al. <a href="#ref-doerr2015direct">2015</a>)</span> and <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimal">2019</a>)</span>). One issue is that this line is not unique. For example, both orange and green lines in Fig. 1 have the same accuracy in terms of discriminating between the classes. This is solved by selecting the line (hyperplane) which has the maximum distance from the instances of both classes (see this <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimal">2019</a>)</span>), called maximum margin hyperplane. The basic idea is, if there are multiple lines (hyperplanes) which separate instances from each class with the same accuracy, the one which has the maximum distance from each class is preferred. Otehr improvements in <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimal">2019</a>)</span> included addition of <span class="math inline">\(L_1\)</span> and <span class="math inline">\(L_2\)</span> regularization, that enables the usage of coefficients for estimation of variable importance.</p>
 </div>
 <div id="sec:01lossMath" class="section level3">
 <h3><span class="header-section-number">3.1.2</span> More details</h3>
-Any hyperplane can be represented by its normal vector (norm), <span class="math inline">\(\vec w\)</span>, and an intercept, <span class="math inline">\(b\)</span>, <span class="math inline">\(&lt;\vec w, b&gt;\)</span>. An instance <span class="math inline">\(\vec x_i\)</span> is classified by a given hyperplane as class 0 if <span class="math inline">\(\vec w \vec x_i^T+b&lt;0\)</span> (<span class="math inline">\(T\)</span> is the transpose) and class 1 otherwise. One way to define this loss function is then as follwos:
-<span class="math display" id="eq:binadyLoss">\[\begin{equation}
+Any hyperplane can be represented by its normal vector (norm), <span class="math inline">\(\vec w\)</span>, and an intercept, <span class="math inline">\(b\)</span>, <span class="math inline">\(&lt;\vec w, b&gt;\)</span>. An instance <span class="math inline">\(\vec x_i\)</span> is classified by a given hyperplane as class 0 if <span class="math inline">\(\vec w \vec x_i^T+b&lt;0\)</span> (<span class="math inline">\(T\)</span> is the transpose) and class 1 otherwise. One way to define the 0/1 loss function in its original form is then as follows:
+<span class="math display" id="eq:binaryLoss">\[\begin{equation}
 \frac{1}{N}\sum_i y_i(1-f(\vec x_i))+(1-y_i)f(\vec x_i) \tag{3.1}
 \end{equation}\]</span>
-<p>Eq. <a href="classification.html#eq:binadyLoss">(3.1)</a> where <span class="math inline">\(N\)</span> is the number of instances. For the 0/1 loss function, <span class="math inline">\(f(.): \mathbb{R}^n \to \mathbb{R}\)</span> is defined by:</p>
+<p>Eq. <a href="classification.html#eq:binaryLoss">(3.1)</a> where <span class="math inline">\(N\)</span> is the number of instances. For the 0/1 loss function, <span class="math inline">\(f(.): \mathbb{R}^n \to \mathbb{R}\)</span> is defined by:</p>
 <span class="math display" id="eq:01lossf">\[\begin{equation}
 f(\vec x)=
 \begin{cases}
@@ -219,27 +228,34 @@ f(\vec x)=
 1 &amp; otherwise\\
 \end{cases} \tag{3.2}
 \end{equation}\]</span>
+<p>This function has been shown in Fig. <a href="classification.html#fig:fofLoss01">3.4</a>.</p>
+<div class="figure"><span id="fig:fofLoss01"></span>
+<img src="images/classification/0_1_loss_1.PNG" alt="?????" width="50%" />
+<p class="caption">
+Figure 3.4: ?????
+</p>
+</div>
 <p>The loss function was revised in <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimal">2019</a>)</span> as follows:</p>
 <p><span class="math display">\[
 \frac{1}{K} \sum_{i=1}^K \left( \frac{1}{N_i}\sum_{j=1}^{N_i} \left[ y_j(1-f(\vec x_j))+(1-y_j)f(\vec x_j)\right] \right) 
 \]</span></p>
 <p>This formulation is less biased in the case of imbalance number of instances in different classes. The value of k was set to 2 in that paper.</p>
-<p>There are two equivalent geometrical views to imagine the separation by a hyperplane. One is that the hyperplane, defined by <span class="math inline">\(&lt;\vec w, b&gt;\)</span>, separates the two classes, which means it is placed somewhere between the instances from two classes in a way that (ideally) all instances from one class are in one side and all instances from the other class are on the other side of that hyperplane. The other view is that <span class="math inline">\(\vec w\)</span> is a linear transformation which transforms each instance <span class="math inline">\(\vec x_i\)</span> to a one dimensional line. The scalar <span class="math inline">\(b\)</span> then is the threshold to determine the class label of the transformed instances.</p>
+<p>There are two equivalent geometrical views to imagine the discrimination by a hyperplane. One is that the hyperplane, defined by <span class="math inline">\(&lt;\vec w, b&gt;\)</span>, separates the two classes, which means it is placed somewhere between the instances from two classes in a way that (ideally) all instances from one class are in one side and all instances from the other class are on the other side of that hyperplane. The other view is that <span class="math inline">\(\vec w\)</span> is a linear transformation which transforms each instance <span class="math inline">\(\vec x_i\)</span> to a one dimensional line. The scalar <span class="math inline">\(b\)</span> then is the threshold to determine the class label of the transformed instances.</p>
 <div class="figure"><span id="fig:geometrical"></span>
-<img src="images/classification/01_gemetrical_two_views.PNG" alt="Two geometrical views: The given hyperplane equation defines a discriminatory hyperplane to separate the classes (black line in the left panel) OR the norm of the hyperplane transforms the instances to a one dimensional space (green line, and the right panel) and the intercept separates the classes." width="49%" /><img src="images/classification/01_geometrical_1.PNG" alt="Two geometrical views: The given hyperplane equation defines a discriminatory hyperplane to separate the classes (black line in the left panel) OR the norm of the hyperplane transforms the instances to a one dimensional space (green line, and the right panel) and the intercept separates the classes." width="49%" />
+<img src="images/classification/01_gemetrical_two_views.PNG" alt="Two geometrical views: The given hyperplane equation defines a discriminatory hyperplane to separate the classes (black line in the left panel) OR the norm of the hyperplane transforms the instances to a one dimensional space (green line, and the right panel) and the intercept separates the classes. The right panel is essentially the histogram of instances along the green line in the left panel." width="49%" /><img src="images/classification/01_geometrical_1.PNG" alt="Two geometrical views: The given hyperplane equation defines a discriminatory hyperplane to separate the classes (black line in the left panel) OR the norm of the hyperplane transforms the instances to a one dimensional space (green line, and the right panel) and the intercept separates the classes. The right panel is essentially the histogram of instances along the green line in the left panel." width="49%" />
 <p class="caption">
-Figure 3.3: Two geometrical views: The given hyperplane equation defines a discriminatory hyperplane to separate the classes (black line in the left panel) OR the norm of the hyperplane transforms the instances to a one dimensional space (green line, and the right panel) and the intercept separates the classes.
+Figure 3.5: Two geometrical views: The given hyperplane equation defines a discriminatory hyperplane to separate the classes (black line in the left panel) OR the norm of the hyperplane transforms the instances to a one dimensional space (green line, and the right panel) and the intercept separates the classes. The right panel is essentially the histogram of instances along the green line in the left panel.
 </p>
 </div>
 <p>There are multiple ways to find a hyper-plane which minimizes the original 0/1 loss function (sum of 0/1 losses), which have been described in details in <span class="citation">(Doerr et al. <a href="#ref-doerr2015direct">2015</a>)</span>. Find also more detailes in <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimal">2019</a>)</span>.</p>
 </div>
 <div id="pros-and-cons" class="section level3">
 <h3><span class="header-section-number">3.1.3</span> Pros and cons</h3>
-<p><em>Pros</em>: The 0/1 loss function in both above-mentioned forms is unbiased and not sensitive to outliers as any outlier would only contribute 1 unit to the loss function if it is miss-classified (see Fig. <a href="classification.html#fig:lossesExamples">3.4</a>).</p>
+<p><em>Pros</em>: The 0/1 loss function in both above-mentioned forms is unbiased and not sensitive to outliers as any outlier would only contribute 1 unit to the loss function if it is miss-classified (see Fig. <a href="classification.html#fig:lossesExamples">3.6</a>).</p>
 <div class="figure"><span id="fig:lossesExamples"></span>
 <img src="images/classification/0_1_loss_2.PNG" alt="0/1 loss function is not sensitive to outliers while other loss functions are (other loss functions are described in next sections). The figure was taken from [@doerr2015direct]" width="50%" />
 <p class="caption">
-Figure 3.4: 0/1 loss function is not sensitive to outliers while other loss functions are (other loss functions are described in next sections). The figure was taken from <span class="citation">(Doerr et al. <a href="#ref-doerr2015direct">2015</a>)</span>
+Figure 3.6: 0/1 loss function is not sensitive to outliers while other loss functions are (other loss functions are described in next sections). The figure was taken from <span class="citation">(Doerr et al. <a href="#ref-doerr2015direct">2015</a>)</span>
 </p>
 </div>
 <p> </p>
@@ -247,15 +263,20 @@ Figure 3.4: 0/1 loss function is not sensitive to outliers while other loss func
 </div>
 <div id="implementation" class="section level3">
 <h3><span class="header-section-number">3.1.4</span> Implementation</h3>
-<p>Methods described in <span class="citation">(Doerr et al. <a href="#ref-doerr2015direct">2015</a>)</span> are in an algorithmic, step by step, format which makes implementation easier. The Python, Java, and Matlab code for <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimal">2019</a>)</span> is available <span class="citation">(“Optimal-Margin Evolutionary Classifier–source Code” <a href="#ref-bonyadi2019optimalcode">2018</a>)</span>.</p>
+<p>Methods described in <span class="citation">(Doerr et al. <a href="#ref-doerr2015direct">2015</a>)</span> are in an algorithmic, step by step, format which makes implementation easier. The Python, Java, and Matlab code for <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimal">2019</a>)</span> is available <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimalcode">2018</a>)</span>.</p>
 
 </div>
 </div>
 <div id="logistic-regression" class="section level2">
 <h2><span class="header-section-number">3.2</span> Logistic regression</h2>
-<p>Logistic regression seeks a hyperplane which best discriminates two classes. The hyperplane is evaluated by a loss function which is a smooth (differentiable) estimation of the function used in the 0/1 loss function (see Section <a href="classification.html#sec:01lossMath">3.1.2</a>), hence, can be optimized effectively by a gradient descent. For a given hyperplane, the estimation provides a value between 0 and 1 (rather than 0 or 1 as it was the case in the 0/1 loss function) for each instance that represents to what extent the instance has been classified correctly by that hyperplane. While there might be many different choices for such function, logistic regression uses the logarithm sigmoid function that looks like Fig. ????.</p>
-<p>The idea is, It is clear that this function provides values between 0 and 1 for a given instance, after transforming by the hyperplane equation.</p>
-<p><a href="http://ufldl.stanford.edu/tutorial/supervised/LogisticRegression/" class="uri">http://ufldl.stanford.edu/tutorial/supervised/LogisticRegression/</a></p>
+<p>Logistic regression seeks a hyperplane which best discriminates two classes. The hyperplane is evaluated by a loss function which is a smooth (differentiable) estimation of the function used in the 0/1 loss function (see Section <a href="classification.html#sec:01lossMath">3.1.2</a>), hence, can be optimized effectively by a gradient descent. For a given hyperplane, the estimation provides a value between 0 and 1 (rather than 0 or 1 as it was the case in the 0/1 loss function) for each instance that represents to what extent the instance has been classified as the class 0 or class 1. While there might be many different choices for such function, logistic regression uses the logarithm sigmoid function that looks like Fig. ????.</p>
+<div class="figure"><span id="fig:logsig"></span>
+<img src="images/classification/0_1_loss_2.PNG" alt="???" width="50%" />
+<p class="caption">
+Figure 3.7: ???
+</p>
+</div>
+<p>In the figure, the <span class="math inline">\(&lt;\vec w, b&gt;\)</span> defines the distinguishing hyperplane (<span class="math inline">\(\vec w\)</span> is the norm of the plane and <span class="math inline">\(b\)</span> is the intercept). The value of <span class="math inline">\(\vec w \vec x_i^T + b\)</span> is an indication of the distance between the hyperplane and the instance while ths ign of it indicates to which side of the hyperplane ths instance belong. When we put this value for an instance in the logarithm sigmoid function, we would get a value close to zero when <span class="math inline">\(\vec w \vec x_i^T + b&lt;0\)</span> and a value close to one otherwise. If <span class="math inline">\(\vec w \vec x_i^T + b\)</span> is close to zero the sigmoid function returns values closer to <span class="math inline">\(0.5\)</span>, which may be interpreted as ambiguous. Ideal hyperplane would lead to large positive and large negative values for <span class="math inline">\(\vec w \vec x_i^T + b\)</span> to ensure smaller loss value.</p>
 <div id="variable-importance" class="section level3">
 <h3><span class="header-section-number">3.2.1</span> Variable importance</h3>
 <p>The coefficients of the hyperplane found by the logistic regression cannot be interpreted directly as indicator for variable importance. The reason is that the variables ranges might be inherently different, meaning that some coefficients need to be larger to compensate for larger values. For example, if the values of one variable is in the range of 1000 and the other is in the range of 0.1, it is expected that the coefficients related to the first variable to be larger. This, however, does not show that the first variable is more important than the second.</p>
@@ -263,19 +284,48 @@ Figure 3.4: 0/1 loss function is not sensitive to outliers while other loss func
 </div>
 <div id="pros-and-cons-1" class="section level3">
 <h3><span class="header-section-number">3.2.2</span> Pros and cons</h3>
+<p>It is easy to implement Can be effectively solved by second order optimization methods (see ????)</p>
 </div>
 <div id="more-details" class="section level3">
 <h3><span class="header-section-number">3.2.3</span> More details</h3>
+<p>More details on this algorithm can be found in</p>
 </div>
 <div id="implementation-1" class="section level3">
 <h3><span class="header-section-number">3.2.4</span> Implementation</h3>
+<p><span class="citation">(Andrew Ng <a href="#ref-andrewngcourse">2016</a>)</span></p>
 <p><a href="http://ufldl.stanford.edu/tutorial/supervised/LogisticRegression/" class="uri">http://ufldl.stanford.edu/tutorial/supervised/LogisticRegression/</a> Scipy and Sikit-Learn</p>
 
 </div>
 </div>
 <div id="bayes-classifier" class="section level2">
 <h2><span class="header-section-number">3.3</span> Bayes classifier</h2>
+<p>For a classification task, Bayes classifier calculates how likely it is that a given instance belongs to each class. Intuitively, the probability that a given instance, <span class="math inline">\(\vec x\)</span>, belongs to a class <span class="math inline">\(c\)</span> depends on two main components:</p>
+<ul>
+<li><em>Prior</em>: How likely it is that any given instance belongs to the class <span class="math inline">\(c\)</span> in general.</li>
+<li><em>Likelihood</em>: If we know an instance from class <span class="math inline">\(c\)</span>, how likely it is that instance looks like <span class="math inline">\(\vec x\)</span>.</li>
+</ul>
+<p>The first component is easy to calculate given the history. We can simply count the number of instances in the class <span class="math inline">\(c\)</span> and divide that by the total number of training instances. The second component is very difficult to calculate if we assume that the attributes are not independent. If we assume they are independent then that probability is calculated by multiplying the probability of the value of each attribute appear in the instances of class <span class="math inline">\(c\)</span>.</p>
+<div id="more-details-1" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> More details</h3>
+<p>Bayes formulae Continuous variables ### Pros and cons</p>
+<p><strong>Pros</strong>:</p>
+<ul>
+<li>It is easy and fast to predict class of test data set. It also performs well in multi class prediction.</li>
+<li>When assumption of independence holds, a Naive Bayes classifier performs better compare to other models like logistic regression and you need less training data.</li>
+<li>It performs well in case of categorical input variables compared to numerical variable(s). For numerical variable, normal distribution is assumed (bell curve, which is a strong assumption).</li>
+</ul>
+<p><strong>Cons</strong>:</p>
+<ul>
+<li>If categorical variable has a category (in test data set), which was not observed in training data set, then model will assign a 0 (zero) probability and will be unable to make a prediction. This is often known as “Zero Frequency”. To solve this, we can use the smoothing technique.</li>
+<li>Another limitation of Naive Bayes is the assumption of independent predictors. In real life, it is almost impossible that we get a set of predictors which are completely independent.</li>
+</ul>
+</div>
+<div id="implementation-2" class="section level3">
+<h3><span class="header-section-number">3.3.2</span> Implementation</h3>
+<p><a href="https://www.analyticsvidhya.com/blog/2017/09/naive-bayes-explained/" class="uri">https://www.analyticsvidhya.com/blog/2017/09/naive-bayes-explained/</a></p>
+<p>For continuous variables, it is assumed that the variables follow a given disctribution (usually normal) to be able to calculate the probability of .</p>
 
+</div>
 </div>
 <div id="support-vector-machines" class="section level2">
 <h2><span class="header-section-number">3.4</span> Support vector machines</h2>
@@ -289,7 +339,7 @@ Figure 3.4: 0/1 loss function is not sensitive to outliers while other loss func
 <div id="some-improvements" class="section level3">
 <h3><span class="header-section-number">3.4.2</span> Some improvements</h3>
 </div>
-<div id="more-details-1" class="section level3">
+<div id="more-details-2" class="section level3">
 <h3><span class="header-section-number">3.4.3</span> More details</h3>
 <ul>
 <li><strong>Mathematics</strong>:</li>
@@ -305,22 +355,22 @@ Figure 3.4: 0/1 loss function is not sensitive to outliers while other loss func
 </div>
 <div id="sec:KNN" class="section level2">
 <h2><span class="header-section-number">3.6</span> K-nearest neighbor</h2>
-<p>The k-nearest neighbor (KNN) classifier assumes that the instances “close” to one another have the same class label. Hence, to assign a class label to a new instance, KNN finds <span class="math inline">\(k\)</span> instances from the training data set to which the new instance is “closest” and use those labels to vote for the class label of the new instance (see Fig. <a href="classification.html#fig:KnnDemons">3.5</a>).</p>
+<p>The k-nearest neighbor (KNN) classifier assumes that the instances “close” to one another have the same class label. Hence, to assign a class label to a new instance, KNN finds <span class="math inline">\(k\)</span> instances from the training data set to which the new instance is “closest” and use those labels to vote for the class label of the new instance (see Fig. <a href="classification.html#fig:KnnDemons">3.8</a>).</p>
 <div class="figure"><span id="fig:KnnDemons"></span>
 <img src="images/classification/01_knn_1.PNG" alt="Example of how KNN works. The &quot;closest&quot; instances to a new instance (green) are used to vote for its class label." width="50%" />
 <p class="caption">
-Figure 3.5: Example of how KNN works. The “closest” instances to a new instance (green) are used to vote for its class label.
+Figure 3.8: Example of how KNN works. The “closest” instances to a new instance (green) are used to vote for its class label.
 </p>
 </div>
 <p>The “closeness” is defined by a distance measure, such as Euclidean distance.</p>
 <div id="improvements-1" class="section level3">
 <h3><span class="header-section-number">3.6.1</span> Improvements</h3>
 <p>In KNN, some attributes may lead to a biased distance. For example, if one of the attributes is in the order of 1,000 and another is in the order of 0.1, the latter would have a small impact on the calculation of the distance. This is usually resolved by standardizing the space, which ensures all attributes are in the same range. This method, however, may break some structural integrity of the instances.</p>
-<p>Another issue is that some attributes might be misleading and their impact is better to be reduced. For example, Fig. <a href="classification.html#fig:KnnDimesions">3.6</a> indicates that the horizontal dimension is responsible for the green instance to be of the type “red”. This, however, may not be correct as if the horizontal dimension shrinks then the green instance becomes closer to blue instances, which makes it a blue class.</p>
+<p>Another issue is that some attributes might be misleading and their impact is better to be reduced. For example, Fig. <a href="classification.html#fig:KnnDimesions">3.9</a> indicates that the horizontal dimension is responsible for the green instance to be of the type “red”. This, however, may not be correct as if the horizontal dimension shrinks then the green instance becomes closer to blue instances, which makes it a blue class.</p>
 <div class="figure"><span id="fig:KnnDimesions"></span>
 <img src="images/classification/knn_scale.png" alt="Example of how KNN works. The &quot;closest&quot; instances to a new instance (green) are used to vote for its class label." width="50%" />
 <p class="caption">
-Figure 3.6: Example of how KNN works. The “closest” instances to a new instance (green) are used to vote for its class label.
+Figure 3.9: Example of how KNN works. The “closest” instances to a new instance (green) are used to vote for its class label.
 </p>
 </div>
 <p>This indeed leads to an in-accuracy in KNN; the algorithm does not take into account the importance of attributes. This can be addressed by optimizing a metric which shrinks/contracts the space along different attributes to achieve the best transformation in which KNN performs best. See Section <a href="sec-metricslearning.html#sec:metricslearning">6</a> for details.</p>
@@ -342,7 +392,7 @@ Figure 3.6: Example of how KNN works. The “closest” instances to a new insta
 <li>KNN does not provide any information about the importance of attributes. This, however, is resolved by optimizing a metric to transform the space to represent the training data optimally (see section <a href="sec-metricslearning.html#sec:metricslearning">6</a>)</li>
 </ul>
 </div>
-<div id="more-details-2" class="section level3">
+<div id="more-details-3" class="section level3">
 <h3><span class="header-section-number">3.6.3</span> More details</h3>
 
 </div>
@@ -358,26 +408,36 @@ Figure 3.6: Example of how KNN works. The “closest” instances to a new insta
 </div>
 <div id="turning-binary-classifiers-to-multi-class" class="section level2">
 <h2><span class="header-section-number">3.9</span> Turning binary classifiers to multi-class</h2>
+<p>One vs one</p>
+<p>One vs all</p>
 
 </div>
 <div id="performance-measures" class="section level2">
 <h2><span class="header-section-number">3.10</span> Performance measures</h2>
+<p>Signal detection</p>
+<p>Confusion matrix</p>
+<p>Specificty and ???</p>
+<p>receiver operating characteristic</p>
+<p>Area under the ROC</p>
 
 </div>
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
+<div id="ref-andrewngcourse">
+<p>Andrew Ng, Chuan Yu Foo, Jiquan Ngiam. 2016. “Stanford University Tutorial on Supervised Learning.” Accessed June 30. <a href="http://ufldl.stanford.edu/tutorial/" class="uri">http://ufldl.stanford.edu/tutorial/</a>.</p>
+</div>
 <div id="ref-bonyadi2019optimal">
 <p>Bonyadi, Mohammad Reza, and David C Reutens. 2019. “Optimal-Margin Evolutionary Classifier.” <em>IEEE Transactions on Evolutionary Computation</em>. IEEE. <a href="https://arxiv.org/abs/1804.09891" class="uri">https://arxiv.org/abs/1804.09891</a>.</p>
+</div>
+<div id="ref-bonyadi2019optimalcode">
+<p>Bonyadi, Mohammad Reza, and David C Reutens. 2018. “Optimal-Margin Evolutionary Classifier–source Code.” Accessed June 30. <a href="https://github.com/rezabonyadi/LinearOEC" class="uri">https://github.com/rezabonyadi/LinearOEC</a>.</p>
 </div>
 <div id="ref-doerr2015direct">
 <p>Doerr, Andreas, Nathan D Ratliff, Jeannette Bohg, Marc Toussaint, and Stefan Schaal. 2015. “Direct Loss Minimization Inverse Optimal Control.” In <em>Robotics: Science and Systems</em>. <a href="http://proceedings.mlr.press/v28/nguyen13a.pdf" class="uri">http://proceedings.mlr.press/v28/nguyen13a.pdf</a>.</p>
 </div>
 <div id="ref-ng2002discriminative">
 <p>Ng, Andrew Y, and Michael I Jordan. 2002. “On Discriminative Vs. Generative Classifiers: A Comparison of Logistic Regression and Naive Bayes.” In <em>Advances in Neural Information Processing Systems</em>, 841–48.</p>
-</div>
-<div id="ref-bonyadi2019optimalcode">
-<p>“Optimal-Margin Evolutionary Classifier–source Code.” 2018. Accessed June 30. <a href="https://github.com/rezabonyadi/LinearOEC" class="uri">https://github.com/rezabonyadi/LinearOEC</a>.</p>
 </div>
 </div>
             </section>

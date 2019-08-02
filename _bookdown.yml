@@ -6,7 +6,7 @@ rmd_files:
   - chapters/machine_learning/02_classification/01_classification.rmd
   - chapters/machine_learning/02_classification/02_1_zero_one_loss.rmd
   - chapters/machine_learning/02_classification/02_logistic_regression.rmd
-  - chapters/machine_learning/02_classification/03_1_Bayes_classifier.rmd
+  - chapters/machine_learning/02_classification/03_1_bayes_classifier.rmd
   - chapters/machine_learning/02_classification/03_support_vector.rmd
   - chapters/machine_learning/02_classification/04_decision_tree_classifier.rmd
   - chapters/machine_learning/02_classification/05_k_nearest_neighbor.rmd

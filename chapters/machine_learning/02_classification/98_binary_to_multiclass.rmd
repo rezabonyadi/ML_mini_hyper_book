@@ -1,2 +1,6 @@
 ## Turning binary classifiers to multi-class
 
+One vs one
+
+One vs all
+

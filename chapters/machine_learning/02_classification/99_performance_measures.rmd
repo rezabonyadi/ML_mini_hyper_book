@@ -1,1 +1,14 @@
 ## Performance measures
+
+Signal detection
+
+Confusion matrix
+
+Specificty and ???
+
+receiver operating characteristic
+
+Area under the ROC
+
+
+
