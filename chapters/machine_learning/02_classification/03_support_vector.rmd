@@ -10,10 +10,9 @@
 
 ### Some improvements
 
-
 ### More details
 
-* **Mathematics**: 
-* **Implementation**:
-* **API**:
+Also talk about dimensionality reduction
+
+### Implementation
 

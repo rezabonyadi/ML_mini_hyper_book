@@ -9,3 +9,5 @@ Not fully observed, hence, there need to be assumptions as the solutions is not 
 
 ## Raw data vs characterized data (features) 
 
+Feature space
+

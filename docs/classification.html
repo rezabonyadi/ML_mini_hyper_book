@@ -24,7 +24,7 @@
 <meta name="author" content="Reza Bonyadi, Ph.D." />
 
 
-<meta name="date" content="2019-08-02" />
+<meta name="date" content="2019-08-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -83,17 +83,19 @@
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="classification.html"><a href="classification.html#bayes-classifier"><i class="fa fa-check"></i><b>3.3</b> Bayes classifier</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="classification.html"><a href="classification.html#more-details-1"><i class="fa fa-check"></i><b>3.3.1</b> More details</a></li>
-<li class="chapter" data-level="3.3.2" data-path="classification.html"><a href="classification.html#implementation-2"><i class="fa fa-check"></i><b>3.3.2</b> Implementation</a></li>
+<li class="chapter" data-level="3.3.2" data-path="classification.html"><a href="classification.html#pros-and-cons-2"><i class="fa fa-check"></i><b>3.3.2</b> Pros and cons</a></li>
+<li class="chapter" data-level="3.3.3" data-path="classification.html"><a href="classification.html#implementation-2"><i class="fa fa-check"></i><b>3.3.3</b> Implementation</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="classification.html"><a href="classification.html#support-vector-machines"><i class="fa fa-check"></i><b>3.4</b> Support vector machines</a><ul>
 <li class="chapter" data-level="3.4.1" data-path="classification.html"><a href="classification.html#kernel-trick"><i class="fa fa-check"></i><b>3.4.1</b> Kernel trick</a></li>
 <li class="chapter" data-level="3.4.2" data-path="classification.html"><a href="classification.html#some-improvements"><i class="fa fa-check"></i><b>3.4.2</b> Some improvements</a></li>
 <li class="chapter" data-level="3.4.3" data-path="classification.html"><a href="classification.html#more-details-2"><i class="fa fa-check"></i><b>3.4.3</b> More details</a></li>
+<li class="chapter" data-level="3.4.4" data-path="classification.html"><a href="classification.html#implementation-3"><i class="fa fa-check"></i><b>3.4.4</b> Implementation</a></li>
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="classification.html"><a href="classification.html#sec:descisiontree"><i class="fa fa-check"></i><b>3.5</b> Decision tree</a></li>
 <li class="chapter" data-level="3.6" data-path="classification.html"><a href="classification.html#sec:KNN"><i class="fa fa-check"></i><b>3.6</b> K-nearest neighbor</a><ul>
 <li class="chapter" data-level="3.6.1" data-path="classification.html"><a href="classification.html#improvements-1"><i class="fa fa-check"></i><b>3.6.1</b> Improvements</a></li>
-<li class="chapter" data-level="3.6.2" data-path="classification.html"><a href="classification.html#pros-and-cons-2"><i class="fa fa-check"></i><b>3.6.2</b> Pros and cons</a></li>
+<li class="chapter" data-level="3.6.2" data-path="classification.html"><a href="classification.html#pros-and-cons-3"><i class="fa fa-check"></i><b>3.6.2</b> Pros and cons</a></li>
 <li class="chapter" data-level="3.6.3" data-path="classification.html"><a href="classification.html#more-details-3"><i class="fa fa-check"></i><b>3.6.3</b> More details</a></li>
 </ul></li>
 <li class="chapter" data-level="3.7" data-path="classification.html"><a href="classification.html#gaussianprocessclassifier"><i class="fa fa-check"></i><b>3.7</b> Gaussian process classifier</a></li>
@@ -304,10 +306,79 @@ Figure 3.7: ???
 <li><em>Prior</em>: How likely it is that any given instance belongs to the class <span class="math inline">\(c\)</span> in general.</li>
 <li><em>Likelihood</em>: If we know an instance from class <span class="math inline">\(c\)</span>, how likely it is that instance looks like <span class="math inline">\(\vec x\)</span>.</li>
 </ul>
-<p>The first component is easy to calculate given the history. We can simply count the number of instances in the class <span class="math inline">\(c\)</span> and divide that by the total number of training instances. The second component is very difficult to calculate if we assume that the attributes are not independent. If we assume they are independent then that probability is calculated by multiplying the probability of the value of each attribute appear in the instances of class <span class="math inline">\(c\)</span>.</p>
+<p>For any given instance, we calculate these two and multiply their values. The outcome is a measure (not exact) of the probability if that instance belongs to class <span class="math inline">\(c\)</span>.</p>
+<p>This is is called the <em>Bayes optimal classifier</em>. The first component is easy to calculate given the history. We can simply count the number of instances in the class <span class="math inline">\(c\)</span> and divide that by the total number of training instances, which represents how likely it is that an instance come from that class. The second component is very difficult to calculate if we assume that the attributes are not independent. The reason is each instance is a <em>mix</em> of multiple attributes, some might be the same as what has been observed in the training set, some might not be. The comparison between these instances to calculate the <em>likelihood</em> is difficult as all attributes need to be considered at the same time. If we assume independence between variables, however, that probability is calculated easily. This is called the <em>Naive Bayes</em> classifier because of this “naive” assumption (independence between variables). For a given instance <span class="math inline">\(\vec x\)</span>, for each attribute, we calculate how likely it is that an instance from class <span class="math inline">\(c\)</span> has the same value as of <span class="math inline">\(\vec x\)</span> for that attribute. We then multiply those probabilities which would be an estimate of the original likelihood with mixed variables.</p>
+<p>Let’s have an example.</p>
+<table>
+<caption><span id="tab:bayesExample">Table 3.1: </span> An example data-set of male/female with their characteristics.</caption>
+<thead>
+<tr class="header">
+<th align="center">Person</th>
+<th align="center">Height (&gt;5.5 feet)</th>
+<th align="center">Weight (&gt;150 lbs)</th>
+<th align="center">Foot size(&gt;10 inches)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">male</td>
+<td align="center">Y</td>
+<td align="center">Y</td>
+<td align="center">Y</td>
+</tr>
+<tr class="even">
+<td align="center">male</td>
+<td align="center">Y</td>
+<td align="center">Y</td>
+<td align="center">N</td>
+</tr>
+<tr class="odd">
+<td align="center">male</td>
+<td align="center">Y</td>
+<td align="center">N</td>
+<td align="center">Y</td>
+</tr>
+<tr class="even">
+<td align="center">male</td>
+<td align="center">Y</td>
+<td align="center">Y</td>
+<td align="center">Y</td>
+</tr>
+<tr class="odd">
+<td align="center">female</td>
+<td align="center">N</td>
+<td align="center">N</td>
+<td align="center">N</td>
+</tr>
+<tr class="even">
+<td align="center">female</td>
+<td align="center">N</td>
+<td align="center">N</td>
+<td align="center">N</td>
+</tr>
+<tr class="odd">
+<td align="center">female</td>
+<td align="center">N</td>
+<td align="center">N</td>
+<td align="center">N</td>
+</tr>
+<tr class="even">
+<td align="center">female</td>
+<td align="center">Y</td>
+<td align="center">N</td>
+<td align="center">N</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>6, 130, 8 Y N N 0.25<em>1</em>1<em>.5=0.25 1</em>.25<em>0.25</em>.5=0.0625</p>
+<p>Pprobability if male</p>
 <div id="more-details-1" class="section level3">
 <h3><span class="header-section-number">3.3.1</span> More details</h3>
-<p>Bayes formulae Continuous variables ### Pros and cons</p>
+<p>Bayes formulae Continuous variables</p>
+</div>
+<div id="pros-and-cons-2" class="section level3">
+<h3><span class="header-section-number">3.3.2</span> Pros and cons</h3>
 <p><strong>Pros</strong>:</p>
 <ul>
 <li>It is easy and fast to predict class of test data set. It also performs well in multi class prediction.</li>
@@ -321,7 +392,7 @@ Figure 3.7: ???
 </ul>
 </div>
 <div id="implementation-2" class="section level3">
-<h3><span class="header-section-number">3.3.2</span> Implementation</h3>
+<h3><span class="header-section-number">3.3.3</span> Implementation</h3>
 <p><a href="https://www.analyticsvidhya.com/blog/2017/09/naive-bayes-explained/" class="uri">https://www.analyticsvidhya.com/blog/2017/09/naive-bayes-explained/</a></p>
 <p>For continuous variables, it is assumed that the variables follow a given disctribution (usually normal) to be able to calculate the probability of .</p>
 
@@ -341,11 +412,10 @@ Figure 3.7: ???
 </div>
 <div id="more-details-2" class="section level3">
 <h3><span class="header-section-number">3.4.3</span> More details</h3>
-<ul>
-<li><strong>Mathematics</strong>:</li>
-<li><strong>Implementation</strong>:</li>
-<li><strong>API</strong>:</li>
-</ul>
+<p>Also talk about dimensionality reduction</p>
+</div>
+<div id="implementation-3" class="section level3">
+<h3><span class="header-section-number">3.4.4</span> Implementation</h3>
 
 </div>
 </div>
@@ -375,7 +445,7 @@ Figure 3.9: Example of how KNN works. The “closest” instances to a new insta
 </div>
 <p>This indeed leads to an in-accuracy in KNN; the algorithm does not take into account the importance of attributes. This can be addressed by optimizing a metric which shrinks/contracts the space along different attributes to achieve the best transformation in which KNN performs best. See Section <a href="sec-metricslearning.html#sec:metricslearning">6</a> for details.</p>
 </div>
-<div id="pros-and-cons-2" class="section level3">
+<div id="pros-and-cons-3" class="section level3">
 <h3><span class="header-section-number">3.6.2</span> Pros and cons</h3>
 <p><em>Pros</em>:</p>
 <ul>

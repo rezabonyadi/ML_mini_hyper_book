@@ -5,11 +5,37 @@ For a classification task, Bayes classifier calculates how likely it is that a g
 * *Prior*: How likely it is that any given instance belongs to the class $c$ in general. 
 * *Likelihood*: If we know an instance from class $c$, how likely it is that instance looks like $\vec x$.
 
-The first component is easy to calculate given the history. We can simply count the number of instances in the class $c$ and divide that by the total number of training instances. The second component is very difficult to calculate if we assume that the attributes are not independent. If we assume they are independent then that probability is calculated by multiplying the probability of the value of each attribute appear in the instances of class $c$. 
+For any given instance, we calculate these two and multiply their values. The outcome is a measure (not exact) of the probability if that instance belongs to class $c$. 
+
+This is is called the *Bayes optimal classifier*. The first component is easy to calculate given the history. We can simply count the number of instances in the class $c$ and divide that by the total number of training instances, which represents how likely it is that an instance come from that class. The second component is very difficult to calculate if we assume that the attributes are not independent. The reason is each instance is a *mix* of multiple attributes, some might be the same as what has been observed in the training set, some might not be. The comparison between these instances to calculate the *likelihood* is difficult as all attributes need to be considered at the same time. If we assume independence between variables, however, that probability is calculated easily. This is called the *Naive Bayes* classifier because of this "naive" assumption (independence between variables). For a given instance $\vec x$, for each attribute, we calculate how likely it is that an instance from class $c$ has the same value as of $\vec x$ for that attribute. We then multiply those probabilities which would be an estimate of the original likelihood with mixed variables. 
+
+Let's have an example. 
+
+Table: (\#tab:bayesExample) An example data-set of male/female with their characteristics.
+
+| Person | Height (>5.5 feet) | Weight (>150 lbs) | Foot size(>10 inches) |
+|:------:|:------------------:|:-----------------:|:---------------------:|
+|  male  |          Y         |         Y         |           Y           |
+|  male  |          Y         |         Y         |           N           |
+|  male  |          Y         |         N         |           Y           |
+|  male  |          Y         |         Y         |           Y           |
+| female |          N         |         N         |           N           |
+| female |          N         |         N         |           N           |
+| female |          N         |         N         |           N           |
+| female |          Y         |         N         |           N           |
+--------------------------------------------------------------------------
+
+6, 130, 8
+Y N N
+0.25*1*1*.5=0.25
+1*.25*0.25*.5=0.0625
+
+Pprobability if male
 
 ### More details
 Bayes formulae
 Continuous variables
+
 ### Pros and cons
 
 **Pros**:
