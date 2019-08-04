@@ -24,7 +24,7 @@
 <meta name="author" content="Reza Bonyadi, Ph.D." />
 
 
-<meta name="date" content="2019-08-03" />
+<meta name="date" content="2019-08-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -83,8 +83,9 @@
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="classification.html"><a href="classification.html#bayes-classifier"><i class="fa fa-check"></i><b>3.3</b> Bayes classifier</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="classification.html"><a href="classification.html#more-details-1"><i class="fa fa-check"></i><b>3.3.1</b> More details</a></li>
-<li class="chapter" data-level="3.3.2" data-path="classification.html"><a href="classification.html#pros-and-cons-2"><i class="fa fa-check"></i><b>3.3.2</b> Pros and cons</a></li>
-<li class="chapter" data-level="3.3.3" data-path="classification.html"><a href="classification.html#implementation-2"><i class="fa fa-check"></i><b>3.3.3</b> Implementation</a></li>
+<li class="chapter" data-level="3.3.2" data-path="classification.html"><a href="classification.html#continuous-variables"><i class="fa fa-check"></i><b>3.3.2</b> Continuous variables</a></li>
+<li class="chapter" data-level="3.3.3" data-path="classification.html"><a href="classification.html#pros-and-cons-2"><i class="fa fa-check"></i><b>3.3.3</b> Pros and cons</a></li>
+<li class="chapter" data-level="3.3.4" data-path="classification.html"><a href="classification.html#implementation-2"><i class="fa fa-check"></i><b>3.3.4</b> Implementation</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="classification.html"><a href="classification.html#support-vector-machines"><i class="fa fa-check"></i><b>3.4</b> Support vector machines</a><ul>
 <li class="chapter" data-level="3.4.1" data-path="classification.html"><a href="classification.html#kernel-trick"><i class="fa fa-check"></i><b>3.4.1</b> Kernel trick</a></li>
@@ -306,8 +307,15 @@ Figure 3.7: ???
 <li><em>Prior</em>: How likely it is that any given instance belongs to the class <span class="math inline">\(c\)</span> in general.</li>
 <li><em>Likelihood</em>: If we know an instance from class <span class="math inline">\(c\)</span>, how likely it is that instance looks like <span class="math inline">\(\vec x\)</span>.</li>
 </ul>
-<p>For any given instance, we calculate these two and multiply their values. The outcome is a measure (not exact) of the probability if that instance belongs to class <span class="math inline">\(c\)</span>.</p>
-<p>This is is called the <em>Bayes optimal classifier</em>. The first component is easy to calculate given the history. We can simply count the number of instances in the class <span class="math inline">\(c\)</span> and divide that by the total number of training instances, which represents how likely it is that an instance come from that class. The second component is very difficult to calculate if we assume that the attributes are not independent. The reason is each instance is a <em>mix</em> of multiple attributes, some might be the same as what has been observed in the training set, some might not be. The comparison between these instances to calculate the <em>likelihood</em> is difficult as all attributes need to be considered at the same time. If we assume independence between variables, however, that probability is calculated easily. This is called the <em>Naive Bayes</em> classifier because of this “naive” assumption (independence between variables). For a given instance <span class="math inline">\(\vec x\)</span>, for each attribute, we calculate how likely it is that an instance from class <span class="math inline">\(c\)</span> has the same value as of <span class="math inline">\(\vec x\)</span> for that attribute. We then multiply those probabilities which would be an estimate of the original likelihood with mixed variables.</p>
+<p>For any given instance, we calculate these two and multiply their values. The outcome is a measure (not exact) of the probability if that instance belongs to class <span class="math inline">\(c\)</span>. The larger this value, the more likely it is that the instance belongs to the class <span class="math inline">\(c\)</span>.</p>
+<p>This approach is called the <em>Bayes optimal classifier</em>. The first component is easy to calculate given the history. We can simply count the number of instances in the class <span class="math inline">\(c\)</span> and divide that by the total number of training instances, which represents how likely it is that an instance come from that class. The second component is very difficult, if possible, to calculate if we assume that the attributes are not independent. The reason is each instance is a <em>mix</em> of multiple attributes, some might be the same as what has been observed in the training set, some might not be. The comparison between these instances to calculate the <em>likelihood</em> is difficult as all attributes need to be considered at the same time. If we assume independence between variables, however, that probability is calculated easily. This is called the <em>Naive Bayes</em> classifier because the independence assumption is somewhat “naive”. For a given instance <span class="math inline">\(\vec x\)</span>, for each attribute, we calculate how likely it is that an instance from class <span class="math inline">\(c\)</span> has the same value as of <span class="math inline">\(\vec x\)</span> for that attribute, i.e., attributes are independent. We then multiply those probabilities which would be an estimate of the original likelihood with mixed variables.</p>
+<div id="more-details-1" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> More details</h3>
+<p>Bayes classifier calculates the probability of the class of an instance <span class="math inline">\(\vec x\)</span> belonging to class <span class="math inline">\(c\)</span> given the instance, which is written as:</p>
+<span class="math display" id="eq:bayesFormulae">\[\begin{equation}
+P(Y=c|\vec x) = \frac{P(\vec x|Y=c)P(Y=c)}{P(\vec x)} \tag{3.3}
+\end{equation}\]</span>
+<p>where <span class="math inline">\(P(\vec x|Y=c)\)</span> is the likelihood of <span class="math inline">\(\vec x\)</span> belonging to class <span class="math inline">\(c\)</span> (<span class="math inline">\(Y\)</span> is the class label), <span class="math inline">\(P(Y=c)\)</span> is the prior knowledge about the class <span class="math inline">\(c\)</span> in general, and <span class="math inline">\(P(\vec x)\)</span> is called the evidence. Calculation of the evidence and likelihood is difficult as the instance <span class="math inline">\(\vec x\)</span> is a mixture of attributes, which may be dependent (see <span class="citation">(Wikipedia <a href="#ref-bayesNaiveWiki">2016</a>)</span> for complete calculation of these probabilities). However, considering independence between variables, <span class="math inline">\(P(\vec x|Y=c)=P(x_1|Y=c)P(x_2|Y=c)...P(x_n|Y=c)\)</span>. <span class="math inline">\(P(Y=c)\)</span> is easy to calculate as it is equal to the number of instances in the class <span class="math inline">\(c\)</span> divided by the number of instances in the training set. While the calculation of evidence is also straightforward under the independence assumption, it is not needed as it is constant across all classes.</p>
 <p>Let’s have an example.</p>
 <table>
 <caption><span id="tab:bayesExample">Table 3.1: </span> An example data-set of male/female with their characteristics.</caption>
@@ -371,14 +379,14 @@ Figure 3.7: ???
 </tbody>
 </table>
 <hr />
-<p>6, 130, 8 Y N N 0.25<em>1</em>1<em>.5=0.25 1</em>.25<em>0.25</em>.5=0.0625</p>
+<p>Given this data, we have been asked to which class a person belong if their Height is 6 (&gt;5.5, hence ‘Y’), their Weight is 130 (&lt;150, hence ‘N’), and their Foot size is 8 (&lt;10, hence ‘N’). Prior probability of being male is 0.5 and being female is 0.5, based on the table. It is clear that <span class="math inline">\(P(x_1=Y|Y=female)=0.25\)</span>, <span class="math inline">\(P(x_2=N|Y=female)=1\)</span> is cac Y N N 0.25<em>1</em>1<em>.5=0.125 1</em>.25<em>0.25</em>.5=0.03125</p>
 <p>Pprobability if male</p>
-<div id="more-details-1" class="section level3">
-<h3><span class="header-section-number">3.3.1</span> More details</h3>
-<p>Bayes formulae Continuous variables</p>
+</div>
+<div id="continuous-variables" class="section level3">
+<h3><span class="header-section-number">3.3.2</span> Continuous variables</h3>
 </div>
 <div id="pros-and-cons-2" class="section level3">
-<h3><span class="header-section-number">3.3.2</span> Pros and cons</h3>
+<h3><span class="header-section-number">3.3.3</span> Pros and cons</h3>
 <p><strong>Pros</strong>:</p>
 <ul>
 <li>It is easy and fast to predict class of test data set. It also performs well in multi class prediction.</li>
@@ -392,7 +400,7 @@ Figure 3.7: ???
 </ul>
 </div>
 <div id="implementation-2" class="section level3">
-<h3><span class="header-section-number">3.3.3</span> Implementation</h3>
+<h3><span class="header-section-number">3.3.4</span> Implementation</h3>
 <p><a href="https://www.analyticsvidhya.com/blog/2017/09/naive-bayes-explained/" class="uri">https://www.analyticsvidhya.com/blog/2017/09/naive-bayes-explained/</a></p>
 <p>For continuous variables, it is assumed that the variables follow a given disctribution (usually normal) to be able to calculate the probability of .</p>
 
@@ -508,6 +516,9 @@ Figure 3.9: Example of how KNN works. The “closest” instances to a new insta
 </div>
 <div id="ref-ng2002discriminative">
 <p>Ng, Andrew Y, and Michael I Jordan. 2002. “On Discriminative Vs. Generative Classifiers: A Comparison of Logistic Regression and Naive Bayes.” In <em>Advances in Neural Information Processing Systems</em>, 841–48.</p>
+</div>
+<div id="ref-bayesNaiveWiki">
+<p>Wikipedia. 2016. “Wikipedia on Naive Bayes.” Accessed June 30. <a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier" class="uri">https://en.wikipedia.org/wiki/Naive_Bayes_classifier</a>.</p>
 </div>
 </div>
             </section>
