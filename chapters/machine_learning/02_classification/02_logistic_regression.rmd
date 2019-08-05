@@ -25,6 +25,5 @@ More details on this algorithm can be found in
 
 [@andrewngcourse]
 
-http://ufldl.stanford.edu/tutorial/supervised/LogisticRegression/
 Scipy and Sikit-Learn
 

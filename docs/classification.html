@@ -379,8 +379,7 @@ P(Y=c|\vec x) = \frac{P(\vec x|Y=c)P(Y=c)}{P(\vec x)} \tag{3.3}
 </tbody>
 </table>
 <hr />
-<p>Given this data, we have been asked to which class a person belong if their Height is 6 (&gt;5.5, hence ‘Y’), their Weight is 130 (&lt;150, hence ‘N’), and their Foot size is 8 (&lt;10, hence ‘N’). Prior probability of being male is 0.5 and being female is 0.5, based on the table. It is clear that <span class="math inline">\(P(x_1=Y|Y=female)=0.25\)</span>, <span class="math inline">\(P(x_2=N|Y=female)=1\)</span> is cac Y N N 0.25<em>1</em>1<em>.5=0.125 1</em>.25<em>0.25</em>.5=0.03125</p>
-<p>Pprobability if male</p>
+<p>Given this data, we have been asked to which class a person belong if their Height is 6 (&gt;5.5, hence ‘Y’), their Weight is 130 (&lt;150, hence ‘N’), and their Foot size is 8 (&lt;10, hence ‘N’). Prior probability of being male is 0.5 and being female is 0.5, based on the table. It is clear that <span class="math inline">\(P(x_1=Y|Y=female)=0.25\)</span>, <span class="math inline">\(P(x_2=N|Y=female)=P(x_3=N|Y=female)=1.0\)</span>, and <span class="math inline">\(P(Y=male)=P(Y=female)=0.5\)</span>. Hence, <span class="math inline">\(P(Y=female|\vec x=&lt;Y, N, N&gt;)=\frac{0.25 \times 1.0 \times 1.0 \times 0.5}{P(\vec x)}\)</span> and <span class="math inline">\(P(Y=male|\vec x=&lt;Y, N, N&gt;)=\frac{1.0 \times 0.25 \times 0.25 \times 0.5}{P(\vec x)}\)</span>.As the evidence is the same for both probabilities, it seems it is more likely that the given instance is a “female”.</p>
 </div>
 <div id="continuous-variables" class="section level3">
 <h3><span class="header-section-number">3.3.2</span> Continuous variables</h3>

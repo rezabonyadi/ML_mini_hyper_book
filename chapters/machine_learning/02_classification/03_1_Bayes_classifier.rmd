@@ -34,15 +34,10 @@ Table: (\#tab:bayesExample) An example data-set of male/female with their charac
 | female |          Y         |         N         |           N           |
 --------------------------------------------------------------------------
 
-Given this data, we have been asked to which class a person belong if their Height is 6 (>5.5, hence 'Y'), their Weight is 130 (<150, hence 'N'), and their Foot size is 8 (<10, hence 'N'). Prior probability of being male is 0.5 and being female is 0.5, based on the table. It is clear that $P(x_1=Y|Y=female)=0.25$, $P(x_2=N|Y=female)=1$ is cac
-Y N N
-0.25*1*1*.5=0.125
-1*.25*0.25*.5=0.03125
-
-
-Pprobability if male
+Given this data, we have been asked to which class a person belong if their Height is 6 (>5.5, hence 'Y'), their Weight is 130 (<150, hence 'N'), and their Foot size is 8 (<10, hence 'N'). Prior probability of being male is 0.5 and being female is 0.5, based on the table. It is clear that $P(x_1=Y|Y=female)=0.25$, $P(x_2=N|Y=female)=P(x_3=N|Y=female)=1.0$, and $P(Y=male)=P(Y=female)=0.5$. Hence, $P(Y=female|\vec x=<Y, N, N>)=\frac{0.25 \times 1.0 \times 1.0 \times 0.5}{P(\vec x)}$ and $P(Y=male|\vec x=<Y, N, N>)=\frac{1.0 \times 0.25 \times 0.25 \times 0.5}{P(\vec x)}$.As the evidence is the same for both probabilities, it seems it is more likely that the given instance is a "female".
 
 ### Continuous variables
+[@bayesNaiveWiki]
 
 ### Pros and cons
 
@@ -61,3 +56,4 @@ Pprobability if male
 https://www.analyticsvidhya.com/blog/2017/09/naive-bayes-explained/
 
 For continuous variables, it is assumed that the variables follow a given disctribution (usually normal) to be able to calculate the probability of . 
+
