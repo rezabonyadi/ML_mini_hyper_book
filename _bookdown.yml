@@ -1,12 +1,11 @@
 chapter_name: "Chapter "
 rmd_files: 
   - "index.RMD"
-  - chapters/notations.rmd
   - chapters/machine_learning/01_intro_machine_learning.rmd
   - chapters/machine_learning/02_classification/01_classification.rmd
   - chapters/machine_learning/02_classification/02_1_zero_one_loss.rmd
   - chapters/machine_learning/02_classification/02_logistic_regression.rmd
-  - chapters/machine_learning/02_classification/03_1_bayes_classifier.rmd
+  - chapters/machine_learning/02_classification/03_1_Bayes_classifier.rmd
   - chapters/machine_learning/02_classification/03_support_vector.rmd
   - chapters/machine_learning/02_classification/04_decision_tree_classifier.rmd
   - chapters/machine_learning/02_classification/05_k_nearest_neighbor.rmd
@@ -22,6 +21,8 @@ rmd_files:
   - chapters/machine_learning/04_dimensionality_reduction/02_principle_component.rmd
   - chapters/machine_learning/04_dimensionality_reduction/03_singular_value_decomposition.rmd
   - chapters/machine_learning/04_dimensionality_reduction/04_t_sne.rmd
+  - chapters/machine_learning/04_dimensionality_reduction/05_independent_component.rmd
+  - chapters/machine_learning/04_dimensionality_reduction/06_partial_least_square.rmd
   - chapters/machine_learning/05_metrics_learning/01_metrics_learning.rmd
   - chapters/machine_learning/05_metrics_learning/02_large_margin_nearest_neighbor.rmd
   - chapters/machine_learning/06_neural_networks/01_neural_networks.rmd
@@ -40,11 +41,15 @@ rmd_files:
   - chapters/machine_learning/09_bagging_boosting/02_xgboost.rmd
   - chapters/machine_learning/10_annomally_detection/01_annomally_detection.rmd
   - chapters/machine_learning/11_preprocessing/01_preprocessing.rmd
+  - chapters/notations.rmd
   - chapters/optimization/01_intro_optimization.rmd
   - chapters/optimization/02_optimization_problems/01_optimization_problems.rmd
   - chapters/optimization/03_derivative_based/01_derivatives.rmd
   - chapters/optimization/04_derivative_free/01_derivative_free.rmd
   - chapters/optimization/04_derivative_free/02_finite_different.rmd
   - chapters/optimization/04_derivative_free/03_population_based.rmd
+  - chapters/statistics/02_causality.rmd
+  - chapters/statistics/02_correlation.rmd
+  - chapters/statistics/03_anova.rmd
 
 output_dir: "docs"

@@ -1,2 +1,3 @@
 ## Independent component analysis
 
+Is supervised
