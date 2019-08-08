@@ -24,7 +24,7 @@
 <meta name="author" content="Reza Bonyadi, Ph.D." />
 
 
-<meta name="date" content="2019-08-06" />
+<meta name="date" content="2019-08-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -182,7 +182,7 @@
 <p>In a more general framework, given a set of instances, <span class="math inline">\(X\)</span>, with <span class="math inline">\(m\)</span> rows and <span class="math inline">\(n\)</span> columns (each row is an instance and each column is an attribute) and their associated classes, <span class="math inline">\(Y\)</span>, with <span class="math inline">\(m\)</span> rows (containing a categorical value in each row), find a mathematical <em>rule</em> (line and hyperplane are special cases of this), also known as a <em>model</em>, which can generate the class label, <span class="math inline">\(y\)</span>, for any given instance, <span class="math inline">\(x\)</span> (<span class="math inline">\(1\)</span> row and <span class="math inline">\(n\)</span> columns).</p>
 <p>A synthetic classification problem has been shown in Fig. <a href="classification.html#fig:classExample">2.1</a>. In this problem, there are two attributes per instance and two groups of instances (blue and red), and the discriminatory rule has been assumed to be represented by a line. The aim of classification (binary in this case) with these assumptions is to find the “best” discriminatory line (hyperplane in a higher number of dimensions) which discriminates between the two classes “optimally” (see figure). Ideally, this optimality needs to make sure that the rule not only works for the given data (training data) based on a performance measure but also for any unseen data point (test data), referred to as the <em>generalization ability</em> of the rule.</p>
 <div class="figure"><span id="fig:classExample"></span>
-<img src="images/classification/classification.png" alt="Two attributes (horizontal and vertical axes), two classes (red and blue), and three lines which can separate the classes successfully." width="50%" />
+<img src="images/classification/classification.png" alt="Two attributes (horizontal and vertical axes), two classes (red and blue), and three lines which can separate the classes successfully." width="49%" /><img src="images/classification/classification_.png" alt="Two attributes (horizontal and vertical axes), two classes (red and blue), and three lines which can separate the classes successfully." width="49%" />
 <p class="caption">
 Figure 2.1: Two attributes (horizontal and vertical axes), two classes (red and blue), and three lines which can separate the classes successfully.
 </p>
@@ -384,7 +384,7 @@ P(Y=c|\vec x) = \frac{P(\vec x|Y=c)P(Y=c)}{P(\vec x)} \tag{2.3}
 </tbody>
 </table>
 <hr />
-<p>Given this data, we have been asked to which class a person belong if their Height is 6 (&gt;5.5, hence ‘Y’), their Weight is 130 (&lt;150, hence ‘N’), and their Foot size is 8 (&lt;10, hence ‘N’). Prior probability of being male is 0.5 and being female is 0.5, based on the table. It is clear that <span class="math inline">\(P(x_1=Y|Y=female)=0.25\)</span>, <span class="math inline">\(P(x_2=N|Y=female)=P(x_3=N|Y=female)=1.0\)</span>, and <span class="math inline">\(P(Y=male)=P(Y=female)=0.5\)</span>. Hence, <span class="math inline">\(P(Y=female|\vec x=&lt;Y, N, N&gt;)=\frac{0.25 \times 1.0 \times 1.0 \times 0.5}{P(\vec x)}\)</span> and <span class="math inline">\(P(Y=male|\vec x=&lt;Y, N, N&gt;)=\frac{1.0 \times 0.25 \times 0.25 \times 0.5}{P(\vec x)}\)</span>.As the evidence is the same for both probabilities, it seems it is more likely that the given instance is a “female”.</p>
+<p>Given this data, we have been asked to which class a person belong if their Height is 6 (&gt;5.5, hence ‘Y’), their Weight is 130 (&lt;150, hence ‘N’), and their Foot size is 8 (&lt;10, hence ‘N’). Prior probability of being male is 0.5 and being female is 0.5, based on the table. It is clear that <span class="math inline">\(P(x_1=Y|Y=female)=0.25\)</span>, <span class="math inline">\(P(x_2=N|Y=female)=P(x_3=N|Y=female)=1.0\)</span>, and <span class="math inline">\(P(Y=male)=P(Y=female)=0.5\)</span>. Hence, <span class="math inline">\(P(Y=female|\vec x=&lt;Y, N, N&gt;)=\frac{0.25 \times 1.0 \times 1.0 \times 0.5}{P(\vec x)}\)</span> and <span class="math inline">\(P(Y=male|\vec x=&lt;Y, N, N&gt;)=\frac{1.0 \times 0.25 \times 0.25 \times 0.5}{P(\vec x)}\)</span>.As the evidence is the same for both probabilities, it seems it is more likely that the given instance is a “female”. See <a href="https://www.geeksforgeeks.org/naive-bayes-classifiers/">this</a> for more examples and descriptions.</p>
 </div>
 <div id="continuous-variables" class="section level3">
 <h3><span class="header-section-number">2.3.2</span> Continuous variables</h3>
@@ -408,7 +408,6 @@ P(Y=c|\vec x) = \frac{P(\vec x|Y=c)P(Y=c)}{P(\vec x)} \tag{2.3}
 <h3><span class="header-section-number">2.3.4</span> Implementation</h3>
 <p><a href="https://www.analyticsvidhya.com/blog/2017/09/naive-bayes-explained/" class="uri">https://www.analyticsvidhya.com/blog/2017/09/naive-bayes-explained/</a></p>
 <p>For continuous variables, it is assumed that the variables follow a given disctribution (usually normal) to be able to calculate the probability of .</p>
-<p><a href="https://www.geeksforgeeks.org/naive-bayes-classifiers/" class="uri">https://www.geeksforgeeks.org/naive-bayes-classifiers/</a></p>
 
 </div>
 </div>
