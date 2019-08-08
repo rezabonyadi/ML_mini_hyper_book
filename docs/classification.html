@@ -24,7 +24,7 @@
 <meta name="author" content="Reza Bonyadi, Ph.D." />
 
 
-<meta name="date" content="2019-08-08" />
+<meta name="date" content="2019-08-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -238,9 +238,9 @@ f(\vec x)=
 \end{equation}\]</span>
 <p>This function has been shown in Fig. <a href="classification.html#fig:fofLoss01">2.4</a>.</p>
 <div class="figure"><span id="fig:fofLoss01"></span>
-<img src="images/classification/0_1_loss_1.PNG" alt="?????" width="50%" />
+<img src="images/classification/0_1_func.PNG" alt="The 0/1 function which returns 0 or 1 depending the side to which a given instance belong. " width="50%" />
 <p class="caption">
-Figure 2.4: ?????
+Figure 2.4: The 0/1 function which returns 0 or 1 depending the side to which a given instance belong.
 </p>
 </div>
 <p>The loss function was revised in <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimal">2019</a>)</span> as follows:</p>
@@ -277,11 +277,11 @@ Figure 2.6: 0/1 loss function is not sensitive to outliers while other loss func
 </div>
 <div id="logistic-regression" class="section level2">
 <h2><span class="header-section-number">2.2</span> Logistic regression</h2>
-<p>Logistic regression seeks a hyperplane which best discriminates two classes. The hyperplane is evaluated by a loss function which is a smooth (differentiable) estimation of the function used in the 0/1 loss function (see Section <a href="classification.html#sec:01lossMath">2.1.2</a>), hence, can be optimized effectively by a gradient descent. For a given hyperplane, the estimation provides a value between 0 and 1 (rather than 0 or 1 as it was the case in the 0/1 loss function) for each instance that represents to what extent the instance has been classified as the class 0 or class 1. While there might be many different choices for such function, logistic regression uses the logarithm sigmoid function that looks like Fig. ????.</p>
+<p>Logistic regression seeks a hyperplane which best discriminates two classes. The hyperplane is evaluated by a loss function which is a smooth (differentiable) estimation of the function used in the 0/1 loss function (see Section <a href="classification.html#sec:01lossMath">2.1.2</a>), hence, can be optimized effectively by a gradient descent. For a given hyperplane, the estimation provides a value between 0 and 1 (rather than 0 or 1 as it was the case in the 0/1 loss function) for each instance that represents to what extent the instance has been classified as the class 0 or class 1. While there might be many different choices for such function, logistic regression uses the logarithm sigmoid function that looks like Fig. <a href="classification.html#fig:logsig">2.7</a>.</p>
 <div class="figure"><span id="fig:logsig"></span>
-<img src="images/classification/0_1_loss_2.PNG" alt="???" width="50%" />
+<img src="images/classification/logistic_func.PNG" alt="The logistic function is an estimation of the 0/1 function." width="50%" />
 <p class="caption">
-Figure 2.7: ???
+Figure 2.7: The logistic function is an estimation of the 0/1 function.
 </p>
 </div>
 <p>In the figure, the <span class="math inline">\(&lt;\vec w, b&gt;\)</span> defines the distinguishing hyperplane (<span class="math inline">\(\vec w\)</span> is the norm of the plane and <span class="math inline">\(b\)</span> is the intercept). The value of <span class="math inline">\(\vec w \vec x_i^T + b\)</span> is an indication of the distance between the hyperplane and the instance while ths ign of it indicates to which side of the hyperplane ths instance belong. When we put this value for an instance in the logarithm sigmoid function, we would get a value close to zero when <span class="math inline">\(\vec w \vec x_i^T + b&lt;0\)</span> and a value close to one otherwise. If <span class="math inline">\(\vec w \vec x_i^T + b\)</span> is close to zero the sigmoid function returns values closer to <span class="math inline">\(0.5\)</span>, which may be interpreted as ambiguous. Ideal hyperplane would lead to large positive and large negative values for <span class="math inline">\(\vec w \vec x_i^T + b\)</span> to ensure smaller loss value.</p>
@@ -388,7 +388,7 @@ P(Y=c|\vec x) = \frac{P(\vec x|Y=c)P(Y=c)}{P(\vec x)} \tag{2.3}
 </div>
 <div id="continuous-variables" class="section level3">
 <h3><span class="header-section-number">2.3.2</span> Continuous variables</h3>
-<p><span class="citation">(Wikipedia <a href="#ref-bayesNaiveWiki">2016</a>)</span></p>
+<p>For discrete variables it is rather easy to calculate the probabilities based on the given instances. For continuous variables (e.g., age, weight), however, this probability need to follow a distribution. Given the distribution, one can calculate the probabilities <span class="citation">(Wikipedia <a href="#ref-bayesNaiveWiki">2016</a>)</span></p>
 </div>
 <div id="pros-and-cons-2" class="section level3">
 <h3><span class="header-section-number">2.3.3</span> Pros and cons</h3>

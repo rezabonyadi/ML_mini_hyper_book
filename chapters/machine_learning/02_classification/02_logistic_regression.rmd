@@ -1,9 +1,9 @@
 ## Logistic regression
 
-Logistic regression seeks a hyperplane which best discriminates two classes. The hyperplane is evaluated by a loss function which is a smooth (differentiable) estimation of the function used in the 0/1 loss function (see Section \@ref(sec:01lossMath)), hence, can be optimized effectively by a gradient descent. For a given hyperplane, the estimation provides a value between 0 and 1 (rather than 0 or 1 as it was the case in the 0/1 loss function) for each instance that represents to what extent the instance has been classified as the class 0 or class 1. While there might be many different choices for such function, logistic regression uses the logarithm sigmoid function that looks like Fig. ????.
+Logistic regression seeks a hyperplane which best discriminates two classes. The hyperplane is evaluated by a loss function which is a smooth (differentiable) estimation of the function used in the 0/1 loss function (see Section \@ref(sec:01lossMath)), hence, can be optimized effectively by a gradient descent. For a given hyperplane, the estimation provides a value between 0 and 1 (rather than 0 or 1 as it was the case in the 0/1 loss function) for each instance that represents to what extent the instance has been classified as the class 0 or class 1. While there might be many different choices for such function, logistic regression uses the logarithm sigmoid function that looks like Fig. \@ref(fig:logsig).
 
-```{r logsig, echo = FALSE, out.width = '50%', fig.cap = '???'}
-knitr::include_graphics('images/classification/0_1_loss_2.PNG')
+```{r logsig, echo = FALSE, out.width = '50%', fig.cap = 'The logistic function is an estimation of the 0/1 function.'}
+knitr::include_graphics('images/classification/logistic_func.PNG')
 ```
 
 In the figure, the $<\vec w, b>$ defines the distinguishing hyperplane ($\vec w$ is the norm of the plane and $b$ is the intercept). The value of $\vec w \vec x_i^T + b$ is an indication of the distance between the hyperplane and the instance while ths ign of it indicates to which side of the hyperplane ths instance belong. When we put this value for an instance in the logarithm sigmoid function, we would get a value close to zero when $\vec w \vec x_i^T + b<0$ and a value close to one otherwise. If $\vec w \vec x_i^T + b$ is close to zero the sigmoid function returns values closer to $0.5$, which may be interpreted as ambiguous. Ideal hyperplane would lead to large positive and large negative values for $\vec w \vec x_i^T + b$ to ensure smaller loss value.

@@ -42,8 +42,8 @@ f(\vec x)=
 
 This function has been shown in Fig. \@ref(fig:fofLoss01).
 
-```{r fofLoss01, echo = FALSE, out.width = '50%', fig.cap = '?????'}
-knitr::include_graphics('images/classification/0_1_loss_1.PNG')
+```{r fofLoss01, echo = FALSE, out.width = '50%', fig.cap = 'The 0/1 function which returns 0 or 1 depending the side to which a given instance belong. '}
+knitr::include_graphics('images/classification/0_1_func.PNG')
 ```
 
 The loss function was revised in [@bonyadi2019optimal] as follows:
