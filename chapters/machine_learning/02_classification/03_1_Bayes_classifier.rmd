@@ -56,4 +56,4 @@ For discrete variables it is rather easy to calculate the probabilities based on
 ### Implementation
 https://www.analyticsvidhya.com/blog/2017/09/naive-bayes-explained/
 
-For continuous variables, it is assumed that the variables follow a given disctribution (usually normal) to be able to calculate the probability of . 
+For continuous variables, it is assumed that the variables follow a given description (usually normal) to be able to calculate the probability of . 

@@ -2,7 +2,7 @@
 Consider we are solving a binary (2-class) classification problem using classification algorithm. Let's assume there are 100 items of class 1 and 200 of the class 0 in our training set. The classifier uses this data set to learn the patter of the data and provide a general rule to classify the instances. After training, it can classify 75 items of the class 0 and 190 of the class 1 correctly. Now, the question is, how well the classifier is doing its job? One simple way is to calculate the error percentage: $100\frac{75+190}{100+200}=88.3$ percent. 
 
 ### Signal detection
-Signal detection claims that the error percentage is not accurate measure of performance as it ignores the frequency of the items. For example, in the example above, the number of items in class 1 is twice as much as the the number of items in the class 0. This is usually the case in real-world data sets, i.e., the number of items in classes is imbalance (the number of unhealthy subjects is much smaller than the number of healthy ones). This poses lots of complications to the evaluation of classification methods. For example, assume that the number of items in one class is 100 times larger than the number of items in the other. Mis-classification of items from the smaller class leads to more "catastrophic" descisions as 
+Signal detection claims that the error percentage is not accurate measure of performance as it ignores the frequency of the items. For example, in the example above, the number of items in class 1 is twice as much as the the number of items in the class 0. This is usually the case in real-world data sets, i.e., the number of items in classes is imbalance (the number of unhealthy subjects is much smaller than the number of healthy ones). This poses lots of complications to the evaluation of classification methods. For example, assume that the number of items in one class is 100 times larger than the number of items in the other. Mis-classification of items from the smaller class leads to more "catastrophic" decisions as the more rare events are usually the most valuable ones which need to be detected correctly.
 
 
 
@@ -23,4 +23,4 @@ https://www.openml.org/home
 
 ### Cross validation and random permutation
 
-### Imbalance datas ets
+### Imbalance data sets

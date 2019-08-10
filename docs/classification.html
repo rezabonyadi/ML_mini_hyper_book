@@ -24,7 +24,7 @@
 <meta name="author" content="Reza Bonyadi, Ph.D." />
 
 
-<meta name="date" content="2019-08-09" />
+<meta name="date" content="2019-08-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -117,8 +117,11 @@
 <li class="chapter" data-level="3.3" data-path="regression.html"><a href="regression.html#performance-measures"><i class="fa fa-check"></i><b>3.3</b> Performance measures</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="dimensionality-reduction.html"><a href="dimensionality-reduction.html"><i class="fa fa-check"></i><b>4</b> Dimensionality reduction</a><ul>
-<li class="chapter" data-level="4.1" data-path="dimensionality-reduction.html"><a href="dimensionality-reduction.html#principle-component-analysis"><i class="fa fa-check"></i><b>4.1</b> Principle component analysis</a></li>
-<li class="chapter" data-level="4.2" data-path="dimensionality-reduction.html"><a href="dimensionality-reduction.html#singular-value-decomposition"><i class="fa fa-check"></i><b>4.2</b> Singular value decomposition</a></li>
+<li class="chapter" data-level="4.1" data-path="dimensionality-reduction.html"><a href="dimensionality-reduction.html#matrix-decomposition"><i class="fa fa-check"></i><b>4.1</b> Matrix decomposition</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="dimensionality-reduction.html"><a href="dimensionality-reduction.html#eigen-decomposition"><i class="fa fa-check"></i><b>4.1.1</b> Eigen decomposition</a></li>
+<li class="chapter" data-level="4.1.2" data-path="dimensionality-reduction.html"><a href="dimensionality-reduction.html#singular-value-decomposition"><i class="fa fa-check"></i><b>4.1.2</b> Singular value decomposition</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="dimensionality-reduction.html"><a href="dimensionality-reduction.html#principle-component-analysis"><i class="fa fa-check"></i><b>4.2</b> Principle component analysis</a></li>
 <li class="chapter" data-level="4.3" data-path="dimensionality-reduction.html"><a href="dimensionality-reduction.html#t-sne"><i class="fa fa-check"></i><b>4.3</b> T-SNE</a></li>
 <li class="chapter" data-level="4.4" data-path="dimensionality-reduction.html"><a href="dimensionality-reduction.html#independent-component-analysis"><i class="fa fa-check"></i><b>4.4</b> Independent component analysis</a></li>
 <li class="chapter" data-level="4.5" data-path="dimensionality-reduction.html"><a href="dimensionality-reduction.html#partial-least-square"><i class="fa fa-check"></i><b>4.5</b> Partial least square</a></li>
@@ -306,7 +309,13 @@ Figure 2.7: The logistic function is an estimation of the 0/1 function.
 <div id="variable-importance" class="section level3">
 <h3><span class="header-section-number">2.2.1</span> Variable importance</h3>
 <p>The coefficients of the hyperplane found by the logistic regression cannot be interpreted directly as indicator for variable importance. The reason is that the variables ranges might be inherently different, meaning that some coefficients need to be larger to compensate for larger values. For example, if the values of one variable is in the range of 1000 and the other is in the range of 0.1, it is expected that the coefficients related to the first variable to be larger. This, however, does not show that the first variable is more important than the second.</p>
-<p>If the value of variables are standardized (see Section <a href="sec-preprocessing.html#sec:preprocessing">11</a>), however, the coefficients can be used as indicators of importance. The idea is that, the smaller the absolute value of a coefficient is the less important that variable is. To imagine this, think of a variable that is not important at all (see Fig. ???). We expect the discriminatory hyperplane to have a small or zero coefficient value for that variable.</p>
+<p>If the value of variables are standardized (see Section <a href="sec-preprocessing.html#sec:preprocessing">11</a>), however, the coefficients can be used as indicators of importance. The idea is that, the smaller the absolute value of a coefficient is the less important that variable is. To imagine this, think of a variable that is not important at all (see Fig. <a href="classification.html#fig:variableImport">2.8</a>). This means that, from the perspective of that variable, the instances from both groups are the same. We expect the discriminatory hyperplane to have a small or zero coefficient value for that variable.</p>
+<div class="figure"><span id="fig:variableImport"></span>
+<img src="images/classification/v_importance_logistic_func_1.PNG" alt="????." width="49%" /><img src="images/classification/v_importance_logistic_func_2.PNG" alt="????." width="49%" />
+<p class="caption">
+Figure 2.8: ????.
+</p>
+</div>
 </div>
 <div id="pros-and-cons-1" class="section level3">
 <h3><span class="header-section-number">2.2.2</span> Pros and cons</h3>
@@ -425,7 +434,7 @@ P(Y=c|\vec x) = \frac{P(\vec x|Y=c)P(Y=c)}{P(\vec x)} \tag{2.3}
 <div id="implementation-2" class="section level3">
 <h3><span class="header-section-number">2.3.4</span> Implementation</h3>
 <p><a href="https://www.analyticsvidhya.com/blog/2017/09/naive-bayes-explained/" class="uri">https://www.analyticsvidhya.com/blog/2017/09/naive-bayes-explained/</a></p>
-<p>For continuous variables, it is assumed that the variables follow a given disctribution (usually normal) to be able to calculate the probability of .</p>
+<p>For continuous variables, it is assumed that the variables follow a given description (usually normal) to be able to calculate the probability of .</p>
 
 </div>
 </div>
@@ -456,22 +465,22 @@ P(Y=c|\vec x) = \frac{P(\vec x|Y=c)P(Y=c)}{P(\vec x)} \tag{2.3}
 </div>
 <div id="sec:KNN" class="section level2">
 <h2><span class="header-section-number">2.6</span> K-nearest neighbor</h2>
-<p>The k-nearest neighbor (KNN) classifier assumes that the instances “close” to one another have the same class label. Hence, to assign a class label to a new instance, KNN finds <span class="math inline">\(k\)</span> instances from the training data set to which the new instance is “closest” and use those labels to vote for the class label of the new instance (see Fig. <a href="classification.html#fig:KnnDemons">2.8</a>).</p>
+<p>The k-nearest neighbor (KNN) classifier assumes that the instances “close” to one another have the same class label. Hence, to assign a class label to a new instance, KNN finds <span class="math inline">\(k\)</span> instances from the training data set to which the new instance is “closest” and use those labels to vote for the class label of the new instance (see Fig. <a href="classification.html#fig:KnnDemons">2.9</a>).</p>
 <div class="figure"><span id="fig:KnnDemons"></span>
 <img src="images/classification/01_knn_1.PNG" alt="Example of how KNN works. The &quot;closest&quot; instances to a new instance (green) are used to vote for its class label." width="50%" />
 <p class="caption">
-Figure 2.8: Example of how KNN works. The “closest” instances to a new instance (green) are used to vote for its class label.
+Figure 2.9: Example of how KNN works. The “closest” instances to a new instance (green) are used to vote for its class label.
 </p>
 </div>
 <p>The “closeness” is defined by a distance measure, such as Euclidean distance.</p>
 <div id="improvements-1" class="section level3">
 <h3><span class="header-section-number">2.6.1</span> Improvements</h3>
 <p>In KNN, some attributes may lead to a biased distance. For example, if one of the attributes is in the order of 1,000 and another is in the order of 0.1, the latter would have a small impact on the calculation of the distance. This is usually resolved by standardizing the space, which ensures all attributes are in the same range. This method, however, may break some structural integrity of the instances.</p>
-<p>Another issue is that some attributes might be misleading and their impact is better to be reduced. For example, Fig. <a href="classification.html#fig:KnnDimesions">2.9</a> indicates that the horizontal dimension is responsible for the green instance to be of the type “red”. This, however, may not be correct as if the horizontal dimension shrinks then the green instance becomes closer to blue instances, which makes it a blue class.</p>
+<p>Another issue is that some attributes might be misleading and their impact is better to be reduced. For example, Fig. <a href="classification.html#fig:KnnDimesions">2.10</a> indicates that the horizontal dimension is responsible for the green instance to be of the type “red”. This, however, may not be correct as if the horizontal dimension shrinks then the green instance becomes closer to blue instances, which makes it a blue class.</p>
 <div class="figure"><span id="fig:KnnDimesions"></span>
 <img src="images/classification/knn_scale.png" alt="Example of how KNN works. The &quot;closest&quot; instances to a new instance (green) are used to vote for its class label." width="50%" />
 <p class="caption">
-Figure 2.9: Example of how KNN works. The “closest” instances to a new instance (green) are used to vote for its class label.
+Figure 2.10: Example of how KNN works. The “closest” instances to a new instance (green) are used to vote for its class label.
 </p>
 </div>
 <p>This indeed leads to an in-accuracy in KNN; the algorithm does not take into account the importance of attributes. This can be addressed by optimizing a metric which shrinks/contracts the space along different attributes to achieve the best transformation in which KNN performs best. See Section <a href="sec-metricslearning.html#sec:metricslearning">5</a> for details.</p>
@@ -518,7 +527,7 @@ Figure 2.9: Example of how KNN works. The “closest” instances to a new insta
 <p>Consider we are solving a binary (2-class) classification problem using classification algorithm. Let’s assume there are 100 items of class 1 and 200 of the class 0 in our training set. The classifier uses this data set to learn the patter of the data and provide a general rule to classify the instances. After training, it can classify 75 items of the class 0 and 190 of the class 1 correctly. Now, the question is, how well the classifier is doing its job? One simple way is to calculate the error percentage: <span class="math inline">\(100\frac{75+190}{100+200}=88.3\)</span> percent.</p>
 <div id="signal-detection" class="section level3">
 <h3><span class="header-section-number">2.10.1</span> Signal detection</h3>
-<p>Signal detection claims that the error percentage is not accurate measure of performance as it ignores the frequency of the items. For example, in the example above, the number of items in class 1 is twice as much as the the number of items in the class 0. This is usually the case in real-world data sets, i.e., the number of items in classes is imbalance (the number of unhealthy subjects is much smaller than the number of healthy ones). This poses lots of complications to the evaluation of classification methods. For example, assume that the number of items in one class is 100 times larger than the number of items in the other. Mis-classification of items from the smaller class leads to more “catastrophic” descisions as</p>
+<p>Signal detection claims that the error percentage is not accurate measure of performance as it ignores the frequency of the items. For example, in the example above, the number of items in class 1 is twice as much as the the number of items in the class 0. This is usually the case in real-world data sets, i.e., the number of items in classes is imbalance (the number of unhealthy subjects is much smaller than the number of healthy ones). This poses lots of complications to the evaluation of classification methods. For example, assume that the number of items in one class is 100 times larger than the number of items in the other. Mis-classification of items from the smaller class leads to more “catastrophic” decisions as the more rare events are usually the most valuable ones which need to be detected correctly.</p>
 <p>Specificty and ???</p>
 </div>
 <div id="receiver-operating-characteristic-roc-and-area-under-the-curve-auc" class="section level3">
