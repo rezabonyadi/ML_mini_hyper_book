@@ -6,5 +6,6 @@
 ## Matrix decomposition
 
 ### Eigen decomposition
+https://datascienceplus.com/understanding-the-covariance-matrix/
 
 ### Singular value decomposition
