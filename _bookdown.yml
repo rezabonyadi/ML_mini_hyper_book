@@ -19,7 +19,6 @@ rmd_files:
   - chapters/machine_learning/03_regression/99_performance_measures.rmd
   - chapters/machine_learning/04_dimensionality_reduction/01_dimensionality_reduction.rmd
   - chapters/machine_learning/04_dimensionality_reduction/02_principle_component.rmd
-  - chapters/machine_learning/04_dimensionality_reduction/03_singular_value_decomposition.rmd
   - chapters/machine_learning/04_dimensionality_reduction/04_t_sne.rmd
   - chapters/machine_learning/04_dimensionality_reduction/05_independent_component.rmd
   - chapters/machine_learning/04_dimensionality_reduction/06_partial_least_square.rmd
@@ -41,15 +40,23 @@ rmd_files:
   - chapters/machine_learning/09_bagging_boosting/02_xgboost.rmd
   - chapters/machine_learning/10_annomally_detection/01_annomally_detection.rmd
   - chapters/machine_learning/11_preprocessing/01_preprocessing.rmd
-  - chapters/notations.rmd
   - chapters/optimization/01_intro_optimization.rmd
   - chapters/optimization/02_optimization_problems/01_optimization_problems.rmd
   - chapters/optimization/03_derivative_based/01_derivatives.rmd
   - chapters/optimization/04_derivative_free/01_derivative_free.rmd
   - chapters/optimization/04_derivative_free/02_finite_different.rmd
   - chapters/optimization/04_derivative_free/03_population_based.rmd
-  - chapters/statistics/02_causality.rmd
-  - chapters/statistics/02_correlation.rmd
-  - chapters/statistics/03_anova.rmd
+  - chapters/statistics/01_introduction.rmd
+  - chapters/statistics/02_basics/01_basics.rmd
+  - chapters/statistics/02_basics/02_correlation.rmd
+  - chapters/statistics/02_basics/02_moments.rmd
+  - chapters/statistics/02_basics/03_covariance_matrix.rmd
+  - chapters/statistics/02_basics/04_distributions.rmd
+  - chapters/statistics/03_analysis/01_statistical_analysis.rmd
+  - chapters/statistics/03_analysis/01_tests.rmd
+  - chapters/statistics/03_analysis/02_causality.rmd
+  - chapters/statistics/03_analysis/03_anova.rmd
+  - chapters/99_notations.rmd
+
 
 output_dir: "docs"

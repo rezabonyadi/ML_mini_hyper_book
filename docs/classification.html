@@ -101,12 +101,20 @@
 <li class="chapter" data-level="2.7" data-path="classification.html"><a href="classification.html#gaussianprocessclassifier"><i class="fa fa-check"></i><b>2.7</b> Gaussian process classifier</a></li>
 <li class="chapter" data-level="2.8" data-path="classification.html"><a href="classification.html#general-additive-model"><i class="fa fa-check"></i><b>2.8</b> General additive model</a></li>
 <li class="chapter" data-level="2.9" data-path="classification.html"><a href="classification.html#turning-binary-classifiers-to-multi-class"><i class="fa fa-check"></i><b>2.9</b> Turning binary classifiers to multi-class</a></li>
-<li class="chapter" data-level="2.10" data-path="classification.html"><a href="classification.html#performance-measures"><i class="fa fa-check"></i><b>2.10</b> Performance measures</a></li>
+<li class="chapter" data-level="2.10" data-path="classification.html"><a href="classification.html#performance-measures-and-evaluation"><i class="fa fa-check"></i><b>2.10</b> Performance measures and evaluation</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="classification.html"><a href="classification.html#signal-detection"><i class="fa fa-check"></i><b>2.10.1</b> Signal detection</a></li>
+<li class="chapter" data-level="2.10.2" data-path="classification.html"><a href="classification.html#receiver-operating-characteristic-roc-and-area-under-the-curve-auc"><i class="fa fa-check"></i><b>2.10.2</b> receiver operating characteristic (ROC) and Area under the curve (AUC)</a></li>
+<li class="chapter" data-level="2.10.3" data-path="classification.html"><a href="classification.html#confusion-matrix"><i class="fa fa-check"></i><b>2.10.3</b> Confusion matrix</a></li>
+<li class="chapter" data-level="2.10.4" data-path="classification.html"><a href="classification.html#benchmarking"><i class="fa fa-check"></i><b>2.10.4</b> Benchmarking</a></li>
+<li class="chapter" data-level="2.10.5" data-path="classification.html"><a href="classification.html#stratified-sampling"><i class="fa fa-check"></i><b>2.10.5</b> Stratified sampling</a></li>
+<li class="chapter" data-level="2.10.6" data-path="classification.html"><a href="classification.html#cross-validation-and-random-permutation"><i class="fa fa-check"></i><b>2.10.6</b> Cross validation and random permutation</a></li>
+<li class="chapter" data-level="2.10.7" data-path="classification.html"><a href="classification.html#imbalance-datas-ets"><i class="fa fa-check"></i><b>2.10.7</b> Imbalance datas ets</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>3</b> Regression</a><ul>
 <li class="chapter" data-level="3.1" data-path="regression.html"><a href="regression.html#linear-regression"><i class="fa fa-check"></i><b>3.1</b> Linear regression</a></li>
 <li class="chapter" data-level="3.2" data-path="regression.html"><a href="regression.html#decision-tree-for-regression"><i class="fa fa-check"></i><b>3.2</b> Decision tree for regression</a></li>
-<li class="chapter" data-level="3.3" data-path="regression.html"><a href="regression.html#performance-measures-1"><i class="fa fa-check"></i><b>3.3</b> Performance measures</a></li>
+<li class="chapter" data-level="3.3" data-path="regression.html"><a href="regression.html#performance-measures"><i class="fa fa-check"></i><b>3.3</b> Performance measures</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="dimensionality-reduction.html"><a href="dimensionality-reduction.html"><i class="fa fa-check"></i><b>4</b> Dimensionality reduction</a><ul>
 <li class="chapter" data-level="4.1" data-path="dimensionality-reduction.html"><a href="dimensionality-reduction.html#principle-component-analysis"><i class="fa fa-check"></i><b>4.1</b> Principle component analysis</a></li>
@@ -138,27 +146,37 @@
 <li class="chapter" data-level="10.2" data-path="bagging-and-boosting.html"><a href="bagging-and-boosting.html#anomaly-detection"><i class="fa fa-check"></i><b>10.2</b> Anomaly detection</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="sec-preprocessing.html"><a href="sec-preprocessing.html"><i class="fa fa-check"></i><b>11</b> Preprocessing</a></li>
-<li class="chapter" data-level="12" data-path="terms-and-notations.html"><a href="terms-and-notations.html"><i class="fa fa-check"></i><b>12</b> Terms and notations</a></li>
 <li class="part"><span><b>II Optimziation</b></span></li>
-<li class="chapter" data-level="13" data-path="introduction-1.html"><a href="introduction-1.html"><i class="fa fa-check"></i><b>13</b> Introduction</a></li>
-<li class="chapter" data-level="14" data-path="optimization-problems.html"><a href="optimization-problems.html"><i class="fa fa-check"></i><b>14</b> Optimization problems</a><ul>
-<li class="chapter" data-level="14.1" data-path="optimization-problems.html"><a href="optimization-problems.html#single-and-multi-objective"><i class="fa fa-check"></i><b>14.1</b> Single and Multi objective</a></li>
-<li class="chapter" data-level="14.2" data-path="optimization-problems.html"><a href="optimization-problems.html#constrains-in-problems"><i class="fa fa-check"></i><b>14.2</b> Constrains in problems</a></li>
-<li class="chapter" data-level="14.3" data-path="optimization-problems.html"><a href="optimization-problems.html#dynamic-optimization-problems"><i class="fa fa-check"></i><b>14.3</b> Dynamic optimization problems</a></li>
+<li class="chapter" data-level="12" data-path="introduction-1.html"><a href="introduction-1.html"><i class="fa fa-check"></i><b>12</b> Introduction</a></li>
+<li class="chapter" data-level="13" data-path="optimization-problems.html"><a href="optimization-problems.html"><i class="fa fa-check"></i><b>13</b> Optimization problems</a><ul>
+<li class="chapter" data-level="13.1" data-path="optimization-problems.html"><a href="optimization-problems.html#single-and-multi-objective"><i class="fa fa-check"></i><b>13.1</b> Single and Multi objective</a></li>
+<li class="chapter" data-level="13.2" data-path="optimization-problems.html"><a href="optimization-problems.html#constrains-in-problems"><i class="fa fa-check"></i><b>13.2</b> Constrains in problems</a></li>
+<li class="chapter" data-level="13.3" data-path="optimization-problems.html"><a href="optimization-problems.html#dynamic-optimization-problems"><i class="fa fa-check"></i><b>13.3</b> Dynamic optimization problems</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="use-of-derivative-in-optimization.html"><a href="use-of-derivative-in-optimization.html"><i class="fa fa-check"></i><b>15</b> Use of derivative in optimization</a></li>
-<li class="chapter" data-level="16" data-path="derivative-free-algorithms.html"><a href="derivative-free-algorithms.html"><i class="fa fa-check"></i><b>16</b> Derivative-free algorithms</a><ul>
-<li class="chapter" data-level="16.1" data-path="derivative-free-algorithms.html"><a href="derivative-free-algorithms.html#finite-difference"><i class="fa fa-check"></i><b>16.1</b> Finite difference</a></li>
-<li class="chapter" data-level="16.2" data-path="derivative-free-algorithms.html"><a href="derivative-free-algorithms.html#population-based-optimization"><i class="fa fa-check"></i><b>16.2</b> Population-based optimization</a><ul>
-<li class="chapter" data-level="16.2.1" data-path="derivative-free-algorithms.html"><a href="derivative-free-algorithms.html#genetic-algorithm"><i class="fa fa-check"></i><b>16.2.1</b> Genetic algorithm</a></li>
-<li class="chapter" data-level="16.2.2" data-path="derivative-free-algorithms.html"><a href="derivative-free-algorithms.html#evolutionary-strategy"><i class="fa fa-check"></i><b>16.2.2</b> Evolutionary strategy</a></li>
-<li class="chapter" data-level="16.2.3" data-path="derivative-free-algorithms.html"><a href="derivative-free-algorithms.html#covariance-matrix-adaptation"><i class="fa fa-check"></i><b>16.2.3</b> Covariance matrix adaptation</a></li>
-<li class="chapter" data-level="16.2.4" data-path="derivative-free-algorithms.html"><a href="derivative-free-algorithms.html#particle-swarm-optimization"><i class="fa fa-check"></i><b>16.2.4</b> Particle swarm optimization</a></li>
+<li class="chapter" data-level="14" data-path="use-of-derivative-in-optimization.html"><a href="use-of-derivative-in-optimization.html"><i class="fa fa-check"></i><b>14</b> Use of derivative in optimization</a></li>
+<li class="chapter" data-level="15" data-path="derivative-free-algorithms.html"><a href="derivative-free-algorithms.html"><i class="fa fa-check"></i><b>15</b> Derivative-free algorithms</a><ul>
+<li class="chapter" data-level="15.1" data-path="derivative-free-algorithms.html"><a href="derivative-free-algorithms.html#finite-difference"><i class="fa fa-check"></i><b>15.1</b> Finite difference</a></li>
+<li class="chapter" data-level="15.2" data-path="derivative-free-algorithms.html"><a href="derivative-free-algorithms.html#population-based-optimization"><i class="fa fa-check"></i><b>15.2</b> Population-based optimization</a><ul>
+<li class="chapter" data-level="15.2.1" data-path="derivative-free-algorithms.html"><a href="derivative-free-algorithms.html#genetic-algorithm"><i class="fa fa-check"></i><b>15.2.1</b> Genetic algorithm</a></li>
+<li class="chapter" data-level="15.2.2" data-path="derivative-free-algorithms.html"><a href="derivative-free-algorithms.html#evolutionary-strategy"><i class="fa fa-check"></i><b>15.2.2</b> Evolutionary strategy</a></li>
+<li class="chapter" data-level="15.2.3" data-path="derivative-free-algorithms.html"><a href="derivative-free-algorithms.html#covariance-matrix-adaptation"><i class="fa fa-check"></i><b>15.2.3</b> Covariance matrix adaptation</a></li>
+<li class="chapter" data-level="15.2.4" data-path="derivative-free-algorithms.html"><a href="derivative-free-algorithms.html#particle-swarm-optimization"><i class="fa fa-check"></i><b>15.2.4</b> Particle swarm optimization</a></li>
 </ul></li>
-<li class="chapter" data-level="16.3" data-path="derivative-free-algorithms.html"><a href="derivative-free-algorithms.html#causality"><i class="fa fa-check"></i><b>16.3</b> Causality</a></li>
-<li class="chapter" data-level="16.4" data-path="derivative-free-algorithms.html"><a href="derivative-free-algorithms.html#correlation"><i class="fa fa-check"></i><b>16.4</b> Correlation</a></li>
-<li class="chapter" data-level="16.5" data-path="derivative-free-algorithms.html"><a href="derivative-free-algorithms.html#anova"><i class="fa fa-check"></i><b>16.5</b> Anova</a></li>
 </ul></li>
+<li class="part"><span><b>III Statistics</b></span></li>
+<li class="chapter" data-level="16" data-path="introduction-2.html"><a href="introduction-2.html"><i class="fa fa-check"></i><b>16</b> Introduction</a></li>
+<li class="chapter" data-level="17" data-path="basics-statistics.html"><a href="basics-statistics.html"><i class="fa fa-check"></i><b>17</b> Basics statistics</a><ul>
+<li class="chapter" data-level="17.1" data-path="basics-statistics.html"><a href="basics-statistics.html#correlation"><i class="fa fa-check"></i><b>17.1</b> Correlation</a></li>
+<li class="chapter" data-level="17.2" data-path="basics-statistics.html"><a href="basics-statistics.html#moments"><i class="fa fa-check"></i><b>17.2</b> Moments</a></li>
+<li class="chapter" data-level="17.3" data-path="basics-statistics.html"><a href="basics-statistics.html#covariance-matrix"><i class="fa fa-check"></i><b>17.3</b> Covariance matrix</a></li>
+<li class="chapter" data-level="17.4" data-path="basics-statistics.html"><a href="basics-statistics.html#distributions"><i class="fa fa-check"></i><b>17.4</b> Distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="statistical-analysis.html"><a href="statistical-analysis.html"><i class="fa fa-check"></i><b>18</b> Statistical analysis</a><ul>
+<li class="chapter" data-level="18.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#statistical-tests"><i class="fa fa-check"></i><b>18.1</b> Statistical tests</a></li>
+<li class="chapter" data-level="18.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#causality"><i class="fa fa-check"></i><b>18.2</b> Causality</a></li>
+<li class="chapter" data-level="18.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#anova"><i class="fa fa-check"></i><b>18.3</b> Anova</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="terms-and-notations.html"><a href="terms-and-notations.html"><i class="fa fa-check"></i><b>19</b> Terms and notations</a></li>
 </ul>
 
       </nav>
@@ -495,18 +513,34 @@ Figure 2.9: Example of how KNN works. The “closest” instances to a new insta
 <p>One vs all</p>
 
 </div>
-<div id="performance-measures" class="section level2">
-<h2><span class="header-section-number">2.10</span> Performance measures</h2>
-<p>Signal detection</p>
-<p>Confusion matrix</p>
+<div id="performance-measures-and-evaluation" class="section level2">
+<h2><span class="header-section-number">2.10</span> Performance measures and evaluation</h2>
+<p>Consider we are solving a binary (2-class) classification problem using classification algorithm. Let’s assume there are 100 items of class 1 and 200 of the class 0 in our training set. The classifier uses this data set to learn the patter of the data and provide a general rule to classify the instances. After training, it can classify 75 items of the class 0 and 190 of the class 1 correctly. Now, the question is, how well the classifier is doing its job? One simple way is to calculate the error percentage: <span class="math inline">\(100\frac{75+190}{100+200}=88.3\)</span> percent.</p>
+<div id="signal-detection" class="section level3">
+<h3><span class="header-section-number">2.10.1</span> Signal detection</h3>
+<p>Signal detection claims that the error percentage is not accurate measure of performance as it ignores the frequency of the items. For example, in the example above, the number of items in class 1 is twice as much as the the number of items in the class 0. This is usually the case in real-world data sets, i.e., the number of items in classes is imbalance (the number of unhealthy subjects is much smaller than the number of healthy ones). This poses lots of complications to the evaluation of classification methods. For example, assume that the number of items in one class is 100 times larger than the number of items in the other. Mis-classification of items from the smaller class leads to more “catastrophic” descisions as</p>
 <p>Specificty and ???</p>
-<p>receiver operating characteristic</p>
-<p>Area under the ROC</p>
-<p>Benchmarking <a href="https://github.com/EpistasisLab/penn-ml-benchmarks" class="uri">https://github.com/EpistasisLab/penn-ml-benchmarks</a> <a href="https://www.openml.org/home" class="uri">https://www.openml.org/home</a></p>
-<p>Stratified</p>
-<p>cross validation and random permutation</p>
-<p>Imbalance datasets</p>
+</div>
+<div id="receiver-operating-characteristic-roc-and-area-under-the-curve-auc" class="section level3">
+<h3><span class="header-section-number">2.10.2</span> receiver operating characteristic (ROC) and Area under the curve (AUC)</h3>
+</div>
+<div id="confusion-matrix" class="section level3">
+<h3><span class="header-section-number">2.10.3</span> Confusion matrix</h3>
+</div>
+<div id="benchmarking" class="section level3">
+<h3><span class="header-section-number">2.10.4</span> Benchmarking</h3>
+<p><a href="https://github.com/EpistasisLab/penn-ml-benchmarks" class="uri">https://github.com/EpistasisLab/penn-ml-benchmarks</a> <a href="https://www.openml.org/home" class="uri">https://www.openml.org/home</a></p>
+</div>
+<div id="stratified-sampling" class="section level3">
+<h3><span class="header-section-number">2.10.5</span> Stratified sampling</h3>
+</div>
+<div id="cross-validation-and-random-permutation" class="section level3">
+<h3><span class="header-section-number">2.10.6</span> Cross validation and random permutation</h3>
+</div>
+<div id="imbalance-datas-ets" class="section level3">
+<h3><span class="header-section-number">2.10.7</span> Imbalance datas ets</h3>
 
+</div>
 </div>
 </div>
 <h3>References</h3>
