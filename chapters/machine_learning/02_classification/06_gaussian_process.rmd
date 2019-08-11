@@ -1,3 +1,5 @@
 ## Gaussian process classifier {#gaussianprocessclassifier}
 
 TODO
+
+https://distill.pub/2019/visual-exploration-gaussian-processes/
