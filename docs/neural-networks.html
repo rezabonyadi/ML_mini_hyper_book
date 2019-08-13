@@ -24,7 +24,7 @@
 <meta name="author" content="Reza Bonyadi, Ph.D." />
 
 
-<meta name="date" content="2019-08-11" />
+<meta name="date" content="2019-08-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -108,7 +108,7 @@
 <li class="chapter" data-level="2.10.4" data-path="classification.html"><a href="classification.html#benchmarking"><i class="fa fa-check"></i><b>2.10.4</b> Benchmarking</a></li>
 <li class="chapter" data-level="2.10.5" data-path="classification.html"><a href="classification.html#stratified-sampling"><i class="fa fa-check"></i><b>2.10.5</b> Stratified sampling</a></li>
 <li class="chapter" data-level="2.10.6" data-path="classification.html"><a href="classification.html#cross-validation-and-random-permutation"><i class="fa fa-check"></i><b>2.10.6</b> Cross validation and random permutation</a></li>
-<li class="chapter" data-level="2.10.7" data-path="classification.html"><a href="classification.html#imbalance-datas-ets"><i class="fa fa-check"></i><b>2.10.7</b> Imbalance datas ets</a></li>
+<li class="chapter" data-level="2.10.7" data-path="classification.html"><a href="classification.html#imbalance-data-sets"><i class="fa fa-check"></i><b>2.10.7</b> Imbalance data sets</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>3</b> Regression</a><ul>
@@ -201,6 +201,7 @@
 <h1><span class="header-section-number">Chapter 6</span> Neural networks</h1>
 <p>Great question. Classification and regression are done by optimizing a “model” (a parametrized mathematical equation) which is expected to describe the data. A linear model is the simplest one while a deep network represents a highly flexible model for which the “Weights” are optimized by an optimization method (e.g., gradient descent) on the given data.</p>
 <p>If the number of data points is equal to or larger than the number of variables then the linear model has a unique global optimum, which is the only local optimum (so, basically one optimum). Hence, simple gradient descent can solve it to optimality (i.e., find the best linear model). For a highly flexible model like deep neural networks, the less data you have, the more local optima would appear in that highly flexible equation, which means there is a larger chance that the found local optimum by the optimization algorithm is far from the global optima. Hence, the more data you have the better until the global optimum is the only local optimum. Note, however, that if your network does not have many weights then you would not need many training instances too (as a rule of thumb).</p>
+<p><a href="http://playground.tensorflow.org/" class="uri">http://playground.tensorflow.org/</a></p>
 
 <div id="multi-layer-perceptron" class="section level2">
 <h2><span class="header-section-number">6.1</span> Multi-layer perceptron</h2>
