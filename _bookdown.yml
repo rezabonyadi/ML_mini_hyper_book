@@ -36,6 +36,7 @@ rmd_files:
   - chapters/machine_learning/08_ensembles/03_gradient_boost_tree.rmd
   - chapters/machine_learning/08_reinforcement_learning/01_reinforcement_learning.rmd
   - chapters/machine_learning/08_reinforcement_learning/02_q_learning.rmd
+  - chapters/machine_learning/08_reinforcement_learning/03_curiosity.rmd
   - chapters/machine_learning/09_bagging_boosting/01_bagging_boosting.rmd
   - chapters/machine_learning/09_bagging_boosting/02_xgboost.rmd
   - chapters/machine_learning/10_annomally_detection/01_annomally_detection.rmd
