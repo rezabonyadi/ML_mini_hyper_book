@@ -27,7 +27,7 @@ More details on this algorithm can be found in
 
 ### Implementation  
 
-[@andrewngcourse]
+[Stanford University Tutorial on Supervised Learning](http://ufldl.stanford.edu/tutorial/)
 
 Scipy and Sikit-Learn
 

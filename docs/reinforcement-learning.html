@@ -24,7 +24,7 @@
 <meta name="author" content="Reza Bonyadi, Ph.D." />
 
 
-<meta name="date" content="2019-08-15" />
+<meta name="date" content="2019-08-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -103,7 +103,7 @@
 <li class="chapter" data-level="2.9" data-path="classification.html"><a href="classification.html#turning-binary-classifiers-to-multi-class"><i class="fa fa-check"></i><b>2.9</b> Turning binary classifiers to multi-class</a></li>
 <li class="chapter" data-level="2.10" data-path="classification.html"><a href="classification.html#performance-measures-and-evaluation"><i class="fa fa-check"></i><b>2.10</b> Performance measures and evaluation</a><ul>
 <li class="chapter" data-level="2.10.1" data-path="classification.html"><a href="classification.html#signal-detection"><i class="fa fa-check"></i><b>2.10.1</b> Signal detection</a></li>
-<li class="chapter" data-level="2.10.2" data-path="classification.html"><a href="classification.html#receiver-operating-characteristic-roc-and-area-under-the-curve-auc"><i class="fa fa-check"></i><b>2.10.2</b> receiver operating characteristic (ROC) and Area under the curve (AUC)</a></li>
+<li class="chapter" data-level="2.10.2" data-path="classification.html"><a href="classification.html#receiver-operating-characteristic-roc-and-area-under-the-curve-auc"><i class="fa fa-check"></i><b>2.10.2</b> Receiver operating characteristic (ROC) and Area under the curve (AUC)</a></li>
 <li class="chapter" data-level="2.10.3" data-path="classification.html"><a href="classification.html#confusion-matrix"><i class="fa fa-check"></i><b>2.10.3</b> Confusion matrix</a></li>
 <li class="chapter" data-level="2.10.4" data-path="classification.html"><a href="classification.html#benchmarking"><i class="fa fa-check"></i><b>2.10.4</b> Benchmarking</a></li>
 <li class="chapter" data-level="2.10.5" data-path="classification.html"><a href="classification.html#stratified-sampling"><i class="fa fa-check"></i><b>2.10.5</b> Stratified sampling</a></li>
@@ -144,6 +144,7 @@
 <li class="chapter" data-level="9.1" data-path="reinforcement-learning.html"><a href="reinforcement-learning.html#q-learning"><i class="fa fa-check"></i><b>9.1</b> Q-learning</a></li>
 <li class="chapter" data-level="9.2" data-path="reinforcement-learning.html"><a href="reinforcement-learning.html#curiosity"><i class="fa fa-check"></i><b>9.2</b> Curiosity</a><ul>
 <li class="chapter" data-level="9.2.1" data-path="reinforcement-learning.html"><a href="reinforcement-learning.html#implementation-idea"><i class="fa fa-check"></i><b>9.2.1</b> Implementation idea</a></li>
+<li class="chapter" data-level="9.2.2" data-path="reinforcement-learning.html"><a href="reinforcement-learning.html#what-does-it-solve"><i class="fa fa-check"></i><b>9.2.2</b> What does it solve?</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="bagging-and-boosting.html"><a href="bagging-and-boosting.html"><i class="fa fa-check"></i><b>10</b> Bagging and boosting</a><ul>
@@ -218,6 +219,10 @@ Figure 9.1: The objective is to find a line/hyperplane that separates the instan
 <p>A good example of where curiosity can be helpful is in the game Montezuma’s Revenge (see Fig. <a href="reinforcement-learning.html#fig:montezuma">9.1</a>). The agent is required to find the “key” in the middle-left of the screen. To do so, it requires to find the path indicated in the figure, which is a quite complicated path. At the beginning, the agent has no idea about this environment, hence, it needs to explore options rather randomly. If the agent falls down or hits the skeleton, it will die. The agent does not receive any reward for most of the steps in this game, until it actually captures the key. Finding that successful path until the agent receives a reward randomly is close to impossible. In that case, because most paths lead to death rather than a reward, the agent would think that it would be better not to move at all to reduce the possibility of loss rather than finding any rewards. An intrinsic reward, here curiosity, would still keep the agent motivated to explore.</p>
 <div id="implementation-idea" class="section level3">
 <h3><span class="header-section-number">9.2.1</span> Implementation idea</h3>
+<p>Curiosity provides intrinsic motivation for the agent to explore alternative solutions which have been investigated less frequently. One frequently used implementation is based on the following assumption: If the agent can guess what is the consequence of its move at the current step then the agent has tried this path before, hence, intrinsic reward would be lower. Adding this intrinsic reward to the total reward, the agent would receive a reward for the movements that are “novel”, which encourages the agent to be “curious”. See <a href="https://arxiv.org/pdf/1808.04355.pdf" class="uri">https://arxiv.org/pdf/1808.04355.pdf</a> (<a href="https://arxiv.org/pdf/1808.04355.pdf" class="uri">https://arxiv.org/pdf/1808.04355.pdf</a>).</p>
+</div>
+<div id="what-does-it-solve" class="section level3">
+<h3><span class="header-section-number">9.2.2</span> What does it solve?</h3>
 
 </div>
 </div>

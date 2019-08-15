@@ -77,5 +77,5 @@ knitr::include_graphics('images/classification/0_1_loss_2.PNG')
 
 ### Implementation 
 
-Methods described in [@doerr2015direct] are in an algorithmic, step by step, format which makes implementation easier. The Python, Java, and Matlab code for [@bonyadi2019optimal] is available [@bonyadi2019optimalcode].  
+Methods described in [@doerr2015direct] are in an algorithmic, step by step, format which makes implementation easier. The Python, Java, and Matlab code for [@bonyadi2019optimal] is available [here](https://github.com/rezabonyadi/LinearOEC).  
 

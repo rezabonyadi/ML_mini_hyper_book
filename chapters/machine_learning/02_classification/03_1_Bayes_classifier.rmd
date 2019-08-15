@@ -16,7 +16,7 @@ Bayes classifier calculates the probability of the class of an instance $\vec x$
 P(Y=c|\vec x) = \frac{P(\vec x|Y=c)P(Y=c)}{P(\vec x)} (\#eq:bayesFormulae)
 \end{equation}
 
-where $P(\vec x|Y=c)$ is the likelihood of $\vec x$ belonging to class $c$ ($Y$ is the class label), $P(Y=c)$ is the prior knowledge about the class $c$ in general, and $P(\vec x)$ is called the evidence. Calculation of the evidence and likelihood is difficult as the instance $\vec x$ is a mixture of attributes, which may be dependent (see [@bayesNaiveWiki] for complete calculation of these probabilities). However, considering independence between variables, $P(\vec x|Y=c)=P(x_1|Y=c)P(x_2|Y=c)...P(x_n|Y=c)$. $P(Y=c)$ is easy to calculate as it is equal to the number of instances in the class $c$ divided by the number of instances in the training set. While the calculation of evidence is also straightforward under the independence assumption, it is not needed as it is constant across all classes.
+where $P(\vec x|Y=c)$ is the likelihood of $\vec x$ belonging to class $c$ ($Y$ is the class label), $P(Y=c)$ is the prior knowledge about the class $c$ in general, and $P(\vec x)$ is called the evidence. Calculation of the evidence and likelihood is difficult as the instance $\vec x$ is a mixture of attributes, which may be dependent (see [wikipedia page](https://en.wikipedia.org/wiki/Naive_Bayes_classifier) for complete calculation of these probabilities). However, considering independence between variables, $P(\vec x|Y=c)=P(x_1|Y=c)P(x_2|Y=c)...P(x_n|Y=c)$. $P(Y=c)$ is easy to calculate as it is equal to the number of instances in the class $c$ divided by the number of instances in the training set. While the calculation of evidence is also straightforward under the independence assumption, it is not needed as it is constant across all classes.
 
 Let's have an example. 
 
@@ -38,7 +38,8 @@ Given this data, we have been asked to which class a person belong if their Heig
 
 ### Continuous variables
 For discrete variables it is rather easy to calculate the probabilities based on the given instances. For continuous variables (e.g., age, weight), however, this probability need to follow a distribution. Given the distribution, one can calculate the probabilities 
-[@bayesNaiveWiki]
+
+The [wikipedia page](https://en.wikipedia.org/wiki/Naive_Bayes_classifier) provides very good description on this algorithm.
 
 ### Pros and cons
 

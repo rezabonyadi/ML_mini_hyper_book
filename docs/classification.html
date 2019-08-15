@@ -24,7 +24,7 @@
 <meta name="author" content="Reza Bonyadi, Ph.D." />
 
 
-<meta name="date" content="2019-08-15" />
+<meta name="date" content="2019-08-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -103,7 +103,7 @@
 <li class="chapter" data-level="2.9" data-path="classification.html"><a href="classification.html#turning-binary-classifiers-to-multi-class"><i class="fa fa-check"></i><b>2.9</b> Turning binary classifiers to multi-class</a></li>
 <li class="chapter" data-level="2.10" data-path="classification.html"><a href="classification.html#performance-measures-and-evaluation"><i class="fa fa-check"></i><b>2.10</b> Performance measures and evaluation</a><ul>
 <li class="chapter" data-level="2.10.1" data-path="classification.html"><a href="classification.html#signal-detection"><i class="fa fa-check"></i><b>2.10.1</b> Signal detection</a></li>
-<li class="chapter" data-level="2.10.2" data-path="classification.html"><a href="classification.html#receiver-operating-characteristic-roc-and-area-under-the-curve-auc"><i class="fa fa-check"></i><b>2.10.2</b> receiver operating characteristic (ROC) and Area under the curve (AUC)</a></li>
+<li class="chapter" data-level="2.10.2" data-path="classification.html"><a href="classification.html#receiver-operating-characteristic-roc-and-area-under-the-curve-auc"><i class="fa fa-check"></i><b>2.10.2</b> Receiver operating characteristic (ROC) and Area under the curve (AUC)</a></li>
 <li class="chapter" data-level="2.10.3" data-path="classification.html"><a href="classification.html#confusion-matrix"><i class="fa fa-check"></i><b>2.10.3</b> Confusion matrix</a></li>
 <li class="chapter" data-level="2.10.4" data-path="classification.html"><a href="classification.html#benchmarking"><i class="fa fa-check"></i><b>2.10.4</b> Benchmarking</a></li>
 <li class="chapter" data-level="2.10.5" data-path="classification.html"><a href="classification.html#stratified-sampling"><i class="fa fa-check"></i><b>2.10.5</b> Stratified sampling</a></li>
@@ -144,6 +144,7 @@
 <li class="chapter" data-level="9.1" data-path="reinforcement-learning.html"><a href="reinforcement-learning.html#q-learning"><i class="fa fa-check"></i><b>9.1</b> Q-learning</a></li>
 <li class="chapter" data-level="9.2" data-path="reinforcement-learning.html"><a href="reinforcement-learning.html#curiosity"><i class="fa fa-check"></i><b>9.2</b> Curiosity</a><ul>
 <li class="chapter" data-level="9.2.1" data-path="reinforcement-learning.html"><a href="reinforcement-learning.html#implementation-idea"><i class="fa fa-check"></i><b>9.2.1</b> Implementation idea</a></li>
+<li class="chapter" data-level="9.2.2" data-path="reinforcement-learning.html"><a href="reinforcement-learning.html#what-does-it-solve"><i class="fa fa-check"></i><b>9.2.2</b> What does it solve?</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="bagging-and-boosting.html"><a href="bagging-and-boosting.html"><i class="fa fa-check"></i><b>10</b> Bagging and boosting</a><ul>
@@ -296,7 +297,7 @@ Figure 2.6: 0/1 loss function is not sensitive to outliers while other loss func
 </div>
 <div id="implementation" class="section level3">
 <h3><span class="header-section-number">2.1.4</span> Implementation</h3>
-<p>Methods described in <span class="citation">(Doerr et al. <a href="#ref-doerr2015direct">2015</a>)</span> are in an algorithmic, step by step, format which makes implementation easier. The Python, Java, and Matlab code for <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimal">2019</a>)</span> is available <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimalcode">2018</a>)</span>.</p>
+<p>Methods described in <span class="citation">(Doerr et al. <a href="#ref-doerr2015direct">2015</a>)</span> are in an algorithmic, step by step, format which makes implementation easier. The Python, Java, and Matlab code for <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimal">2019</a>)</span> is available <a href="https://github.com/rezabonyadi/LinearOEC">here</a>.</p>
 
 </div>
 </div>
@@ -331,7 +332,7 @@ Figure 2.8: ????.
 </div>
 <div id="implementation-1" class="section level3">
 <h3><span class="header-section-number">2.2.4</span> Implementation</h3>
-<p><span class="citation">(Andrew Ng <a href="#ref-andrewngcourse">2016</a>)</span></p>
+<p><a href="http://ufldl.stanford.edu/tutorial/">Stanford University Tutorial on Supervised Learning</a></p>
 <p>Scipy and Sikit-Learn</p>
 
 </div>
@@ -351,7 +352,7 @@ Figure 2.8: ????.
 <span class="math display" id="eq:bayesFormulae">\[\begin{equation}
 P(Y=c|\vec x) = \frac{P(\vec x|Y=c)P(Y=c)}{P(\vec x)} \tag{2.3}
 \end{equation}\]</span>
-<p>where <span class="math inline">\(P(\vec x|Y=c)\)</span> is the likelihood of <span class="math inline">\(\vec x\)</span> belonging to class <span class="math inline">\(c\)</span> (<span class="math inline">\(Y\)</span> is the class label), <span class="math inline">\(P(Y=c)\)</span> is the prior knowledge about the class <span class="math inline">\(c\)</span> in general, and <span class="math inline">\(P(\vec x)\)</span> is called the evidence. Calculation of the evidence and likelihood is difficult as the instance <span class="math inline">\(\vec x\)</span> is a mixture of attributes, which may be dependent (see <span class="citation">(Wikipedia <a href="#ref-bayesNaiveWiki">2016</a>)</span> for complete calculation of these probabilities). However, considering independence between variables, <span class="math inline">\(P(\vec x|Y=c)=P(x_1|Y=c)P(x_2|Y=c)...P(x_n|Y=c)\)</span>. <span class="math inline">\(P(Y=c)\)</span> is easy to calculate as it is equal to the number of instances in the class <span class="math inline">\(c\)</span> divided by the number of instances in the training set. While the calculation of evidence is also straightforward under the independence assumption, it is not needed as it is constant across all classes.</p>
+<p>where <span class="math inline">\(P(\vec x|Y=c)\)</span> is the likelihood of <span class="math inline">\(\vec x\)</span> belonging to class <span class="math inline">\(c\)</span> (<span class="math inline">\(Y\)</span> is the class label), <span class="math inline">\(P(Y=c)\)</span> is the prior knowledge about the class <span class="math inline">\(c\)</span> in general, and <span class="math inline">\(P(\vec x)\)</span> is called the evidence. Calculation of the evidence and likelihood is difficult as the instance <span class="math inline">\(\vec x\)</span> is a mixture of attributes, which may be dependent (see <a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">wikipedia page</a> for complete calculation of these probabilities). However, considering independence between variables, <span class="math inline">\(P(\vec x|Y=c)=P(x_1|Y=c)P(x_2|Y=c)...P(x_n|Y=c)\)</span>. <span class="math inline">\(P(Y=c)\)</span> is easy to calculate as it is equal to the number of instances in the class <span class="math inline">\(c\)</span> divided by the number of instances in the training set. While the calculation of evidence is also straightforward under the independence assumption, it is not needed as it is constant across all classes.</p>
 <p>Let’s have an example.</p>
 <table>
 <caption><span id="tab:bayesExample">Table 2.1: </span> An example data-set of male/female with their characteristics.</caption>
@@ -419,7 +420,8 @@ P(Y=c|\vec x) = \frac{P(\vec x|Y=c)P(Y=c)}{P(\vec x)} \tag{2.3}
 </div>
 <div id="continuous-variables" class="section level3">
 <h3><span class="header-section-number">2.3.2</span> Continuous variables</h3>
-<p>For discrete variables it is rather easy to calculate the probabilities based on the given instances. For continuous variables (e.g., age, weight), however, this probability need to follow a distribution. Given the distribution, one can calculate the probabilities <span class="citation">(Wikipedia <a href="#ref-bayesNaiveWiki">2016</a>)</span></p>
+<p>For discrete variables it is rather easy to calculate the probabilities based on the given instances. For continuous variables (e.g., age, weight), however, this probability need to follow a distribution. Given the distribution, one can calculate the probabilities</p>
+<p>The <a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">wikipedia page</a> provides very good description on this algorithm.</p>
 </div>
 <div id="pros-and-cons-2" class="section level3">
 <h3><span class="header-section-number">2.3.3</span> Pros and cons</h3>
@@ -444,11 +446,7 @@ P(Y=c|\vec x) = \frac{P(\vec x|Y=c)P(Y=c)}{P(\vec x)} \tag{2.3}
 </div>
 <div id="support-vector-machines" class="section level2">
 <h2><span class="header-section-number">2.4</span> Support vector machines</h2>
-<p>Consider a binary classification problem and assume we want to use a hyperplane (linear model) to separate the classes. There might be many hyperplanes which separate the classes, all of which would result in the same mis-classification error. There is, however, only on of these hyperplanes which has maximum distance between the instances from both classes. This idea forms the bases for the support vector machine (SVM).</p>
-<ul>
-<li>What is support vector machine</li>
-<li></li>
-</ul>
+<p>Consider a binary classification problem and assume we want to use a hyperplane (linear model) to separate the classes. There might be many hyperplanes which separate the classes, all of which would result in the same mis-classification error. There is, however, only on of these hyperplanes which has maximum distance from the instances from both classes. This idea forms the bases for the support vector machine (SVM).</p>
 <div id="kernel-trick" class="section level3">
 <h3><span class="header-section-number">2.4.1</span> Kernel trick</h3>
 </div>
@@ -531,14 +529,17 @@ Figure 2.10: Example of how KNN works. The “closest” instances to a new inst
 </div>
 <div id="performance-measures-and-evaluation" class="section level2">
 <h2><span class="header-section-number">2.10</span> Performance measures and evaluation</h2>
-<p>Consider we are solving a binary (2-class) classification problem using classification algorithm. Let’s assume there are 100 items of class 1 and 200 of the class 0 in our training set. The classifier uses this data set to learn the patter of the data and provide a general rule to classify the instances. After training, it can classify 75 items of the class 0 and 190 of the class 1 correctly. Now, the question is, how well the classifier is doing its job? One simple way is to calculate the error percentage: <span class="math inline">\(100\frac{75+190}{100+200}=88.3\)</span> percent.</p>
+<p>Consider we are solving a binary (2-class) classification problem using a classification algorithm. Let’s assume there are 100 items of class 1 and 200 of the class 0 in our training set. The classifier uses this data set to learn the patter of the data and provide a general rule to classify the instances. After training, it can classify 75 items of the class 0 and 190 of the class 1 correctly. Now, the question is, how well the classifier is doing its job? One simple way is to calculate the error percentage: <span class="math inline">\(100\frac{75+190}{100+200}=88.3\)</span> percent. But is this number a good indicative of how well the classifier is performing?</p>
 <div id="signal-detection" class="section level3">
 <h3><span class="header-section-number">2.10.1</span> Signal detection</h3>
-<p>Signal detection claims that the error percentage is not accurate measure of performance as it ignores the frequency of the items. For example, in the example above, the number of items in class 1 is twice as much as the the number of items in the class 0. This is usually the case in real-world data sets, i.e., the number of items in classes is imbalance (the number of unhealthy subjects is much smaller than the number of healthy ones). This poses lots of complications to the evaluation of classification methods. For example, assume that the number of items in one class is 100 times larger than the number of items in the other. Mis-classification of items from the smaller class leads to more “catastrophic” decisions as the more rare events are usually the most valuable ones which need to be detected correctly.</p>
+<p>Signal detection claims that the error percentage is not an accurate measure of performance as it ignores the frequency of the items. For example, in the example above, the number of items in class 0 is twice as much as the the number of items in the class 1. This is usually the case in real-world data sets, i.e., the number of items in classes is imbalance (the number of unhealthy subjects is much smaller than the number of healthy ones). This poses lots of complications to the evaluation of classification methods. For example, assume that the number of items in one class is 100 times larger than the number of items in the other. Mis-classification of items from the smaller class leads to more “catastrophic” decisions as the more rare events are usually the most valuable ones which need to be detected correctly.</p>
+<p>Traditionally, it is assumed that the items in class 1 are the ones we want to recognize (e.g., unhealthy subjects) and items in class 0 are “normal” items. In reality, the frequency of items in class 1 is usually much smaller than the items in class 0. Note that, algebraically, the class labels do not make any difference to the problem and its solution. Here, however, for the sake of definitions, we consider class 1 as positive recognition of items.</p>
+<p>Signal detection measures four metrics to quantify performance: False positive, true positive, false negative, and true negative. * <strong><em>False positive</em></strong> (aka false alarm) is the number of responses which the classifier recognized as class 1 while they actually belong to class 0 (i.e., falsely recognized as positive). This is very important to be high when the number of instances in the classes is not balance. For example, if a classifier which is used for diagnosing an illness has a high false positive, it is likely to diagnose a healthy person as ill. Another example would be using a classifier to either invest or not to invest money on a business. High false positive would lead to loss of money. * <strong><em>True positive</em></strong> (aka hit) is the number of responses which the classifier recognized as 1 and they actually belong to class 1. We desire this to be as high as possible. This, however, might not be as important as it sounds. For example, in the investment example, one would prefer to deal with a low false positive and not to loose money than always invest correctly. In fact, a less frequent correct investment (low true positive) is ok, but not loosing money (low false positive) is very important. * <strong><em>False negative</em></strong> (aka miss) is the number of responses which the classifier recognized as 0 and they actually belong to class 1. This is particularly important in the illness diagnosis example. In fact, it is preferred to diagnose someone with a terminal illness (high false positive) and prescribe some more tests than missing if the person has a terminal illness and lead to their death. * <strong><em>True negative</em></strong> (aka ) is the number of responses which the classifier recognized as 0 and they actually belong to class 0.</p>
+<p>These four measures provide a better tool to evaluate the performance of the classifier. The importance of these factors, however, is problem dependent, as described by examples.</p>
 <p>Specificty and ???</p>
 </div>
 <div id="receiver-operating-characteristic-roc-and-area-under-the-curve-auc" class="section level3">
-<h3><span class="header-section-number">2.10.2</span> receiver operating characteristic (ROC) and Area under the curve (AUC)</h3>
+<h3><span class="header-section-number">2.10.2</span> Receiver operating characteristic (ROC) and Area under the curve (AUC)</h3>
 </div>
 <div id="confusion-matrix" class="section level3">
 <h3><span class="header-section-number">2.10.3</span> Confusion matrix</h3>
@@ -561,23 +562,14 @@ Figure 2.10: Example of how KNN works. The “closest” instances to a new inst
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
-<div id="ref-andrewngcourse">
-<p>Andrew Ng, Chuan Yu Foo, Jiquan Ngiam. 2016. “Stanford University Tutorial on Supervised Learning.” Accessed June 30. <a href="http://ufldl.stanford.edu/tutorial/" class="uri">http://ufldl.stanford.edu/tutorial/</a>.</p>
-</div>
 <div id="ref-bonyadi2019optimal">
 <p>Bonyadi, Mohammad Reza, and David C Reutens. 2019. “Optimal-Margin Evolutionary Classifier.” <em>IEEE Transactions on Evolutionary Computation</em>. IEEE. <a href="https://arxiv.org/abs/1804.09891" class="uri">https://arxiv.org/abs/1804.09891</a>.</p>
-</div>
-<div id="ref-bonyadi2019optimalcode">
-<p>Bonyadi, Mohammad Reza, and David C Reutens. 2018. “Optimal-Margin Evolutionary Classifier–source Code.” Accessed June 30. <a href="https://github.com/rezabonyadi/LinearOEC" class="uri">https://github.com/rezabonyadi/LinearOEC</a>.</p>
 </div>
 <div id="ref-doerr2015direct">
 <p>Doerr, Andreas, Nathan D Ratliff, Jeannette Bohg, Marc Toussaint, and Stefan Schaal. 2015. “Direct Loss Minimization Inverse Optimal Control.” In <em>Robotics: Science and Systems</em>. <a href="http://proceedings.mlr.press/v28/nguyen13a.pdf" class="uri">http://proceedings.mlr.press/v28/nguyen13a.pdf</a>.</p>
 </div>
 <div id="ref-ng2002discriminative">
 <p>Ng, Andrew Y, and Michael I Jordan. 2002. “On Discriminative Vs. Generative Classifiers: A Comparison of Logistic Regression and Naive Bayes.” In <em>Advances in Neural Information Processing Systems</em>, 841–48.</p>
-</div>
-<div id="ref-bayesNaiveWiki">
-<p>Wikipedia. 2016. “Wikipedia on Naive Bayes.” Accessed June 30. <a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier" class="uri">https://en.wikipedia.org/wiki/Naive_Bayes_classifier</a>.</p>
 </div>
 </div>
             </section>
