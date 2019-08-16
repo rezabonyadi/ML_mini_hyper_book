@@ -1,2 +1,4 @@
 ## Distributions
 
+
+How to measure dissimilarity between distributions? https://towardsdatascience.com/earth-movers-distance-68fff0363ef2
