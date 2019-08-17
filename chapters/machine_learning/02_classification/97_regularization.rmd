@@ -1,7 +1,7 @@
 ## The bias-variance debate {#sec:biasVariance} 
-Assume there is a set of instances, $X$ (m rows and n columns), given and we are asked to optimize a model $M(X, \theta)$ to estimate $Y$ (m rows). Also we know that $Y$ is noisy, i.e., $Y=\hat{Y}+\epsilon$, where \epsilon is the noise and $\hat{Y}$ is the actual, non-noisy, 
+Assume there is a set of given instances, $X$ (m rows and n columns), and we are asked to optimize a model $M(X, \theta)$ to estimate $Y$ (m rows). Let us call each instance x and its corresponding desired output as y. In reality, y is the outcome of a system working with inputs x, and some noise, $y=f(x)+\epsilon$, where f(.) is not known and \epsilon is noise. For example, if x represents characteristics of people and y is whether or not they gonna have heart-attack after their 50s, f(x) is how body is impacted by those characteristics and if it leads to a heart-attack, which is not really known. What we try to do is to estimate this f(x), given some examples and some assumptions of the shape of f. 
 
-After optimization, what we would get is $Y=M(X, \hat{\theta})+\epsilon$, where $\epsilon$ has $m$ rows and indicates the error from $Y$. If $\epsilon$ is very small then that means $M(X, \hat{\theta})$ is an accurate estimation of $Y$. Because the model by which we can perfectly fit $Y$ is not known, and $Y$ is not a smooth
+After optimization, what we would get is $Y=M(X, \hat{\theta})+\epsilon$, where $\epsilon$ has $m$ rows and indicates the error from $Y$. If $\epsilon$ is very small then that means $M(X, \hat{\theta})$ is an accurate estimation of $Y$. If the model M is a complex, flexible, equation then it will be able to fit any complex behavior of $Y$ as function of $X$, including all fluctuations. In that case, the outputs of the model will be very very similar to the values of $Y$ (non-biased), however, it will have lots of fluctuations, which leads to a high variance (large fluctuations usually leads to large variance). If the model is not complex though, the gap between the output of the model and $Y$ might be large (bias), however, it will not fit all fluctuations in the $Y$ which leads to smaller variance. That is why it is said a complex model has a large variance and small bias, and vice versa.
 
 ## Regularization
 
@@ -11,8 +11,7 @@ Let's assume that we are fitting a model $M(X, \theta)$ to the instances $X$, gi
 min_{\theta}  ~E(M(X, \theta), Y) (\#eq:optimizationOrginal)
 \end{equation}
 
-Depending on the definition of $E$ and $M$, this problem might not have a unique solution. Hence, the optimization algorithm should be informed which solution is more acceptable so that it converges to what it supposed to. Here comes regularization. It provides another constraint, formulated into the objective function for convenience, to make the solution unique. 
-
+Depending on the definition of $E$ and $M$, this problem might not have a unique solution. Hence, the optimization algorithm should be informed which solution is more acceptable so that it converges to what it supposed to. Here comes regularization. It provides another constraint, formulated into the objective function for convenience (see section ???? to see how is this possible), to make the solution unique, as follows: 
 
 \begin{equation}
 min_{\theta}  ~E(M(X, \theta), Y) + \alpha R(\theta) (\#eq:optimizationregularized)
