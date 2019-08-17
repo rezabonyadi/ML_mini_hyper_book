@@ -11,6 +11,7 @@ rmd_files:
   - chapters/machine_learning/02_classification/05_k_nearest_neighbor.rmd
   - chapters/machine_learning/02_classification/06_gaussian_process.rmd
   - chapters/machine_learning/02_classification/07_general_additive_model.rmd
+  - chapters/machine_learning/02_classification/97_regularization.rmd
   - chapters/machine_learning/02_classification/98_binary_to_multiclass.rmd
   - chapters/machine_learning/02_classification/99_performance_measures.rmd
   - chapters/machine_learning/03_regression/01_regression.rmd

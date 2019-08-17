@@ -1,0 +1,34 @@
+## The bias-variance debate {#sec:biasVariance} 
+Assume there is a set of instances, $X$ (m rows and n columns), given and we are asked to optimize a model $M(X, \theta)$ to estimate $Y$ (m rows). Also we know that $Y$ is noisy, i.e., $Y=\hat{Y}+\epsilon$, where \epsilon is the noise and $\hat{Y}$ is the actual, non-noisy, 
+
+After optimization, what we would get is $Y=M(X, \hat{\theta})+\epsilon$, where $\epsilon$ has $m$ rows and indicates the error from $Y$. If $\epsilon$ is very small then that means $M(X, \hat{\theta})$ is an accurate estimation of $Y$. Because the model by which we can perfectly fit $Y$ is not known, and $Y$ is not a smooth
+
+## Regularization
+
+Let's assume that we are fitting a model $M(X, \theta)$ to the instances $X$, given labels $Y$, using an optimization algorithm and an evaluation metric, $E(M(X, \theta), Y)$, which provides a scaler describing how dissimilar is $M(X, \theta)$ to the corresponding $Y$. 
+
+\begin{equation}
+min_{\theta}  ~E(M(X, \theta), Y) (\#eq:optimizationOrginal)
+\end{equation}
+
+Depending on the definition of $E$ and $M$, this problem might not have a unique solution. Hence, the optimization algorithm should be informed which solution is more acceptable so that it converges to what it supposed to. Here comes regularization. It provides another constraint, formulated into the objective function for convenience, to make the solution unique. 
+
+
+\begin{equation}
+min_{\theta}  ~E(M(X, \theta), Y) + \alpha R(\theta) (\#eq:optimizationregularized)
+\end{equation}
+
+where $R(\theta)$ is the regularization term and $\alpha$ is the regularization weight. 
+
+### Famous types
+As the idea is a "simpler" model has a better chance to generalize better (see Section \@ref(sec:biasVariance)), the regularization term is defined in a way that it simplifies the model. Two of most frequently used regularization terms are called $L_1$ (aka LASSO) and $L_2$ (special case of Tikhonov), defined by $||\theta||_1=\sum_i |\theta_i|$ and $||\theta||_2=\sum_i \theta_i^2$, respectively. 
+
+### More details
+
+See [wekipedia](https://en.wikipedia.org/wiki/Regularization_(mathematics)) for more information on this.
+
+
+Another useful regularization term is the $L_0$ which counts the number of non-zero 
+
+
+
