@@ -24,7 +24,7 @@
 <meta name="author" content="Reza Bonyadi, Ph.D." />
 
 
-<meta name="date" content="2019-08-17" />
+<meta name="date" content="2019-08-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -66,6 +66,9 @@
 <li class="part"><span><b>I Machine learning</b></span></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#raw-data-vs-characterized-data-features"><i class="fa fa-check"></i><b>1.1</b> Raw data vs characterized data (features)</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#supervised-and-unsupervised-algorithms"><i class="fa fa-check"></i><b>1.2</b> Supervised and unsupervised algorithms</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#supervised-models"><i class="fa fa-check"></i><b>1.3</b> Supervised models</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#sec:biasVariance"><i class="fa fa-check"></i><b>1.4</b> The bias-variance debate</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="classification.html"><a href="classification.html"><i class="fa fa-check"></i><b>2</b> Classification</a><ul>
 <li class="chapter" data-level="2.1" data-path="classification.html"><a href="classification.html#generative-vs.discriminative-classifiers"><i class="fa fa-check"></i><b>2.1</b> Generative vs. discriminative classifiers</a></li>
@@ -101,20 +104,19 @@
 </ul></li>
 <li class="chapter" data-level="2.8" data-path="classification.html"><a href="classification.html#gaussianprocessclassifier"><i class="fa fa-check"></i><b>2.8</b> Gaussian process classifier</a></li>
 <li class="chapter" data-level="2.9" data-path="classification.html"><a href="classification.html#general-additive-model"><i class="fa fa-check"></i><b>2.9</b> General additive model</a></li>
-<li class="chapter" data-level="2.10" data-path="classification.html"><a href="classification.html#sec:biasVariance"><i class="fa fa-check"></i><b>2.10</b> The bias-variance debate</a></li>
-<li class="chapter" data-level="2.11" data-path="classification.html"><a href="classification.html#regularization"><i class="fa fa-check"></i><b>2.11</b> Regularization</a><ul>
-<li class="chapter" data-level="2.11.1" data-path="classification.html"><a href="classification.html#famous-types"><i class="fa fa-check"></i><b>2.11.1</b> Famous types</a></li>
-<li class="chapter" data-level="2.11.2" data-path="classification.html"><a href="classification.html#more-details-4"><i class="fa fa-check"></i><b>2.11.2</b> More details</a></li>
+<li class="chapter" data-level="2.10" data-path="classification.html"><a href="classification.html#regularization"><i class="fa fa-check"></i><b>2.10</b> Regularization</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="classification.html"><a href="classification.html#famous-types"><i class="fa fa-check"></i><b>2.10.1</b> Famous types</a></li>
+<li class="chapter" data-level="2.10.2" data-path="classification.html"><a href="classification.html#more-details-4"><i class="fa fa-check"></i><b>2.10.2</b> More details</a></li>
 </ul></li>
-<li class="chapter" data-level="2.12" data-path="classification.html"><a href="classification.html#turning-binary-classifiers-to-multi-class"><i class="fa fa-check"></i><b>2.12</b> Turning binary classifiers to multi-class</a></li>
-<li class="chapter" data-level="2.13" data-path="classification.html"><a href="classification.html#performance-measures-and-evaluation"><i class="fa fa-check"></i><b>2.13</b> Performance measures and evaluation</a><ul>
-<li class="chapter" data-level="2.13.1" data-path="classification.html"><a href="classification.html#signal-detection"><i class="fa fa-check"></i><b>2.13.1</b> Signal detection</a></li>
-<li class="chapter" data-level="2.13.2" data-path="classification.html"><a href="classification.html#receiver-operating-characteristic-roc-and-area-under-the-curve-auc"><i class="fa fa-check"></i><b>2.13.2</b> Receiver operating characteristic (ROC) and Area under the curve (AUC)</a></li>
-<li class="chapter" data-level="2.13.3" data-path="classification.html"><a href="classification.html#confusion-matrix"><i class="fa fa-check"></i><b>2.13.3</b> Confusion matrix</a></li>
-<li class="chapter" data-level="2.13.4" data-path="classification.html"><a href="classification.html#benchmarking"><i class="fa fa-check"></i><b>2.13.4</b> Benchmarking</a></li>
-<li class="chapter" data-level="2.13.5" data-path="classification.html"><a href="classification.html#stratified-sampling"><i class="fa fa-check"></i><b>2.13.5</b> Stratified sampling</a></li>
-<li class="chapter" data-level="2.13.6" data-path="classification.html"><a href="classification.html#cross-validation-and-random-permutation"><i class="fa fa-check"></i><b>2.13.6</b> Cross validation and random permutation</a></li>
-<li class="chapter" data-level="2.13.7" data-path="classification.html"><a href="classification.html#imbalance-data-sets"><i class="fa fa-check"></i><b>2.13.7</b> Imbalance data sets</a></li>
+<li class="chapter" data-level="2.11" data-path="classification.html"><a href="classification.html#turning-binary-classifiers-to-multi-class"><i class="fa fa-check"></i><b>2.11</b> Turning binary classifiers to multi-class</a></li>
+<li class="chapter" data-level="2.12" data-path="classification.html"><a href="classification.html#performance-measures-and-evaluation"><i class="fa fa-check"></i><b>2.12</b> Performance measures and evaluation</a><ul>
+<li class="chapter" data-level="2.12.1" data-path="classification.html"><a href="classification.html#signal-detection"><i class="fa fa-check"></i><b>2.12.1</b> Signal detection</a></li>
+<li class="chapter" data-level="2.12.2" data-path="classification.html"><a href="classification.html#receiver-operating-characteristic-roc-and-area-under-the-curve-auc"><i class="fa fa-check"></i><b>2.12.2</b> Receiver operating characteristic (ROC) and Area under the curve (AUC)</a></li>
+<li class="chapter" data-level="2.12.3" data-path="classification.html"><a href="classification.html#confusion-matrix"><i class="fa fa-check"></i><b>2.12.3</b> Confusion matrix</a></li>
+<li class="chapter" data-level="2.12.4" data-path="classification.html"><a href="classification.html#benchmarking"><i class="fa fa-check"></i><b>2.12.4</b> Benchmarking</a></li>
+<li class="chapter" data-level="2.12.5" data-path="classification.html"><a href="classification.html#stratified-sampling"><i class="fa fa-check"></i><b>2.12.5</b> Stratified sampling</a></li>
+<li class="chapter" data-level="2.12.6" data-path="classification.html"><a href="classification.html#cross-validation-and-random-permutation"><i class="fa fa-check"></i><b>2.12.6</b> Cross validation and random permutation</a></li>
+<li class="chapter" data-level="2.12.7" data-path="classification.html"><a href="classification.html#imbalance-data-sets"><i class="fa fa-check"></i><b>2.12.7</b> Imbalance data sets</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>3</b> Regression</a><ul>
@@ -213,6 +215,20 @@
 <div id="raw-data-vs-characterized-data-features" class="section level2">
 <h2><span class="header-section-number">1.1</span> Raw data vs characterized data (features)</h2>
 <p>Feature space</p>
+</div>
+<div id="supervised-and-unsupervised-algorithms" class="section level2">
+<h2><span class="header-section-number">1.2</span> Supervised and unsupervised algorithms</h2>
+</div>
+<div id="supervised-models" class="section level2">
+<h2><span class="header-section-number">1.3</span> Supervised models</h2>
+<p>In a more general framework, given a set of instances, <span class="math inline">\(X\)</span>, with <span class="math inline">\(m\)</span> rows and <span class="math inline">\(n\)</span> columns (each row is an instance and each column is an attribute) and their associated classes, <span class="math inline">\(Y\)</span>, with <span class="math inline">\(m\)</span> rows (containing a categorical value in each row), a classifier is tasked to find an <em>optimal</em> model <span class="math inline">\(M(.,\theta)\)</span>, <span class="math inline">\(\theta\)</span> being model parameters (e.g., linear model), which for any given instance, <span class="math inline">\(x\)</span> (<span class="math inline">\(1\)</span> row and <span class="math inline">\(n\)</span> columns), can generate the class label, <span class="math inline">\(y\)</span>, correctly. The parameters <span class="math inline">\(\theta\)</span> are optimized by an optimizer for the model <span class="math inline">\(M\)</span> to best satisfy an <em>evaluation</em> metric (in some algorithms, this is called the <em>loss function</em>) which evaluates how similar <span class="math inline">\(M(.,\theta)\)</span> is to actual <span class="math inline">\(y\)</span> for each <span class="math inline">\(x\)</span> and any given <span class="math inline">\(\theta\)</span>.</p>
+<p>Usually, the given instances (training set) do not represent all possible instances for a given problem. Therefore, any model, in any shape and form, that separates the given instances and optimizes the evaluation measure is acceptable (purple, green, and orange lines in the figure). This means defining “the best model”, a model that not only separates the given instances but also all other unseen instances, is limited by the knowledge encoded in the training set. This incomplete knowledge about the data leads the designer to make some <em>assumptions</em> on the model and the evaluation metric upon which different classifiers are formulated. For example, support vector machines in their original form assume that the discriminatory rule is represented by a line (an assumption on the model, a linear model) which has the maximum distance from the instances in each class (an assumption on the evaluation metric). The idea is that such a line is more empirically robust against potential uncertainties in unseen instances.</p>
+<p>Note that the model is responsible to represent the “pattern” in the data in the most generic and accurate way, hence, very important to be designed carefully. You may ask why not picking the most flexible mathematical equation in existence (e.g., Taylor series) and optimize its parameters to fit the given data? Flexible models (e.g., deep networks) may be able to fit the data well (simply because they are flexible and can fit anything), however, they might not be able to <em>generalize</em> well, i.e., work well for unseen data. Sometimes the models come from specific knowledge about the problem, e.g., physics models.</p>
+</div>
+<div id="sec:biasVariance" class="section level2">
+<h2><span class="header-section-number">1.4</span> The bias-variance debate</h2>
+<p>Assume there is a set of given instances, <span class="math inline">\(X\)</span> (m rows and n columns), and we are asked to optimize a model <span class="math inline">\(M(X, \theta)\)</span> to estimate <span class="math inline">\(Y\)</span> (m rows) given some examples, i.e., supervised learning. Let us call each instance <span class="math inline">\(x\)</span> and its corresponding desired output as <span class="math inline">\(y\)</span>. In reality, <span class="math inline">\(y\)</span> is the outcome of a system working with inputs <span class="math inline">\(x\)</span>, and some noise, <span class="math inline">\(y=f(x)+\epsilon\)</span>, where <span class="math inline">\(f(.)\)</span> is not known and <span class="math inline">\(\epsilon\)</span> is noise which is also unknown. For example, if <span class="math inline">\(x\)</span> represents characteristics of people (smoking habit, weight, genetics, etc.) and <span class="math inline">\(y\)</span> is whether or not they would have a heart-attack after their 50s, then <span class="math inline">\(f(x)\)</span> is how body would respond to those characteristics and leads to a heart-attack or not, which is not really known. With modelling, we try to estimate this function <span class="math inline">\(f(x)\)</span>, given some examples and some assumptions on the shape of <span class="math inline">\(f\)</span>.</p>
+<p>After optimization, what we would get is <span class="math inline">\(Y=M(X, \hat{\theta})+\epsilon\)</span>, where <span class="math inline">\(\epsilon\)</span> has <span class="math inline">\(m\)</span> rows and indicates the error from <span class="math inline">\(Y\)</span>. If <span class="math inline">\(\epsilon\)</span> is very small then that means <span class="math inline">\(M(X, \hat{\theta})\)</span> is an accurate estimation of <span class="math inline">\(Y\)</span>. If the model M is a complex, flexible, equation then it will be able to fit any complex behavior of <span class="math inline">\(Y\)</span> as function of <span class="math inline">\(X\)</span>, including all fluctuations. In that case, the outputs of the model will be very very similar to the values of <span class="math inline">\(Y\)</span> (non-biased), however, it will have lots of fluctuations, which leads to a high variance (large fluctuations usually leads to large variance). If the model is not complex though, the gap between the output of the model and <span class="math inline">\(Y\)</span> might be large (bias), however, it will not fit all fluctuations in the <span class="math inline">\(Y\)</span> which leads to smaller variance. That is why it is said a complex model has a large variance and small bias, and vice versa.</p>
 
 </div>
 </div>
