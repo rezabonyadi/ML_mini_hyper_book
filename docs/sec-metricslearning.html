@@ -24,7 +24,7 @@
 <meta name="author" content="Reza Bonyadi, Ph.D." />
 
 
-<meta name="date" content="2019-08-18" />
+<meta name="date" content="2019-08-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -66,7 +66,7 @@
 <li class="part"><span><b>I Machine learning</b></span></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#raw-data-vs-characterized-data-features"><i class="fa fa-check"></i><b>1.1</b> Raw data vs characterized data (features)</a></li>
-<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#supervised-and-unsupervised-algorithms"><i class="fa fa-check"></i><b>1.2</b> Supervised and unsupervised algorithms</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#supervised-and-unsupervised-learning"><i class="fa fa-check"></i><b>1.2</b> Supervised and unsupervised learning</a></li>
 <li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#supervised-models"><i class="fa fa-check"></i><b>1.3</b> Supervised models</a></li>
 <li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#sec:biasVariance"><i class="fa fa-check"></i><b>1.4</b> The bias-variance debate</a></li>
 </ul></li>
@@ -126,7 +126,8 @@
 </ul></li>
 <li class="chapter" data-level="4" data-path="dimensionality-reduction.html"><a href="dimensionality-reduction.html"><i class="fa fa-check"></i><b>4</b> Dimensionality reduction</a><ul>
 <li class="chapter" data-level="4.1" data-path="dimensionality-reduction.html"><a href="dimensionality-reduction.html#matrix-decomposition"><i class="fa fa-check"></i><b>4.1</b> Matrix decomposition</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="dimensionality-reduction.html"><a href="dimensionality-reduction.html#singular-value-decomposition"><i class="fa fa-check"></i><b>4.1.1</b> Singular value decomposition</a></li>
+<li class="chapter" data-level="4.1.1" data-path="dimensionality-reduction.html"><a href="dimensionality-reduction.html#eigen-decomposition"><i class="fa fa-check"></i><b>4.1.1</b> Eigen decomposition</a></li>
+<li class="chapter" data-level="4.1.2" data-path="dimensionality-reduction.html"><a href="dimensionality-reduction.html#singular-value-decomposition"><i class="fa fa-check"></i><b>4.1.2</b> Singular value decomposition</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="dimensionality-reduction.html"><a href="dimensionality-reduction.html#principle-component-analysis"><i class="fa fa-check"></i><b>4.2</b> Principle component analysis</a></li>
 <li class="chapter" data-level="4.3" data-path="dimensionality-reduction.html"><a href="dimensionality-reduction.html#t-sne"><i class="fa fa-check"></i><b>4.3</b> T-SNE</a></li>
@@ -135,6 +136,7 @@
 </ul></li>
 <li class="chapter" data-level="5" data-path="sec-metricslearning.html"><a href="sec-metricslearning.html"><i class="fa fa-check"></i><b>5</b> Metrics learning</a><ul>
 <li class="chapter" data-level="5.1" data-path="sec-metricslearning.html"><a href="sec-metricslearning.html#large-margin-nearest-neighbor"><i class="fa fa-check"></i><b>5.1</b> Large margin nearest neighbor</a></li>
+<li class="chapter" data-level="5.2" data-path="sec-metricslearning.html"><a href="sec-metricslearning.html#metric-learning-for-kernel-regression"><i class="fa fa-check"></i><b>5.2</b> Metric learning for kernel regression</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="neural-networks.html"><a href="neural-networks.html"><i class="fa fa-check"></i><b>6</b> Neural networks</a><ul>
 <li class="chapter" data-level="6.1" data-path="neural-networks.html"><a href="neural-networks.html#multi-layer-perceptron"><i class="fa fa-check"></i><b>6.1</b> Multi-layer perceptron</a></li>
@@ -161,7 +163,9 @@
 </ul></li>
 <li class="chapter" data-level="11" data-path="sec-preprocessing.html"><a href="sec-preprocessing.html"><i class="fa fa-check"></i><b>11</b> Preprocessing</a></li>
 <li class="part"><span><b>II Optimziation</b></span></li>
-<li class="chapter" data-level="12" data-path="introduction-1.html"><a href="introduction-1.html"><i class="fa fa-check"></i><b>12</b> Introduction</a></li>
+<li class="chapter" data-level="12" data-path="introduction-1.html"><a href="introduction-1.html"><i class="fa fa-check"></i><b>12</b> Introduction</a><ul>
+<li class="chapter" data-level="12.1" data-path="introduction-1.html"><a href="introduction-1.html#derivative-free-vs-with-derivative-optimization-methods"><i class="fa fa-check"></i><b>12.1</b> Derivative-free vs with derivative optimization methods</a></li>
+</ul></li>
 <li class="chapter" data-level="13" data-path="optimization-problems.html"><a href="optimization-problems.html"><i class="fa fa-check"></i><b>13</b> Optimization problems</a><ul>
 <li class="chapter" data-level="13.1" data-path="optimization-problems.html"><a href="optimization-problems.html#single-and-multi-objective"><i class="fa fa-check"></i><b>13.1</b> Single and Multi objective</a></li>
 <li class="chapter" data-level="13.2" data-path="optimization-problems.html"><a href="optimization-problems.html#constrains-in-problems"><i class="fa fa-check"></i><b>13.2</b> Constrains in problems</a></li>
@@ -214,9 +218,19 @@
 <li>What is it</li>
 <li></li>
 </ul>
+<p><a href="http://contrib.scikit-learn.org/metric-learn/" class="uri">http://contrib.scikit-learn.org/metric-learn/</a></p>
 
 <div id="large-margin-nearest-neighbor" class="section level2">
 <h2><span class="header-section-number">5.1</span> Large margin nearest neighbor</h2>
+<p>Distance Metric Learning for Large Margin Nearest Neighbor Classification</p>
+<p><a href="https://pypi.org/project/PyLMNN/" class="uri">https://pypi.org/project/PyLMNN/</a></p>
+
+</div>
+<div id="metric-learning-for-kernel-regression" class="section level2">
+<h2><span class="header-section-number">5.2</span> Metric learning for kernel regression</h2>
+<p><a href="http://proceedings.mlr.press/v2/weinberger07a/weinberger07a.pdf" class="uri">http://proceedings.mlr.press/v2/weinberger07a/weinberger07a.pdf</a></p>
+<p><a href="http://contrib.scikit-learn.org/metric-learn/" class="uri">http://contrib.scikit-learn.org/metric-learn/</a></p>
+<p>With sparse metric: <a href="https://arxiv.org/pdf/1712.09001.pdf" class="uri">https://arxiv.org/pdf/1712.09001.pdf</a></p>
 
 </div>
 </div>

@@ -45,9 +45,10 @@ The [wikipedia page](https://en.wikipedia.org/wiki/Naive_Bayes_classifier) provi
 
 **Pros**:
 
-* It is easy and fast to predict class of test data set. It also performs well in multi class prediction.
+* It is easy and very fast to predict class of test data set. 
 * When assumption of independence holds, a Naive Bayes classifier performs better compare to other models like logistic regression and you need less training data.
-* It performs well in case of categorical input variables compared to numerical variable(s). For numerical variable, normal distribution is assumed (bell curve, which is a strong assumption).
+* It performs well in case of categorical input variables compared to numerical variable(s). For numerical variable, normal distribution is assumed (bell curve, which is a strong assumption and might not be correct).
+* It works well with sparse datasets.
   
 **Cons**:
 

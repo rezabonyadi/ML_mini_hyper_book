@@ -2,9 +2,10 @@
 # Introduction
 
 
-
+Iterative 
 - What is optimziation
 - Examples
-- Derivative-free vs with derivative
+
+## Derivative-free vs with derivative optimization methods
 
 
