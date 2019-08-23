@@ -1,2 +1,3 @@
 ## Covariance matrix
 
+https://datascienceplus.com/understanding-the-covariance-matrix/
