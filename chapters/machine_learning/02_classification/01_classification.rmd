@@ -1,4 +1,5 @@
 # Classification
+***Category I***
 
 A *classification problem* asks for the category to which an instance belong, given the instance characteristics. An example of a classification problem is: given characteristics of a person, such as smoking habits, history of a heart attack in the family, number of hours of exercise per day, height, weight, among others, whether the person going to have a heart attack after their 50's (yes/no). Another example of a classification problem is to find the type of a tumor (benign, type 1, type 2, or type 3) given its characteristics (e.g., shape, color, genetic information, history of the patient, among others). For a given classification problem, a *classifier* seeks a generic *rule* (aka *model*) which generates the category for any given instance, e.g., a generic rule that gives the tumor category given the characteristics of the tumor. The classifier finds this generic rule based on some assumptions and a set of examples, i.e., "learns" from examples or supervised learning (see Section \@ref(sec:supervisedvsunsupervised) and \@ref(sec:supervisedmodels)). 
 
@@ -25,4 +26,5 @@ See [@ng2002discriminative] for a formal definition of discriminative classifica
 >* Different classification methods usually differ by their assumptions on the model, evaluation metric, and optimization method used.
 
 ## Generative vs. discriminative classifiers
+***Category I, D***
 

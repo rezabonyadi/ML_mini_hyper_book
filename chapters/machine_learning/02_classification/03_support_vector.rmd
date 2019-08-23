@@ -1,16 +1,20 @@
 ## Support vector machines
+***Category I***
 Consider a binary classification problem and assume we want to use a hyperplane (linear model) to separate the classes. There might be many hyperplanes which separate the classes, all of which would result in the same mis-classification error. There is, however, only on of these hyperplanes which has maximum distance from the instances from both classes. This idea forms the bases for the support vector machine (SVM). 
 
 
 
 ### Kernel trick
+***Category I, D***
 
 
 ### Some improvements
 
+
 ### More details
+***Category D***
 
 Also talk about dimensionality reduction
 
 ### Implementation
-
+***Category C***

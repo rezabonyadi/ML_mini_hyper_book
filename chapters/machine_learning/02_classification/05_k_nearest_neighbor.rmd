@@ -1,4 +1,5 @@
 ## K-nearest neighbor {#sec:KNN}
+***Category I***
 
 The k-nearest neighbor (KNN) classifier assumes that the instances "close" to one another have the same class label. Hence, to assign a class label to a new instance, KNN finds $k$ instances from the training data set to which the new instance is "closest" and use those labels to vote for the class label of the new instance (see Fig. \@ref(fig:KnnDemons)). 
 
@@ -9,6 +10,8 @@ knitr::include_graphics('./images/classification/01_knn_1.png')
 The "closeness" is defined by a distance measure, such as Euclidean distance. 
 
 ### Improvements
+***Category I***
+
 In KNN, some attributes may lead to a biased distance. For example, if one of the attributes is in the order of 1,000 and another is in the order of 0.1, the latter would have a small impact on the calculation of the distance. This is usually resolved by standardizing the space, which ensures all attributes are in the same range. This method, however, may break some structural integrity of the instances.
 
 Another issue is that some attributes might be misleading and their impact is better to be reduced. For example, Fig. \@ref(fig:KnnDimesions) indicates that the horizontal dimension is responsible for the green instance to be of the type "red". This, however, may not be correct as if the horizontal dimension shrinks then the green instance becomes closer to blue instances, which makes it a blue class.
@@ -21,6 +24,7 @@ This indeed leads to an in-accuracy in KNN; the algorithm does not take into acc
 
 
 ### Pros and cons
+***Category I***
 *Pros*: 
 
 * It is easy to implement.
@@ -36,6 +40,10 @@ This indeed leads to an in-accuracy in KNN; the algorithm does not take into acc
 * KNN does not provide any information about the importance of attributes. This, however, is resolved by optimizing a metric to transform the space to represent the training data optimally (see section \@ref(sec:metricslearning))
 
 ### More details
+***Category D***
 
+
+### Implementation
+***Category C***
 
 

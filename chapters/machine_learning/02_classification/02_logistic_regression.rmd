@@ -1,4 +1,5 @@
 ## Logistic regression
+***Category I***
 
 Logistic regression seeks a hyperplane which best discriminates two classes. The hyperplane is evaluated by a loss function which is a smooth (differentiable) estimation of the function used in the 0/1 loss function (see Section \@ref(sec:01lossMath)), hence, can be optimized effectively by a gradient descent. For a given hyperplane, the estimation provides a value between 0 and 1 (rather than 0 or 1 as it was the case in the 0/1 loss function) for each instance that represents to what extent the instance has been classified as the class 0 or class 1. While there might be many different choices for such function, logistic regression uses the logarithm sigmoid function that looks like Fig. \@ref(fig:logsig).
 
@@ -9,6 +10,7 @@ knitr::include_graphics('images/classification/logistic_func.PNG')
 In the figure, the $<\vec w, b>$ defines the distinguishing hyperplane ($\vec w$ is the norm of the plane and $b$ is the intercept). The value of $\vec w \vec x_i^T + b$ is an indication of the distance between the hyperplane and the instance while ths ign of it indicates to which side of the hyperplane ths instance belong. When we put this value for an instance in the logarithm sigmoid function, we would get a value close to zero when $\vec w \vec x_i^T + b<0$ and a value close to one otherwise. If $\vec w \vec x_i^T + b$ is close to zero the sigmoid function returns values closer to $0.5$, which may be interpreted as ambiguous. Ideal hyperplane would lead to large positive and large negative values for $\vec w \vec x_i^T + b$ to ensure smaller loss value.
 
 ### Variable importance
+***Category I***
 
 The coefficients of the hyperplane found by the logistic regression cannot be interpreted directly as indicator for variable importance. The reason is that the variables ranges might be inherently different, meaning that some coefficients need to be larger to compensate for larger values. For example, if the values of one variable is in the range of 1000 and the other is in the range of 0.1, it is expected that the coefficients related to the first variable to be larger. This, however, does not show that the first variable is more important than the second.
 
@@ -19,14 +21,16 @@ knitr::include_graphics(c('images/classification/v_importance_logistic_func_1.PN
 ```
 
 ### Pros and cons
+***Category I***
 It is easy to implement
 Can be effectively solved by second order optimization methods (see ????)
 
 ### More details
+***Category D***
 More details on this algorithm can be found in 
 
 ### Implementation  
-
+***Category C***
 [Stanford University Tutorial on Supervised Learning](http://ufldl.stanford.edu/tutorial/)
 
 Scipy and Sikit-Learn
