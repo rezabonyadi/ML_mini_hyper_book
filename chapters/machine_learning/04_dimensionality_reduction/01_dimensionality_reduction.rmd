@@ -1,7 +1,8 @@
 # Dimensionality reduction
+Assume that you have a classification problem, an input dataset $X$, with $m$ instances (rows) and $n$ features (columns), and response $Y$. If $n$ is very large then it might lead to performance issues with some algorithms for classification. Hence, it is desirable to find a way to represent the same dataset, with all $m$ rows, with smaller number of features. This can be done in two ways: ignoring the responses (supervised dimensionality reduction) or taking into account $Y$ (supervised). Unsupervised dimensionality reduction finds a representation of $X$ with smaller number of features. This, however, may damage some structures in the data that are important for the classification task. Supervised dimensionality reduction finds a representation with smaller $n$, taking into account the classes $Y$.
 
-- What is it
-- Supervised and unsupervised
+## More details
+
 
 ## Matrix decomposition
 In Mathematics, matrix decomposition aims to decompose a given matrix into two or more matrices for which the dot product is equal to th original matrix. It is usually desirable that the matrices decomposed have some specific characteristics. For example, some have 
