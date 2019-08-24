@@ -1,5 +1,5 @@
 ## Regularization
-***Category D***
+***Category Deep***
 
 Let's assume that we are fitting a model $M(X, \theta)$ to the instances $X$, given labels $Y$, using an optimization algorithm and an evaluation metric, $E(M(X, \theta), Y)$, which provides a scaler describing how dissimilar is $M(X, \theta)$ to the corresponding $Y$. 
 
@@ -16,12 +16,12 @@ min_{\theta}  ~E(M(X, \theta), Y) + \alpha R(\theta) (\#eq:optimizationregulariz
 where $R(\theta)$ is the regularization term and $\alpha$ is the regularization weight. 
 
 ### Famous types
-***Category D***
+***Category Deep***
 
 As the idea is a "simpler" model has a better chance to generalize better (see Section \@ref(sec:biasVariance)), the regularization term is defined in a way that it simplifies the model. Two of most frequently used regularization terms are called $L_1$ (aka LASSO) and $L_2$ (special case of Tikhonov), defined by $||\theta||_1=\sum_i |\theta_i|$ and $||\theta||_2=\sum_i \theta_i^2$, respectively. 
 
 ### More details
-***Category D***
+***Category Deep***
 
 See [wekipedia](https://en.wikipedia.org/wiki/Regularization_(mathematics)) for more information on this.
 

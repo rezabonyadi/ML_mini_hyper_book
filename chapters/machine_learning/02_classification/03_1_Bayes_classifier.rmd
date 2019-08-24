@@ -1,5 +1,5 @@
 ## Bayes classifier
-***Category I***
+***Category Intuitive***
 
 For a classification task, Bayes classifier calculates how likely it is that a given instance belongs to each class. Intuitively, the probability that a given instance, $\vec x$, belongs to a class $c$ depends on two main components:
 
@@ -11,7 +11,7 @@ For any given instance, we calculate these two and multiply their values. The ou
 This approach is called the *Bayes optimal classifier*. The first component is easy to calculate given the history. We can simply count the number of instances in the class $c$ and divide that by the total number of training instances, which represents how likely it is that an instance come from that class. The second component is very difficult, if possible, to calculate if we assume that the attributes are not independent. The reason is each instance is a *mix* of multiple attributes, some might be the same as what has been observed in the training set, some might not be. The comparison between these instances to calculate the *likelihood* is difficult as all attributes need to be considered at the same time. If we assume independence between variables, however, that probability is calculated easily. This is called the *Naive Bayes* classifier because the independence assumption is somewhat "naive". For a given instance $\vec x$, for each attribute, we calculate how likely it is that an instance from class $c$ has the same value as of $\vec x$ for that attribute, i.e., attributes are independent. We then multiply those probabilities which would be an estimate of the original likelihood with mixed variables. 
 
 ### More details
-***Category D***
+***Category Deep***
 Bayes classifier calculates the probability of the class of an instance $\vec x$ belonging to class $c$ given the instance, which is written as:
 
 \begin{equation}
@@ -39,13 +39,13 @@ Table: (\#tab:bayesExample) An example data-set of male/female with their charac
 Given this data, we have been asked to which class a person belong if their Height is 6 (>5.5, hence 'Y'), their Weight is 130 (<150, hence 'N'), and their Foot size is 8 (<10, hence 'N'). Prior probability of being male is 0.5 and being female is 0.5, based on the table. It is clear that $P(x_1=Y|Y=female)=0.25$, $P(x_2=N|Y=female)=P(x_3=N|Y=female)=1.0$, and $P(Y=male)=P(Y=female)=0.5$. Hence, $P(Y=female|\vec x=<Y, N, N>)=\frac{0.25 \times 1.0 \times 1.0 \times 0.5}{P(\vec x)}$ and $P(Y=male|\vec x=<Y, N, N>)=\frac{1.0 \times 0.25 \times 0.25 \times 0.5}{P(\vec x)}$.As the evidence is the same for both probabilities, it seems it is more likely that the given instance is a "female". See [this](https://www.geeksforgeeks.org/naive-bayes-classifiers/) for more examples and descriptions.
 
 ### Continuous variables
-***Category I, D***
+***Category Intuitive, Deep***
 For discrete variables it is rather easy to calculate the probabilities based on the given instances. For continuous variables (e.g., age, weight), however, this probability need to follow a distribution. Given the distribution, one can calculate the probabilities 
 
 The [wikipedia page](https://en.wikipedia.org/wiki/Naive_Bayes_classifier) provides very good description on this algorithm.
 
 ### Pros and cons
-***Category I***
+***Category Intuitive***
 
 **Pros**:
 
@@ -60,7 +60,7 @@ The [wikipedia page](https://en.wikipedia.org/wiki/Naive_Bayes_classifier) provi
 * Another limitation of Naive Bayes is the assumption of independent predictors. In real life, it is almost impossible that we get a set of predictors which are completely independent.
 
 ### Implementation
-***Category C***
+***Category Code***
 https://www.analyticsvidhya.com/blog/2017/09/naive-bayes-explained/
 
 For continuous variables, it is assumed that the variables follow a given description (usually normal) to be able to calculate the probability of . 

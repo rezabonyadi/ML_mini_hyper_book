@@ -24,7 +24,7 @@ This indeed leads to an in-accuracy in KNN; the algorithm does not take into acc
 
 
 ### Pros and cons
-***Category I***
+***Category Intuitive***
 *Pros*: 
 
 * It is easy to implement.
@@ -40,10 +40,10 @@ This indeed leads to an in-accuracy in KNN; the algorithm does not take into acc
 * KNN does not provide any information about the importance of attributes. This, however, is resolved by optimizing a metric to transform the space to represent the training data optimally (see section \@ref(sec:metricslearning))
 
 ### More details
-***Category D***
+***Category Deep***
 
 
 ### Implementation
-***Category C***
+***Category Code***
 
 
