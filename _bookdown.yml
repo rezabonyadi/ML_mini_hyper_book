@@ -43,12 +43,16 @@ rmd_files:
   - chapters/machine_learning/09_bagging_boosting/02_xgboost.rmd
   - chapters/machine_learning/10_annomally_detection/01_annomally_detection.rmd
   - chapters/machine_learning/11_preprocessing/01_preprocessing.rmd
+  - chapters/machine_learning/12_signal_processing/01_introduction_signal_processing.rmd
   - chapters/optimization/01_intro_optimization.rmd
   - chapters/optimization/02_optimization_problems/01_optimization_problems.rmd
   - chapters/optimization/03_derivative_based/01_derivatives.rmd
   - chapters/optimization/04_derivative_free/01_derivative_free.rmd
   - chapters/optimization/04_derivative_free/02_finite_different.rmd
   - chapters/optimization/04_derivative_free/03_population_based.rmd
+  - chapters/optimization/05_dealing_constraints/01_constraints.rmd
+  - chapters/optimization/05_dealing_constraints/02_dealing_constraints.rmd
+  - chapters/optimization/06_famous_forms/01_famous_forms.rmd
   - chapters/statistics/01_introduction.rmd
   - chapters/statistics/02_basics/01_basics.rmd
   - chapters/statistics/02_basics/02_correlation.rmd

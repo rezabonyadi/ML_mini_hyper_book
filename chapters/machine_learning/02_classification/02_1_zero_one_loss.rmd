@@ -60,6 +60,7 @@ There are multiple ways to find a hyper-plane which minimizes the original 0/1 l
 
 ### Pros and cons
 ***Category Intuitive***
+
 *Pros*: The 0/1 loss function in both above-mentioned forms is unbiased and not sensitive to outliers as any outlier would only contribute 1 unit to the loss function if it is miss-classified (see Fig. \@ref(fig:lossesExamples)). 
 
 
@@ -73,5 +74,6 @@ knitr::include_graphics('images/classification/0_1_loss_2.PNG')
 
 ### Implementation 
 ***Category Code***
+
 Methods described in [@doerr2015direct] are in an algorithmic, step by step, format which makes implementation easier. The Python, Java, and Matlab code for [@bonyadi2019optimal] is available [here](https://github.com/rezabonyadi/LinearOEC).  
 

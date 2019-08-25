@@ -25,6 +25,7 @@ This indeed leads to an in-accuracy in KNN; the algorithm does not take into acc
 
 ### Pros and cons
 ***Category Intuitive***
+
 *Pros*: 
 
 * It is easy to implement.

@@ -1,5 +1,6 @@
 ## Support vector machines
 ***Category Intuitive***
+
 Consider a binary classification problem and assume we want to use a hyperplane (linear model) to separate the classes. There might be many hyperplanes which separate the classes, all of which would result in the same mis-classification error. This encourages design of constraints which narrow down acceptable hyperplanes. One reasonable constraint is to pick the hyperplane which has maximum distance from the instances from both classes. This idea forms the bases for the support vector machine (SVM). 
 
 

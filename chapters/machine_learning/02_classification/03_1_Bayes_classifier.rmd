@@ -12,6 +12,7 @@ This approach is called the *Bayes optimal classifier*. The first component is e
 
 ### More details
 ***Category Deep***
+
 Bayes classifier calculates the probability of the class of an instance $\vec x$ belonging to class $c$ given the instance, which is written as:
 
 \begin{equation}
@@ -40,6 +41,7 @@ Given this data, we have been asked to which class a person belong if their Heig
 
 ### Continuous variables
 ***Category Intuitive, Deep***
+
 For discrete variables it is rather easy to calculate the probabilities based on the given instances. For continuous variables (e.g., age, weight), however, this probability need to follow a distribution. Given the distribution, one can calculate the probabilities 
 
 The [wikipedia page](https://en.wikipedia.org/wiki/Naive_Bayes_classifier) provides very good description on this algorithm.
@@ -61,6 +63,7 @@ The [wikipedia page](https://en.wikipedia.org/wiki/Naive_Bayes_classifier) provi
 
 ### Implementation
 ***Category Code***
+
 https://www.analyticsvidhya.com/blog/2017/09/naive-bayes-explained/
 
 For continuous variables, it is assumed that the variables follow a given description (usually normal) to be able to calculate the probability of . 

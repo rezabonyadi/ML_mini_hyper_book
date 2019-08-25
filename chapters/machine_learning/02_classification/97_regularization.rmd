@@ -7,7 +7,7 @@ Let's assume that we are fitting a model $M(X, \theta)$ to the instances $X$, gi
 min_{\theta}  ~E(M(X, \theta), Y) (\#eq:optimizationOrginal)
 \end{equation}
 
-Depending on the definition of $E$ and $M$, this problem might not have a unique solution. Hence, the optimization algorithm should be informed which solution is more acceptable so that it converges to what it supposed to. Here comes regularization. It provides another constraint, formulated into the objective function for convenience (see section ???? to see how is this possible), to make the solution unique, as follows: 
+Depending on the definition of $E$ and $M$, this problem might not have a unique solution. Hence, the optimization algorithm should be informed which solution is more acceptable so that it converges to what it supposed to. Here comes regularization. It provides another constraint, formulated into the objective function for convenience (see section \@ref(sec:lagrangian) to see how is this possible), to make the solution unique, as follows: 
 
 \begin{equation}
 min_{\theta}  ~E(M(X, \theta), Y) + \alpha R(\theta) (\#eq:optimizationregularized)

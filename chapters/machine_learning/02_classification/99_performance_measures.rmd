@@ -21,25 +21,25 @@ These four measures provide a better tool to evaluate the performance of the cla
 Specificty and ???
 
 ### Receiver operating characteristic (ROC) and Area under the curve (AUC)
-***Category I***
+***Category Intuitive***
 
 
 ### Confusion matrix
-***Category I***
+***Category Intuitive***
 
 
 ### Benchmarking
-***Category I, C***
+***Category Intuitive, Code***
 
 https://github.com/EpistasisLab/penn-ml-benchmarks
 https://www.openml.org/home
 
 ### Stratified sampling 
-***Category I***
+***Category Intuitive***
 
 ### Cross validation and random permutation
-***Category I, D***
+***Category Intuitive, Deep***
 
 ### Imbalance data sets
-***Category I, D***
+***Category Intuitive, Deep***
 
