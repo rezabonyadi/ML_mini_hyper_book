@@ -42,9 +42,7 @@ Given this data, we have been asked to which class a person belong if their Heig
 ### Continuous variables
 ***Category Intuitive, Deep***
 
-For discrete variables it is rather easy to calculate the probabilities based on the given instances. For continuous variables (e.g., age, weight), however, this probability need to follow a distribution. Given the distribution, one can calculate the probabilities 
-
-The [wikipedia page](https://en.wikipedia.org/wiki/Naive_Bayes_classifier) provides very good description on this algorithm.
+For discrete variables it is rather easy to calculate the probabilities based on the given instances. For continuous variables (e.g., age, weight), however, this probability needs to follow a distribution. Given the distribution, one can calculate the probabilities. The [wikipedia page](https://en.wikipedia.org/wiki/Naive_Bayes_classifier) provides very good description on this algorithm.
 
 ### Pros and cons
 ***Category Intuitive***
