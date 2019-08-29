@@ -1,2 +1,4 @@
 # Preprocessing {#sec:preprocessing}
 
+## Normalization and standardization
+
