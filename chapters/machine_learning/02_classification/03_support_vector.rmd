@@ -7,7 +7,8 @@ Consider a binary classification problem and assume we want to use a hyperplane 
 ```{r svm1, echo = FALSE, out.width = '50%', fig.cap = 'The blue line has the same distance from the instances in each class, which is the idea behind SVM.'}
 knitr::include_graphics('images/classification/svm_1.PNG')
 ```
-It is expected that SVM works better on the unseen instances. This, however, is not always true. 
+
+It is expected that SVM works better than Logistic Regression on the unseen instances. This, however, is not always true as the assumption behind SVM might not be always true and it is bound by the quality of the training data (see Section \@ref(sec:supervisedmodels)). 
 
 ### More details
 ***Category Deep***

@@ -23,6 +23,14 @@ As the idea is a "simpler" model has a better chance to generalize better (see S
 ### More details
 ***Category Deep***
 
+The regularization introduced in Eq. \@ref(eq:optimizationregularized) can be defined by a constrained optimization problem as follows:
+
+\begin{equation}
+min_{\theta}  ~E(M(X, \theta), Y)+\alpha \epsilon s.t. R(\theta)=\epsilon
+\end{equation}
+
+If $R(\theta)$ is the $L_1$, this constraint limits the 
+
 See [wekipedia](https://en.wikipedia.org/wiki/Regularization_(mathematics)) for more information on this.
 
 
