@@ -23,6 +23,8 @@ rmd_files:
   - chapters/machine_learning/04_dimensionality_reduction/04_t_sne.rmd
   - chapters/machine_learning/04_dimensionality_reduction/05_independent_component.rmd
   - chapters/machine_learning/04_dimensionality_reduction/06_partial_least_square.rmd
+  - chapters/machine_learning/04_dimensionality_reduction/07_linear_discriminant.rmd
+  - chapters/machine_learning/04_dimensionality_reduction/08_svm_dimensionality_reduction.rmd
   - chapters/machine_learning/05_metrics_learning/01_metrics_learning.rmd
   - chapters/machine_learning/05_metrics_learning/02_large_margin_nearest_neighbor.rmd
   - chapters/machine_learning/05_metrics_learning/03_kernel_regression.rmd

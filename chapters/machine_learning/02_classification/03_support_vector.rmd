@@ -12,7 +12,11 @@ It is expected that SVM works better than Logistic Regression on the unseen inst
 
 ### More details
 ***Category Deep***
+The linear model
 
+Use for dimensionality reduction
+
+One-class SVM
 
 ### Kernel trick
 ***Category Intuitive, Deep***

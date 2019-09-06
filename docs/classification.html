@@ -24,7 +24,7 @@
 <meta name="author" content="Reza Bonyadi, Ph.D." />
 
 
-<meta name="date" content="2019-08-31" />
+<meta name="date" content="2019-09-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -131,6 +131,8 @@
 <li class="chapter" data-level="4.3" data-path="dimensionality-reduction.html"><a href="dimensionality-reduction.html#t-sne"><i class="fa fa-check"></i><b>4.3</b> T-SNE</a></li>
 <li class="chapter" data-level="4.4" data-path="dimensionality-reduction.html"><a href="dimensionality-reduction.html#independent-component-analysis"><i class="fa fa-check"></i><b>4.4</b> Independent component analysis</a></li>
 <li class="chapter" data-level="4.5" data-path="dimensionality-reduction.html"><a href="dimensionality-reduction.html#partial-least-square"><i class="fa fa-check"></i><b>4.5</b> Partial least square</a></li>
+<li class="chapter" data-level="4.6" data-path="dimensionality-reduction.html"><a href="dimensionality-reduction.html#linear-discriminant-analysis"><i class="fa fa-check"></i><b>4.6</b> Linear discriminant analysis</a></li>
+<li class="chapter" data-level="4.7" data-path="dimensionality-reduction.html"><a href="dimensionality-reduction.html#svm-dimensionality-reduction"><i class="fa fa-check"></i><b>4.7</b> SVM dimensionality reduction</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="sec-metricslearning.html"><a href="sec-metricslearning.html"><i class="fa fa-check"></i><b>5</b> Metrics learning</a><ul>
 <li class="chapter" data-level="5.1" data-path="sec-metricslearning.html"><a href="sec-metricslearning.html#large-margin-nearest-neighbor"><i class="fa fa-check"></i><b>5.1</b> Large margin nearest neighbor</a></li>
@@ -157,7 +159,10 @@
 </ul></li>
 <li class="chapter" data-level="10" data-path="bagging-and-boosting.html"><a href="bagging-and-boosting.html"><i class="fa fa-check"></i><b>10</b> Bagging and boosting</a><ul>
 <li class="chapter" data-level="10.1" data-path="bagging-and-boosting.html"><a href="bagging-and-boosting.html#extreme-boosted-tree"><i class="fa fa-check"></i><b>10.1</b> Extreme boosted tree</a></li>
-<li class="chapter" data-level="10.2" data-path="bagging-and-boosting.html"><a href="bagging-and-boosting.html#anomaly-detection"><i class="fa fa-check"></i><b>10.2</b> Anomaly detection</a></li>
+<li class="chapter" data-level="10.2" data-path="bagging-and-boosting.html"><a href="bagging-and-boosting.html#anomaly-detection"><i class="fa fa-check"></i><b>10.2</b> Anomaly detection</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="bagging-and-boosting.html"><a href="bagging-and-boosting.html#autoencoder"><i class="fa fa-check"></i><b>10.2.1</b> Autoencoder</a></li>
+<li class="chapter" data-level="10.2.2" data-path="bagging-and-boosting.html"><a href="bagging-and-boosting.html#one-class-svm"><i class="fa fa-check"></i><b>10.2.2</b> One class SVM</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="sec-preprocessing.html"><a href="sec-preprocessing.html"><i class="fa fa-check"></i><b>11</b> Preprocessing</a><ul>
 <li class="chapter" data-level="11.1" data-path="sec-preprocessing.html"><a href="sec-preprocessing.html#normalization-and-standardization"><i class="fa fa-check"></i><b>11.1</b> Normalization and standardization</a></li>
@@ -354,18 +359,28 @@ Figure 2.8: ????.
 <div id="pros-and-cons-1" class="section level3">
 <h3><span class="header-section-number">2.3.2</span> Pros and cons</h3>
 <p><strong><em>Category Intuitive</em></strong></p>
-<p>It is easy to implement Can be effectively solved by second order optimization methods (see ????)</p>
+<ul>
+<li>Pros</li>
+<li>It is easy to implement</li>
+<li>Can be effectively solved by second order optimization methods (see ????)</li>
+<li>It supports sparse data</li>
+<li>Cons</li>
+<li></li>
+</ul>
 </div>
 <div id="more-details" class="section level3">
 <h3><span class="header-section-number">2.3.3</span> More details</h3>
 <p><strong><em>Category Deep</em></strong></p>
-<p>More details on this algorithm can be found in</p>
+<p>More details on this algorithm can be found in <a href="http://ufldl.stanford.edu/tutorial/">Stanford University Tutorial on Supervised Learning</a>.</p>
+<p>A derivative of Logistic Regression is the General Linear Model (GLM). ???</p>
 </div>
 <div id="implementation-1" class="section level3">
 <h3><span class="header-section-number">2.3.4</span> Implementation</h3>
 <p><strong><em>Category Code</em></strong></p>
-<p><a href="http://ufldl.stanford.edu/tutorial/">Stanford University Tutorial on Supervised Learning</a></p>
-<p>Scipy and Sikit-Learn</p>
+<ul>
+<li><strong>Implementation from scratch</strong>: see <a href="http://ufldl.stanford.edu/tutorial/">Stanford University Tutorial on Supervised Learning</a>.</li>
+<li><strong>In Python</strong>: the <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.logistic.html">Scipy</a> library and the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">Sikit-Learn</a> library both have implementation of this.</li>
+</ul>
 
 </div>
 </div>
@@ -466,18 +481,22 @@ P(Y=c|\vec x) = \frac{P(\vec x|Y=c)P(Y=c)}{P(\vec x)} \tag{2.3}
 <li>When assumption of independence holds, a Naive Bayes classifier performs better compare to other models like logistic regression and you need less training data.</li>
 <li>It performs well in case of categorical input variables compared to numerical variable(s). For numerical variable, normal distribution is assumed (bell curve, which is a strong assumption and might not be correct).</li>
 <li>It works well with sparse datasets.</li>
+<li>Organically handle multiple classes.</li>
+<li>They are generative and can be easily interpreted as discriminative</li>
+<li>Missed values can be easily dealt with</li>
+<li>If the value for a variable is missed completely, they would still work with simple tricks (not the case for many classifiers)</li>
 </ul>
 <p><strong>Cons</strong>:</p>
 <ul>
 <li>If categorical variable has a category (in test data set), which was not observed in training data set, then model will assign a 0 (zero) probability and will be unable to make a prediction. This is often known as “Zero Frequency”. To solve this, we can use the smoothing technique.</li>
 <li>Another limitation of Naive Bayes is the assumption of independent predictors. In real life, it is almost impossible that we get a set of predictors which are completely independent.</li>
+<li>For continuous variables, it is assumed that the variables follow a given distribution (usually normal) to be able to calculate the probability, which may not be accurate.</li>
 </ul>
 </div>
 <div id="implementation-2" class="section level3">
 <h3><span class="header-section-number">2.4.4</span> Implementation</h3>
 <p><strong><em>Category Code</em></strong></p>
-<p><a href="https://www.analyticsvidhya.com/blog/2017/09/naive-bayes-explained/" class="uri">https://www.analyticsvidhya.com/blog/2017/09/naive-bayes-explained/</a></p>
-<p>For continuous variables, it is assumed that the variables follow a given description (usually normal) to be able to calculate the probability of .</p>
+<p>For implementation from scratch see <a href="https://www.analyticsvidhya.com/blog/2017/09/naive-bayes-explained/">here</a>. In Python, <a href="https://scikit-learn.org/stable/modules/naive_bayes.html">scikit-learn</a> can be used.</p>
 
 </div>
 </div>
@@ -494,7 +513,9 @@ Figure 2.9: The blue line has the same distance from the instances in each class
 <p>It is expected that SVM works better than Logistic Regression on the unseen instances. This, however, is not always true as the assumption behind SVM might not be always true and it is bound by the quality of the training data (see Section <a href="introduction.html#sec:supervisedmodels">1.3</a>).</p>
 <div id="more-details-2" class="section level3">
 <h3><span class="header-section-number">2.5.1</span> More details</h3>
-<p><strong><em>Category Deep</em></strong></p>
+<p><strong><em>Category Deep</em></strong> The linear model</p>
+<p>Use for dimensionality reduction</p>
+<p>One-class SVM</p>
 </div>
 <div id="kernel-trick" class="section level3">
 <h3><span class="header-section-number">2.5.2</span> Kernel trick</h3>
@@ -590,7 +611,8 @@ Figure 2.12: Example of how KNN works. The “closest” instances to a new inst
 <span class="math display" id="eq:optimizationOrginal">\[\begin{equation}
 min_{\theta}  ~E(M(X, \theta), Y) \tag{2.4}
 \end{equation}\]</span>
-<p>Depending on the definition of <span class="math inline">\(E\)</span> and <span class="math inline">\(M\)</span>, this problem might not have a unique solution. Hence, the optimization algorithm should be informed which solution is more acceptable so that it converges to what it supposed to. Here comes regularization. It provides another constraint, formulated into the objective function for convenience (see section <a href="what-are-constraints.html#sec:lagrangian">17.1.1</a> to see how is this possible), to make the solution unique, as follows:</p>
+<p>Depending on the definition of <span class="math inline">\(E\)</span> and <span class="math inline">\(M\)</span>, this problem might not have a unique solution. Hence, the optimization algorithm should be informed which solution is more acceptable so that it converges to what it supposed to. It is also possible that the optimizer perceives an “illusion” of better solutions, see <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimal">2019</a>)</span> for details.</p>
+<p>Here comes regularization. It provides another constraint, formulated into the objective function for convenience (see section <a href="what-are-constraints.html#sec:lagrangian">17.1.1</a> to see how is this possible), to make the solution unique and regulate the illusions, as follows:</p>
 <span class="math display" id="eq:optimizationregularized">\[\begin{equation}
 min_{\theta}  ~E(M(X, \theta), Y) + \alpha R(\theta) \tag{2.5}
 \end{equation}\]</span>
@@ -603,6 +625,11 @@ min_{\theta}  ~E(M(X, \theta), Y) + \alpha R(\theta) \tag{2.5}
 <div id="more-details-4" class="section level3">
 <h3><span class="header-section-number">2.10.2</span> More details</h3>
 <p><strong><em>Category Deep</em></strong></p>
+<p>The regularization introduced in Eq. <a href="classification.html#eq:optimizationregularized">(2.5)</a> can be defined by a constrained optimization problem as follows:</p>
+<span class="math display">\[\begin{equation}
+min_{\theta}  ~E(M(X, \theta), Y)+\alpha \epsilon s.t. R(\theta) = \epsilon
+\end{equation}\]</span>
+<p>The Lagrangian of this problem is equivalent to the original definition of regularization in Eq. <a href="classification.html#eq:optimizationregularized">(2.5)</a>. If <span class="math inline">\(R(\theta)\)</span> is the <span class="math inline">\(L_1\)</span>, this constraint limits the values of the parameters <span class="math inline">\(\theta\)</span> within a hyper cube, parameterized by <span class="math inline">\(\epsilon\)</span>. If <span class="math inline">\(L_2\)</span> is used, however, the parameter values are limited to a hyper-sphere, parameterized by <span class="math inline">\(\epsilon\)</span>.</p>
 <p>See <a href="https://en.wikipedia.org/wiki/Regularization_(mathematics)">wekipedia</a> for more information on this.</p>
 <p>Another useful regularization term is the <span class="math inline">\(L_0\)</span> which counts the number of non-zero</p>
 

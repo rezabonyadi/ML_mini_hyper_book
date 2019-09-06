@@ -23,18 +23,24 @@ knitr::include_graphics(c('images/classification/v_importance_logistic_func_1.PN
 ### Pros and cons
 ***Category Intuitive***
 
-It is easy to implement
-Can be effectively solved by second order optimization methods (see ????)
+- Pros
+  - It is easy to implement
+  - Can be effectively solved by second order optimization methods (see ????)
+  - It supports sparse data 
+- Cons
+  - 
+
 
 ### More details
 ***Category Deep***
 
-More details on this algorithm can be found in 
+More details on this algorithm can be found in [Stanford University Tutorial on Supervised Learning](http://ufldl.stanford.edu/tutorial/).
+
+A derivative of Logistic Regression is the General Linear Model (GLM). ???
 
 ### Implementation  
 ***Category Code***
 
-[Stanford University Tutorial on Supervised Learning](http://ufldl.stanford.edu/tutorial/)
-
-Scipy and Sikit-Learn
+- **Implementation from scratch**: see [Stanford University Tutorial on Supervised Learning](http://ufldl.stanford.edu/tutorial/). 
+- **In Python**: the [Scipy](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.logistic.html) library and the [Sikit-Learn](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) library both have implementation of this.
 

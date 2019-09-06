@@ -53,15 +53,19 @@ For discrete variables it is rather easy to calculate the probabilities based on
 * When assumption of independence holds, a Naive Bayes classifier performs better compare to other models like logistic regression and you need less training data.
 * It performs well in case of categorical input variables compared to numerical variable(s). For numerical variable, normal distribution is assumed (bell curve, which is a strong assumption and might not be correct).
 * It works well with sparse datasets.
+* Organically handle multiple classes.
+* They are generative and can be easily interpreted as discriminative
+* Missed values can be easily dealt with
+* If the value for a variable is missed completely, they would still work with simple tricks (not the case for many classifiers)
   
 **Cons**:
 
 * If categorical variable has a category (in test data set), which was not observed in training data set, then model will assign a 0 (zero) probability and will be unable to make a prediction. This is often known as “Zero Frequency”. To solve this, we can use the smoothing technique.
 * Another limitation of Naive Bayes is the assumption of independent predictors. In real life, it is almost impossible that we get a set of predictors which are completely independent.
+* For continuous variables, it is assumed that the variables follow a given distribution (usually normal) to be able to calculate the probability, which may not be accurate. 
 
 ### Implementation
 ***Category Code***
 
-https://www.analyticsvidhya.com/blog/2017/09/naive-bayes-explained/
+For implementation from scratch see [here](https://www.analyticsvidhya.com/blog/2017/09/naive-bayes-explained/). In Python, [scikit-learn](https://scikit-learn.org/stable/modules/naive_bayes.html) can be used.
 
-For continuous variables, it is assumed that the variables follow a given description (usually normal) to be able to calculate the probability of . 
