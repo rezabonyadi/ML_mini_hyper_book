@@ -52,7 +52,7 @@ For discrete variables it is rather easy to calculate the probabilities based on
 * It is easy and very fast to predict class of test data set. 
 * When assumption of independence holds, a Naive Bayes classifier performs better compare to other models like logistic regression and you need less training data.
 * It performs well in case of categorical input variables compared to numerical variable(s). For numerical variable, normal distribution is assumed (bell curve, which is a strong assumption and might not be correct).
-* It works well with sparse datasets.
+* It works well with sparse data-sets.
 * Organically handle multiple classes.
 * They are generative and can be easily interpreted as discriminative
 * Missed values can be easily dealt with

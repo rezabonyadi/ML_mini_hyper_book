@@ -12,7 +12,14 @@ It is expected that SVM works better than Logistic Regression on the unseen inst
 
 ### More details
 ***Category Deep***
-The linear model
+
+#### Formulation
+The aim of SVM is to find a hyperplane which separates two classes while it has the same distance from each class. To ensure the hyperplane, defined by $<\vec{\theta}, b>$ where $\theta$ is the norm of the hyperplane, separates an instance $\vec{x}_i$ correctly, the inequality $y_i(\vec{x}_i\vec{\theta}^T+b)>0$ should be true. If this inequality is true then the transformation of the instance $\vec{x}_i$ by $\vec{x}_i\vec{\theta}^T+b$ would have the same sign as $y_i$, which can be used to determine the class of $\vec{x}_i$. Hence, SVM is defined by a constrained optimization problem with $m$ constraints, where $m$ is the number of instances. The objective is then to minimize $||\theta||_2$, which ensures that the hyperplane has the same distance from both classes. Eventually, this forms a quadratic program that can be solved by different methods (see Section ???).
+
+See [wikipedia](https://en.wikipedia.org/wiki/Support-vector_machine#Linear_SVM) for more details on how this is formulated by the hinge loss and how it can be solved by gradient descent.
+
+#### The linear model
+While SVM aims can be formulated as a quadratic program, it can also be formulated by a linear program. 
 
 Use for dimensionality reduction
 
