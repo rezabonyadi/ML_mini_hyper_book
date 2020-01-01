@@ -1,1 +1,9 @@
 # Famous forms of optimization problems
+
+
+## Linear program
+
+## Quadratic objective with linear constraints
+
+## Quadratic objective and constraints
+

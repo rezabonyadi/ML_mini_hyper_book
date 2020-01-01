@@ -24,7 +24,7 @@
 <meta name="author" content="Reza Bonyadi, Ph.D." />
 
 
-<meta name="date" content="2019-09-06" />
+<meta name="date" content="2019-09-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -192,7 +192,11 @@
 <li class="chapter" data-level="17.1.1" data-path="what-are-constraints.html"><a href="what-are-constraints.html#sec:lagrangian"><i class="fa fa-check"></i><b>17.1.1</b> Lagrangian</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="famous-forms-of-optimization-problems.html"><a href="famous-forms-of-optimization-problems.html"><i class="fa fa-check"></i><b>18</b> Famous forms of optimization problems</a></li>
+<li class="chapter" data-level="18" data-path="famous-forms-of-optimization-problems.html"><a href="famous-forms-of-optimization-problems.html"><i class="fa fa-check"></i><b>18</b> Famous forms of optimization problems</a><ul>
+<li class="chapter" data-level="18.1" data-path="famous-forms-of-optimization-problems.html"><a href="famous-forms-of-optimization-problems.html#linear-program"><i class="fa fa-check"></i><b>18.1</b> Linear program</a></li>
+<li class="chapter" data-level="18.2" data-path="famous-forms-of-optimization-problems.html"><a href="famous-forms-of-optimization-problems.html#quadratic-objective-with-linear-constraints"><i class="fa fa-check"></i><b>18.2</b> Quadratic objective with linear constraints</a></li>
+<li class="chapter" data-level="18.3" data-path="famous-forms-of-optimization-problems.html"><a href="famous-forms-of-optimization-problems.html#quadratic-objective-and-constraints"><i class="fa fa-check"></i><b>18.3</b> Quadratic objective and constraints</a></li>
+</ul></li>
 <li class="part"><span><b>III Statistics</b></span></li>
 <li class="chapter" data-level="19" data-path="introduction-2.html"><a href="introduction-2.html"><i class="fa fa-check"></i><b>19</b> Introduction</a></li>
 <li class="chapter" data-level="20" data-path="basics-statistics.html"><a href="basics-statistics.html"><i class="fa fa-check"></i><b>20</b> Basics statistics</a><ul>
@@ -480,7 +484,7 @@ P(Y=c|\vec x) = \frac{P(\vec x|Y=c)P(Y=c)}{P(\vec x)} \tag{2.3}
 <li>It is easy and very fast to predict class of test data set.</li>
 <li>When assumption of independence holds, a Naive Bayes classifier performs better compare to other models like logistic regression and you need less training data.</li>
 <li>It performs well in case of categorical input variables compared to numerical variable(s). For numerical variable, normal distribution is assumed (bell curve, which is a strong assumption and might not be correct).</li>
-<li>It works well with sparse datasets.</li>
+<li>It works well with sparse data-sets.</li>
 <li>Organically handle multiple classes.</li>
 <li>They are generative and can be easily interpreted as discriminative</li>
 <li>Missed values can be easily dealt with</li>
@@ -503,19 +507,48 @@ P(Y=c|\vec x) = \frac{P(\vec x|Y=c)P(Y=c)}{P(\vec x)} \tag{2.3}
 <div id="support-vector-machines" class="section level2">
 <h2><span class="header-section-number">2.5</span> Support vector machines</h2>
 <p><strong><em>Category Intuitive</em></strong></p>
-<p>Consider a binary classification problem and assume we want to use a hyperplane (linear model) to separate the classes. There might be many hyperplanes which separate the classes, all of which would result in the same mis-classification error. This encourages design of constraints which narrow down acceptable hyperplanes. One reasonable constraint is to pick the hyperplane which has maximum distance from the instances from both classes. This idea forms the bases for the support vector machine (SVM).</p>
+<p>Consider a binary classification problem and assume we want to use a hyperplane (linear model) to separate the classes. There might be many hyperplanes which separate the classes, all of which would result in the same mis-classification error. This encourages design of constraints which narrow down acceptable hyperplanes.</p>
+<div class="figure"><span id="fig:manySolutions"></span>
+<img src="images/classification/svm_lots_of_choices.gif" alt="Many hyperplanes may perform similarly in separating classes." width="50%" />
+<p class="caption">
+Figure 2.9: Many hyperplanes may perform similarly in separating classes.
+</p>
+</div>
+<p>One reasonable constraint is to pick the hyperplane which has maximum distance from the instances from both classes. This idea forms the bases for the support vector machine (SVM).</p>
 <div class="figure"><span id="fig:svm1"></span>
 <img src="images/classification/svm_1.png" alt="The blue line has the same distance from the instances in each class, which is the idea behind SVM." width="50%" />
 <p class="caption">
-Figure 2.9: The blue line has the same distance from the instances in each class, which is the idea behind SVM.
+Figure 2.10: The blue line has the same distance from the instances in each class, which is the idea behind SVM.
 </p>
 </div>
 <p>It is expected that SVM works better than Logistic Regression on the unseen instances. This, however, is not always true as the assumption behind SVM might not be always true and it is bound by the quality of the training data (see Section <a href="introduction.html#sec:supervisedmodels">1.3</a>).</p>
 <div id="more-details-2" class="section level3">
 <h3><span class="header-section-number">2.5.1</span> More details</h3>
-<p><strong><em>Category Deep</em></strong> The linear model</p>
+<p><strong><em>Category Deep</em></strong></p>
+<div id="formulation" class="section level4">
+<h4><span class="header-section-number">2.5.1.1</span> Formulation</h4>
+<p>The aim of SVM is to find a hyperplane which separates two classes while it has the same distance from each class. To ensure the hyperplane, defined by <span class="math inline">\(&lt;\vec{\theta}, b&gt;\)</span> where <span class="math inline">\(\theta\)</span> is the norm of the hyperplane, separates an instance <span class="math inline">\(\vec{x}_i\)</span> correctly, the inequality <span class="math inline">\(y_i(\vec{x}_i\vec{\theta}^T+b)&gt;0\)</span> should be true. If this inequality is true then the transformation of the instance <span class="math inline">\(\vec{x}_i\)</span> by <span class="math inline">\(\vec{x}_i\vec{\theta}^T+b\)</span> would have the same sign as <span class="math inline">\(y_i\)</span>, which can be used to determine the class of <span class="math inline">\(\vec{x}_i\)</span>. Hence, SVM is defined by a constrained optimization problem with <span class="math inline">\(m\)</span> constraints, where <span class="math inline">\(m\)</span> is the number of instances. The objective is then to minimize <span class="math inline">\(||\theta||_2\)</span>, which ensures that the hyperplane has the same distance from both classes. Eventually, this forms a quadratic program that can be solved by different methods (see Section ???).</p>
+<p>See <a href="https://en.wikipedia.org/wiki/Support-vector_machine#Linear_SVM">wikipedia</a> for more details on how this is formulated by the hinge loss and how it can be solved by gradient descent.</p>
+<p><a href="https://jeremykun.com/2017/06/05/formulating-the-support-vector-machine-optimization-problem/" class="uri">https://jeremykun.com/2017/06/05/formulating-the-support-vector-machine-optimization-problem/</a></p>
+</div>
+<div id="the-linear-model" class="section level4">
+<h4><span class="header-section-number">2.5.1.2</span> The linear model</h4>
+<p>While SVM aims can be formulated as a quadratic program, it can also be formulated by a linear program.</p>
+<span class="math display" id="eq:lpsvm">\[\begin{equation}
+\begin{cases}
+min &amp; L=-r+C \sum_i^m{\epsilon_i}\\
+s.t. &amp; \\
+y_i(x_i\theta^T-b) \ge r-\epsilon_i &amp; i=1,...,m\\
+r \ge 0&amp;\\
+-1 \le \theta_j \le 1 &amp; j = 1,...,n\\
+\epsilon_i \ge 0 &amp; i=1,...,m
+\end{cases} \tag{2.4}
+\end{equation}\]</span>
+<p><span class="citation">(Zhou, Zhang, and Jiao <a href="#ref-zhou2002linear">2002</a>)</span></p>
 <p>Use for dimensionality reduction</p>
+<p><span class="citation">(Tao, Chu, and Wang <a href="#ref-tao2008recursive">2008</a>)</span></p>
 <p>One-class SVM</p>
+</div>
 </div>
 <div id="kernel-trick" class="section level3">
 <h3><span class="header-section-number">2.5.2</span> Kernel trick</h3>
@@ -523,7 +556,7 @@ Figure 2.9: The blue line has the same distance from the instances in each class
 <div class="figure"><span id="fig:svmRBF"></span>
 <img src="images/classification/svm_RBF.gif" alt="The blue line has the same distance from the instances in each class, which is the idea behind SVM." width="50%" />
 <p class="caption">
-Figure 2.10: The blue line has the same distance from the instances in each class, which is the idea behind SVM.
+Figure 2.11: The blue line has the same distance from the instances in each class, which is the idea behind SVM.
 </p>
 </div>
 </div>
@@ -545,11 +578,11 @@ Figure 2.10: The blue line has the same distance from the instances in each clas
 <div id="sec:KNN" class="section level2">
 <h2><span class="header-section-number">2.7</span> K-nearest neighbor</h2>
 <p><strong><em>Category I</em></strong></p>
-<p>The k-nearest neighbor (KNN) classifier assumes that the instances “close” to one another have the same class label. Hence, to assign a class label to a new instance, KNN finds <span class="math inline">\(k\)</span> instances from the training data set to which the new instance is “closest” and use those labels to vote for the class label of the new instance (see Fig. <a href="classification.html#fig:KnnDemons">2.11</a>).</p>
+<p>The k-nearest neighbor (KNN) classifier assumes that the instances “close” to one another have the same class label. Hence, to assign a class label to a new instance, KNN finds <span class="math inline">\(k\)</span> instances from the training data set to which the new instance is “closest” and use those labels to vote for the class label of the new instance (see Fig. <a href="classification.html#fig:KnnDemons">2.12</a>).</p>
 <div class="figure"><span id="fig:KnnDemons"></span>
 <img src="images/classification/01_knn_1.PNG" alt="Example of how KNN works. The &quot;closest&quot; instances to a new instance (green) are used to vote for its class label." width="50%" />
 <p class="caption">
-Figure 2.11: Example of how KNN works. The “closest” instances to a new instance (green) are used to vote for its class label.
+Figure 2.12: Example of how KNN works. The “closest” instances to a new instance (green) are used to vote for its class label.
 </p>
 </div>
 <p>The “closeness” is defined by a distance measure, such as Euclidean distance.</p>
@@ -557,11 +590,11 @@ Figure 2.11: Example of how KNN works. The “closest” instances to a new inst
 <h3><span class="header-section-number">2.7.1</span> Improvements</h3>
 <p><strong><em>Category I</em></strong></p>
 <p>In KNN, some attributes may lead to a biased distance. For example, if one of the attributes is in the order of 1,000 and another is in the order of 0.1, the latter would have a small impact on the calculation of the distance. This is usually resolved by standardizing the space, which ensures all attributes are in the same range. This method, however, may break some structural integrity of the instances.</p>
-<p>Another issue is that some attributes might be misleading and their impact is better to be reduced. For example, Fig. <a href="classification.html#fig:KnnDimesions">2.12</a> indicates that the horizontal dimension is responsible for the green instance to be of the type “red”. This, however, may not be correct as if the horizontal dimension shrinks then the green instance becomes closer to blue instances, which makes it a blue class.</p>
+<p>Another issue is that some attributes might be misleading and their impact is better to be reduced. For example, Fig. <a href="classification.html#fig:KnnDimesions">2.13</a> indicates that the horizontal dimension is responsible for the green instance to be of the type “red”. This, however, may not be correct as if the horizontal dimension shrinks then the green instance becomes closer to blue instances, which makes it a blue class.</p>
 <div class="figure"><span id="fig:KnnDimesions"></span>
 <img src="images/classification/knn_scale.png" alt="Example of how KNN works. The &quot;closest&quot; instances to a new instance (green) are used to vote for its class label." width="50%" />
 <p class="caption">
-Figure 2.12: Example of how KNN works. The “closest” instances to a new instance (green) are used to vote for its class label.
+Figure 2.13: Example of how KNN works. The “closest” instances to a new instance (green) are used to vote for its class label.
 </p>
 </div>
 <p>This indeed leads to an in-accuracy in KNN; the algorithm does not take into account the importance of attributes. This can be addressed by optimizing a metric which shrinks/contracts the space along different attributes to achieve the best transformation in which KNN performs best. See Section <a href="sec-metricslearning.html#sec:metricslearning">5</a> for details.</p>
@@ -609,12 +642,12 @@ Figure 2.12: Example of how KNN works. The “closest” instances to a new inst
 <p><strong><em>Category Deep</em></strong></p>
 <p>Let’s assume that we are fitting a model <span class="math inline">\(M(X, \theta)\)</span> to the instances <span class="math inline">\(X\)</span>, given labels <span class="math inline">\(Y\)</span>, using an optimization algorithm and an evaluation metric, <span class="math inline">\(E(M(X, \theta), Y)\)</span>, which provides a scaler describing how dissimilar is <span class="math inline">\(M(X, \theta)\)</span> to the corresponding <span class="math inline">\(Y\)</span>.</p>
 <span class="math display" id="eq:optimizationOrginal">\[\begin{equation}
-min_{\theta}  ~E(M(X, \theta), Y) \tag{2.4}
+min_{\theta}  ~E(M(X, \theta), Y) \tag{2.5}
 \end{equation}\]</span>
 <p>Depending on the definition of <span class="math inline">\(E\)</span> and <span class="math inline">\(M\)</span>, this problem might not have a unique solution. Hence, the optimization algorithm should be informed which solution is more acceptable so that it converges to what it supposed to. It is also possible that the optimizer perceives an “illusion” of better solutions, see <span class="citation">(Bonyadi and Reutens <a href="#ref-bonyadi2019optimal">2019</a>)</span> for details.</p>
 <p>Here comes regularization. It provides another constraint, formulated into the objective function for convenience (see section <a href="what-are-constraints.html#sec:lagrangian">17.1.1</a> to see how is this possible), to make the solution unique and regulate the illusions, as follows:</p>
 <span class="math display" id="eq:optimizationregularized">\[\begin{equation}
-min_{\theta}  ~E(M(X, \theta), Y) + \alpha R(\theta) \tag{2.5}
+min_{\theta}  ~E(M(X, \theta), Y) + \alpha R(\theta) \tag{2.6}
 \end{equation}\]</span>
 <p>where <span class="math inline">\(R(\theta)\)</span> is the regularization term and <span class="math inline">\(\alpha\)</span> is the regularization weight.</p>
 <div id="famous-types" class="section level3">
@@ -625,11 +658,11 @@ min_{\theta}  ~E(M(X, \theta), Y) + \alpha R(\theta) \tag{2.5}
 <div id="more-details-4" class="section level3">
 <h3><span class="header-section-number">2.10.2</span> More details</h3>
 <p><strong><em>Category Deep</em></strong></p>
-<p>The regularization introduced in Eq. <a href="classification.html#eq:optimizationregularized">(2.5)</a> can be defined by a constrained optimization problem as follows:</p>
+<p>The regularization introduced in Eq. <a href="classification.html#eq:optimizationregularized">(2.6)</a> can be defined by a constrained optimization problem as follows:</p>
 <span class="math display">\[\begin{equation}
 min_{\theta}  ~E(M(X, \theta), Y)+\alpha \epsilon s.t. R(\theta) = \epsilon
 \end{equation}\]</span>
-<p>The Lagrangian of this problem is equivalent to the original definition of regularization in Eq. <a href="classification.html#eq:optimizationregularized">(2.5)</a>. If <span class="math inline">\(R(\theta)\)</span> is the <span class="math inline">\(L_1\)</span>, this constraint limits the values of the parameters <span class="math inline">\(\theta\)</span> within a hyper cube, parameterized by <span class="math inline">\(\epsilon\)</span>. If <span class="math inline">\(L_2\)</span> is used, however, the parameter values are limited to a hyper-sphere, parameterized by <span class="math inline">\(\epsilon\)</span>.</p>
+<p>The Lagrangian of this problem is equivalent to the original definition of regularization in Eq. <a href="classification.html#eq:optimizationregularized">(2.6)</a>. If <span class="math inline">\(R(\theta)\)</span> is the <span class="math inline">\(L_1\)</span>, this constraint limits the values of the parameters <span class="math inline">\(\theta\)</span> within a hyper cube, parameterized by <span class="math inline">\(\epsilon\)</span>. If <span class="math inline">\(L_2\)</span> is used, however, the parameter values are limited to a hyper-sphere, parameterized by <span class="math inline">\(\epsilon\)</span>.</p>
 <p>See <a href="https://en.wikipedia.org/wiki/Regularization_(mathematics)">wekipedia</a> for more information on this.</p>
 <p>Another useful regularization term is the <span class="math inline">\(L_0\)</span> which counts the number of non-zero</p>
 
@@ -693,6 +726,12 @@ min_{\theta}  ~E(M(X, \theta), Y)+\alpha \epsilon s.t. R(\theta) = \epsilon
 </div>
 <div id="ref-ng2002discriminative">
 <p>Ng, Andrew Y, and Michael I Jordan. 2002. “On Discriminative Vs. Generative Classifiers: A Comparison of Logistic Regression and Naive Bayes.” In <em>Advances in Neural Information Processing Systems</em>, 841–48.</p>
+</div>
+<div id="ref-tao2008recursive">
+<p>Tao, Qing, Dejun Chu, and Jue Wang. 2008. “Recursive Support Vector Machines for Dimensionality Reduction.” <em>IEEE Transactions on Neural Networks</em> 19 (1). IEEE: 189–93.</p>
+</div>
+<div id="ref-zhou2002linear">
+<p>Zhou, Weida, Li Zhang, and Licheng Jiao. 2002. “Linear Programming Support Vector Machines.” <em>Pattern Recognition</em> 35 (12). Elsevier: 2927–36.</p>
 </div>
 </div>
             </section>

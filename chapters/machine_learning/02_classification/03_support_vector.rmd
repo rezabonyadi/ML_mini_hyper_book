@@ -1,7 +1,13 @@
 ## Support vector machines
 ***Category Intuitive***
 
-Consider a binary classification problem and assume we want to use a hyperplane (linear model) to separate the classes. There might be many hyperplanes which separate the classes, all of which would result in the same mis-classification error. This encourages design of constraints which narrow down acceptable hyperplanes. One reasonable constraint is to pick the hyperplane which has maximum distance from the instances from both classes. This idea forms the bases for the support vector machine (SVM). 
+Consider a binary classification problem and assume we want to use a hyperplane (linear model) to separate the classes. There might be many hyperplanes which separate the classes, all of which would result in the same mis-classification error. This encourages design of constraints which narrow down acceptable hyperplanes. 
+
+```{r manySolutions, echo = FALSE, out.width = '50%', fig.cap = 'Many hyperplanes may perform similarly in separating classes.'}
+knitr::include_graphics('images/classification/svm_lots_of_choices.gif')
+```
+
+One reasonable constraint is to pick the hyperplane which has maximum distance from the instances from both classes. This idea forms the bases for the support vector machine (SVM). 
 
 
 ```{r svm1, echo = FALSE, out.width = '50%', fig.cap = 'The blue line has the same distance from the instances in each class, which is the idea behind SVM.'}
@@ -9,6 +15,7 @@ knitr::include_graphics('images/classification/svm_1.PNG')
 ```
 
 It is expected that SVM works better than Logistic Regression on the unseen instances. This, however, is not always true as the assumption behind SVM might not be always true and it is bound by the quality of the training data (see Section \@ref(sec:supervisedmodels)). 
+
 
 ### More details
 ***Category Deep***
@@ -18,10 +25,32 @@ The aim of SVM is to find a hyperplane which separates two classes while it has 
 
 See [wikipedia](https://en.wikipedia.org/wiki/Support-vector_machine#Linear_SVM) for more details on how this is formulated by the hinge loss and how it can be solved by gradient descent.
 
+https://jeremykun.com/2017/06/05/formulating-the-support-vector-machine-optimization-problem/
+
 #### The linear model
 While SVM aims can be formulated as a quadratic program, it can also be formulated by a linear program. 
 
+\begin{equation}
+\begin{cases}
+min & L=-r+C \sum_i^m{\epsilon_i}\\
+s.t. & \\
+y_i(x_i\theta^T-b) \ge r-\epsilon_i & i=1,...,m\\
+r \ge 0&\\
+-1 \le \theta_j \le 1 & j = 1,...,n\\
+\epsilon_i \ge 0 & i=1,...,m
+\end{cases} (\#eq:lpsvm)
+\end{equation}
+
+[@zhou2002linear]
+
+adding l1 to this:
+
+https://download.aimms.com/aimms/download/manuals/AIMMS3OM_LinearProgrammingTricks.pdf
+
+
 Use for dimensionality reduction
+
+[@tao2008recursive]
 
 One-class SVM
 
