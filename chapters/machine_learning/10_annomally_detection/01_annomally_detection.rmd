@@ -1,10 +1,10 @@
-## Anomaly detection
+# Anomaly detection
 
 Highly imbalanced classification 
 
-### Autoencoder
+## Autoencoder
 
-### One class SVM
+## One class SVM
 
 
 

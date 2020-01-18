@@ -10,37 +10,9 @@ For any given instance, we calculate these two and multiply their values. The ou
 
 This approach is called the *Bayes optimal classifier*. The first component is easy to calculate given the history. We can simply count the number of instances in the class $c$ and divide that by the total number of training instances, which represents how likely it is that an instance come from that class. The second component is very difficult, if possible, to calculate if we assume that the attributes are not independent. The reason is each instance is a *mix* of multiple attributes, some might be the same as what has been observed in the training set, some might not be. The comparison between these instances to calculate the *likelihood* is difficult as all attributes need to be considered at the same time. If we assume independence between variables, however, that probability is calculated easily. This is called the *Naive Bayes* classifier because the independence assumption is somewhat "naive". For a given instance $\vec x$, for each attribute, we calculate how likely it is that an instance from class $c$ has the same value as of $\vec x$ for that attribute, i.e., attributes are independent. We then multiply those probabilities which would be an estimate of the original likelihood with mixed variables. 
 
-### More details
-***Category Deep***
 
-Bayes classifier calculates the probability of the class of an instance $\vec x$ belonging to class $c$ given the instance, which is written as:
+See [wikipedia page](https://en.wikipedia.org/wiki/Naive_Bayes_classifier) and [this](https://www.geeksforgeeks.org/naive-bayes-classifiers/) for examples.
 
-\begin{equation}
-P(Y=c|\vec x) = \frac{P(\vec x|Y=c)P(Y=c)}{P(\vec x)} (\#eq:bayesFormulae)
-\end{equation}
-
-where $P(\vec x|Y=c)$ is the likelihood of $\vec x$ belonging to class $c$ ($Y$ is the class label), $P(Y=c)$ is the prior knowledge about the class $c$ in general, and $P(\vec x)$ is called the evidence. Calculation of the evidence and likelihood is difficult as the instance $\vec x$ is a mixture of attributes, which may be dependent (see [wikipedia page](https://en.wikipedia.org/wiki/Naive_Bayes_classifier) for complete calculation of these probabilities). However, considering independence between variables, $P(\vec x|Y=c)=P(x_1|Y=c)P(x_2|Y=c)...P(x_n|Y=c)$. $P(Y=c)$ is easy to calculate as it is equal to the number of instances in the class $c$ divided by the number of instances in the training set. While the calculation of evidence is also straightforward under the independence assumption, it is not needed as it is constant across all classes.
-
-Let's have an example. 
-
-Table: (\#tab:bayesExample) An example data-set of male/female with their characteristics.
-
-| Person | Height (>5.5 feet) | Weight (>150 lbs) | Foot size(>10 inches) |
-|:------:|:------------------:|:-----------------:|:---------------------:|
-|  male  |          Y         |         Y         |           Y           |
-|  male  |          Y         |         Y         |           N           |
-|  male  |          Y         |         N         |           Y           |
-|  male  |          Y         |         Y         |           Y           |
-| female |          N         |         N         |           N           |
-| female |          N         |         N         |           N           |
-| female |          N         |         N         |           N           |
-| female |          Y         |         N         |           N           |
---------------------------------------------------------------------------
-
-Given this data, we have been asked to which class a person belong if their Height is 6 (>5.5, hence 'Y'), their Weight is 130 (<150, hence 'N'), and their Foot size is 8 (<10, hence 'N'). Prior probability of being male is 0.5 and being female is 0.5, based on the table. It is clear that $P(x_1=Y|Y=female)=0.25$, $P(x_2=N|Y=female)=P(x_3=N|Y=female)=1.0$, and $P(Y=male)=P(Y=female)=0.5$. Hence, $P(Y=female|\vec x=<Y, N, N>)=\frac{0.25 \times 1.0 \times 1.0 \times 0.5}{P(\vec x)}$ and $P(Y=male|\vec x=<Y, N, N>)=\frac{1.0 \times 0.25 \times 0.25 \times 0.5}{P(\vec x)}$.As the evidence is the same for both probabilities, it seems it is more likely that the given instance is a "female". See [this](https://www.geeksforgeeks.org/naive-bayes-classifiers/) for more examples and descriptions.
-
-### Continuous variables
-***Category Intuitive, Deep***
 
 For discrete variables it is rather easy to calculate the probabilities based on the given instances. For continuous variables (e.g., age, weight), however, this probability needs to follow a distribution. Given the distribution, one can calculate the probabilities. The [wikipedia page](https://en.wikipedia.org/wiki/Naive_Bayes_classifier) provides very good description on this algorithm.
 

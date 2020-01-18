@@ -11,11 +11,12 @@ rmd_files:
   - chapters/machine_learning/02_classification/05_k_nearest_neighbor.rmd
   - chapters/machine_learning/02_classification/06_gaussian_process.rmd
   - chapters/machine_learning/02_classification/07_general_additive_model.rmd
-  - chapters/machine_learning/02_classification/97_regularization.rmd
   - chapters/machine_learning/02_classification/98_binary_to_multiclass.rmd
   - chapters/machine_learning/02_classification/99_performance_measures.rmd
   - chapters/machine_learning/03_regression/01_regression.rmd
-  - chapters/machine_learning/03_regression/02_linear_regression.rmd
+  - chapters/machine_learning/03_regression/02_0_linear_regression.rmd
+  - chapters/machine_learning/03_regression/02_1_multivariate_adaptive_regression_spline.rmd
+  - chapters/machine_learning/03_regression/02_generalized_additive_model.rmd
   - chapters/machine_learning/03_regression/03_decision_tree_regression.rmd
   - chapters/machine_learning/03_regression/99_performance_measures.rmd
   - chapters/machine_learning/04_dimensionality_reduction/01_dimensionality_reduction.rmd
@@ -46,6 +47,7 @@ rmd_files:
   - chapters/machine_learning/10_annomally_detection/01_annomally_detection.rmd
   - chapters/machine_learning/11_preprocessing/01_preprocessing.rmd
   - chapters/machine_learning/12_signal_processing/01_introduction_signal_processing.rmd
+  - chapters/machine_learning/99_important_considerations.rmd
   - chapters/optimization/01_intro_optimization.rmd
   - chapters/optimization/02_optimization_problems/01_optimization_problems.rmd
   - chapters/optimization/03_derivative_based/01_derivatives.rmd

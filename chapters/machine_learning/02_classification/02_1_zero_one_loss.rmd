@@ -1,13 +1,13 @@
 ## 0/1 loss function for classification
 ***Category Intuitive***
 
-Assuming a binary classification problem (two classes) with a linear model, the objective is to find a hyperplane that "optimally" discriminates between the classes. To do so, we need an evaluation procedure which measures a "wrongness" score for any given hyperplane (called the *loss function*). Then, an optimization algorithm searches over all possible hyperplanes to find the one which minimizes the loss function (see Fig. \@ref(fig:findingLine)). 
+* Assuming a binary classification problem (two classes) with a linear model, the objective is to find a hyperplane that "optimally" discriminates between the classes. To do so, we need an evaluation procedure which measures a "wrongness" score for any given hyperplane (called the *loss function*). Then, an optimization algorithm searches over all possible hyperplanes to find the one which minimizes the loss function (see Fig. \@ref(fig:findingLine)). 
 
 ```{r findingLine, echo = FALSE, out.width = '50%', fig.cap = 'The objective is to find a line/hyperplane that separates the instances optimally. The search continues until a suitable hyperplane, evaluated by the loss function, is found. The final line found in this example classifies all instances correctly except one.'}
 knitr::include_graphics('images/classification/finding_line_n.gif')
 ```
 
-Ideally, we expect the optimizer to find a hyperplane for which all instances from each class fall in one side of it and the instances from the other class fall in the other side of the hyperplane. Hence, one simple loss function would be to count the number of instances that are not in the "correct" side of the hyperplane, called the *0/1 loss function*. The outcome of this minimization is a hyperplane which has a minimum 0/1 loss value, i.e., the number of instances that are in the wrong side of the hyperplane is minimized.
+* One simple loss function would be to count the number of instances that are not in the "correct" side of the hyperplane, called the *0/1 loss function*. The outcome of this minimization is a hyperplane which has a minimum 0/1 loss value, i.e., the number of instances that are in the wrong side of the hyperplane is minimized.
 
 
 ```{r loss01, echo = FALSE, out.width = '50%', fig.cap = 'Two candidate lines, green gives 4/30 and the orange gives 4/30 loss value according to the 0/1 loss function.'}
@@ -19,49 +19,14 @@ One should note that there might be many hyperplanes which have the same 0/1 los
 ### Improvements
 ***Category Intuitive***
 
-The 0/1 loss function in its original form does not take into account the *importance* of the instances from different classes (all classes are assumed to be equally important). In the previous example (Fig. \@ref(fig:loss01)), the number of blue instances is smaller than the number of red instances, which means miss-classification of blue instances leads to a larger natural loss comparing to the red instances (blue instances are rare, hence more important to be classified correctly). For example, the orange line has a very high accuracy on red instances while its accuracy on the blue is not as high as the green line. To address this issue, it has been proposed in [@bonyadi2019optimal] to minimize the average percentage of mis-classified instances accross all classes rather than counting the number of mis-classified instances. In Fig. \@ref(fig:loss01), for example, this average for the green line is $\frac{(2/10+2/20)}{2}$ (2 miss-classified instances from each class) and for the orange line is $\frac{3/10+1/20}{2}$ (3 miss-classified from blue and 1 from red). Hence, the green line would be preferred. 
-
-Finding a line, or a hyperplane in larger number of dimensions, that minimizes the average of the 0/1 loss function in both above-mentioned forms is not easy (see [@doerr2015direct] and [@bonyadi2019optimal]). One issue is that this line is not unique. For example, both orange and green lines in Fig. 1 have the same accuracy in terms of discriminating between the classes. This is solved by selecting the line (hyperplane) which has the maximum distance from the instances of both classes (see this [@bonyadi2019optimal]), called maximum margin hyperplane. The basic idea is, if there are multiple lines (hyperplanes) which separate instances from each class with the same accuracy, the one which has the maximum distance from each class is preferred. Other improvements in [@bonyadi2019optimal] included addition of $L_1$ and $L_2$ regularization, that enables the usage of coefficients for estimation of variable importance.
-
-### More details {#sec:01lossMath}
-***Category Deep***
-
-Any hyperplane can be represented by its normal vector (norm), $\vec w$, and an intercept, $b$, $<\vec w, b>$. An instance $\vec x_i$ is classified by a given hyperplane as class 0 if $\vec w \vec x_i^T+b<0$ ($T$ is the transpose) and class 1 otherwise. One way to define the 0/1 loss function in its original form is then as follows:
-\begin{equation}
-\frac{1}{N}\sum_i y_i(1-f(\vec x_i))+(1-y_i)f(\vec x_i) (\#eq:binaryLoss)
-\end{equation}
-
-Eq. \@ref(eq:binaryLoss)
-where $N$ is the number of instances. For the 0/1 loss function, $f(.): \mathbb{R}^n \to \mathbb{R}$ is defined by:
-
-\begin{equation}
-f(\vec x)=
-\begin{cases}
-0 & \vec w \vec x_i^T+b<0\\
-1 & otherwise\\
-\end{cases} (\#eq:01lossf)
-\end{equation}
-
-This function has been shown in Fig. \@ref(fig:fofLoss01).
-
-```{r fofLoss01, echo = FALSE, out.width = '50%', fig.cap = 'The 0/1 function which returns 0 or 1 depending the side to which a given instance belong. '}
-knitr::include_graphics('images/classification/0_1_func.PNG')
-```
-
-The loss function was improved in [@bonyadi2019optimal].
-
-There are two equivalent geometrical views to imagine the discrimination by a hyperplane. One is that the hyperplane, defined by $<\vec w, b>$, separates the two classes, which means it is placed somewhere between the instances from two classes in a way that (ideally) all instances from one class are in one side and all instances from the other class are on the other side of that hyperplane. The other view is that $\vec w$ is a linear transformation which transforms each instance $\vec x_i$ to a one dimensional line, i.e., all instances are projected onto the line characterized by $\vec w$ which crosses the centre of the coordinate system. The scalar $b$ then is the threshold to determine the class label of the transformed instances.
-
-```{r geometrical, echo = FALSE, out.width = '49%', fig.show = "hold", fig.cap = 'Two geometrical views: The given hyperplane equation defines a discriminatory hyperplane to separate the classes (black line in the left panel) OR the norm of the hyperplane transforms the instances to a one dimensional space (green line, and the right panel) and the intercept separates the classes. The right panel is essentially the histogram of instances along the green line in the left panel.'}
-knitr::include_graphics(c('images/classification/01_gemetrical_two_views.PNG', 'images/classification/01_geometrical_1.PNG'))
-```
-
-There are multiple ways to find a hyper-plane which minimizes the original 0/1 loss function (sum of 0/1 losses), which have been described in details in [@doerr2015direct]. Find also more details in [@bonyadi2019optimal].
+* The 0/1 loss function in its original form does not take into account the *importance* of the instances from different classes (all classes are assumed to be equally important). To address this issue, it has been proposed in [@bonyadi2019optimal] to minimize the average percentage of mis-classified instances accross all classes rather than counting the number of mis-classified instances. 
+* This process does not provide a unique line. Both orange and green lines in Fig. \@ref(fig:classExample) have the same accuracy in terms of discriminating between the classes. This is solved by selecting the line (hyperplane) which has the maximum distance from the instances of both classes (see this [@bonyadi2019optimal]), called maximum margin hyperplane, the one which has the maximum distance from each class is preferred. 
+* Other improvements in [@bonyadi2019optimal] included addition of $L_1$ and $L_2$ regularization, that enables the usage of coefficients for estimation of variable importance.
 
 ### Pros and cons
 ***Category Intuitive***
 
-*Pros*: The 0/1 loss function in both above-mentioned forms is unbiased and not sensitive to outliers as any outlier would only contribute 1 unit to the loss function if it is miss-classified (see Fig. \@ref(fig:lossesExamples)). 
+*Pros*: The 0/1 loss function is unbiased and not sensitive to outliers as any outlier would only contribute 1 unit to the loss function if it is miss-classified (see Fig. \@ref(fig:lossesExamples)). 
 
 
 ```{r lossesExamples, echo = FALSE, out.width = '50%', fig.cap = '0/1 loss function is not sensitive to outliers while other loss functions are (other loss functions are described in next sections). The figure was taken from [@doerr2015direct]'}
