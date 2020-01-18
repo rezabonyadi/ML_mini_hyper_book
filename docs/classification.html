@@ -24,7 +24,7 @@
 <meta name="author" content="Reza Bonyadi, Ph.D." />
 
 
-<meta name="date" content="2019-09-13" />
+<meta name="date" content="2020-01-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -235,7 +235,8 @@
 <div id="classification" class="section level1">
 <h1><span class="header-section-number">Chapter 2</span> Classification</h1>
 <p><strong><em>Category Intuitive</em></strong></p>
-<p>A <em>classification problem</em> asks for the category to which an instance belong, given the instance characteristics. An example of a classification problem is: given characteristics of a person, such as smoking habits, history of a heart attack in the family, number of hours of exercise per day, height, weight, among others, whether the person going to have a heart attack after their 50’s (yes/no). Another example of a classification problem is to find the type of a tumor (benign, type 1, type 2, or type 3) given its characteristics (e.g., shape, color, genetic information, history of the patient, among others). For a given classification problem, a <em>classifier</em> seeks a generic <em>rule</em> (aka <em>model</em>) which generates the category for any given instance, e.g., a generic rule that gives the tumor category given the characteristics of the tumor. The classifier finds this generic rule based on some assumptions and a set of examples, i.e., “learns” from examples or supervised learning (see Section <a href="introduction.html#sec:supervisedvsunsupervised">1.2</a> and <a href="introduction.html#sec:supervisedmodels">1.3</a>).</p>
+<p><em>A </em>classification problem* asks for the category to which an instance belong, given the instance characteristics. An example of a classification problem is: given characteristics of a person, such as smoking habits, history of a heart attack in the family, number of hours of exercise per day, height, weight, among others, whether the person going to have a heart attack after their 50’s (yes/no). Another example of a classification problem is to find the type of a tumor (benign, type 1, type 2, or type 3) given its characteristics (e.g., shape, color, genetic information, history of the patient, among others).</p>
+<p>For a given classification problem, a <em>classifier</em> seeks a generic <em>rule</em> (aka <em>model</em>) which generates the category for any given instance, e.g., a generic rule that gives the tumor category given the characteristics of the tumor. The classifier finds this generic rule based on some assumptions and a set of examples, i.e., “learns” from examples or supervised learning (see Section <a href="introduction.html#sec:supervisedvsunsupervised">1.2</a> and <a href="introduction.html#sec:supervisedmodels">1.3</a>).</p>
 <p>Usually, the given instances (training set) do not represent all possible instances for a given problem. Therefore, any model, in any shape and form, that separates the given instances and optimizes the evaluation measure is acceptable (purple, green, and orange lines in the Fig. <a href="classification.html#fig:classExample">2.1</a>). This means defining “the best model”, a model that not only separates the given instances but also all other unseen instances, is limited by the knowledge encoded in the training set. This incomplete knowledge about the data leads the designer to make some <em>assumptions</em> on the model and the evaluation metric upon which different classifiers are formulated. For example, support vector machines in their original form assume that the discriminatory rule is represented by a line (an assumption on the model, a linear model) which has the maximum distance from the instances in each class (an assumption on the evaluation metric). The idea is that such a line is more empirically robust against potential uncertainties in unseen instances.</p>
 <p>A synthetic classification problem has been shown in Fig. <a href="classification.html#fig:classExample">2.1</a>. In this problem, there are two attributes per instance and two groups of instances (blue and red), and the model has been assumed to be represented by a line. The aim of classification (binary in this case) with these assumptions is to find the “best” discriminatory line (hyperplane in a higher number of dimensions) which discriminates between the two classes “optimally” (see figure). Ideally, this optimality needs to make sure that the rule not only works for the given data (training data) based on a performance measure but also for any unseen data point (test data), referred to as the <em>generalization ability</em> of the rule.</p>
 <div class="figure"><span id="fig:classExample"></span>
@@ -545,6 +546,8 @@ r \ge 0&amp;\\
 \end{cases} \tag{2.4}
 \end{equation}\]</span>
 <p><span class="citation">(Zhou, Zhang, and Jiao <a href="#ref-zhou2002linear">2002</a>)</span></p>
+<p>adding l1 to this:</p>
+<p><a href="https://download.aimms.com/aimms/download/manuals/AIMMS3OM_LinearProgrammingTricks.pdf" class="uri">https://download.aimms.com/aimms/download/manuals/AIMMS3OM_LinearProgrammingTricks.pdf</a></p>
 <p>Use for dimensionality reduction</p>
 <p><span class="citation">(Tao, Chu, and Wang <a href="#ref-tao2008recursive">2008</a>)</span></p>
 <p>One-class SVM</p>
