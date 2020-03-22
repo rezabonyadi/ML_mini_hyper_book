@@ -47,6 +47,9 @@ rmd_files:
   - chapters/machine_learning/10_annomally_detection/01_annomally_detection.rmd
   - chapters/machine_learning/11_preprocessing/01_preprocessing.rmd
   - chapters/machine_learning/12_signal_processing/01_introduction_signal_processing.rmd
+  - chapters/machine_learning/13_causal_models/01_introduction_causal_models.rmd
+  - chapters/machine_learning/13_causal_models/02_bayesian_networks.rmd
+  - chapters/machine_learning/13_causal_models/03_markov_random_field.rmd
   - chapters/machine_learning/99_important_considerations.rmd
   - chapters/optimization/01_intro_optimization.rmd
   - chapters/optimization/02_optimization_problems/01_optimization_problems.rmd
