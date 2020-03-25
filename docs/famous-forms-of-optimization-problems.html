@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 21 Famous forms of optimization problems | Machine learning, statistics, and optimization: A collection of intuitions</title>
+  <title>Chapter 21 Famous forms of optimization problems | Hand book of machine learning, statistics, and optimization</title>
   <meta name="description" content="." />
   <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 21 Famous forms of optimization problems | Machine learning, statistics, and optimization: A collection of intuitions" />
+  <meta property="og:title" content="Chapter 21 Famous forms of optimization problems | Hand book of machine learning, statistics, and optimization" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rezabontadi/machine-learning-hyper-book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 21 Famous forms of optimization problems | Machine learning, statistics, and optimization: A collection of intuitions" />
+  <meta name="twitter:title" content="Chapter 21 Famous forms of optimization problems | Hand book of machine learning, statistics, and optimization" />
   
   <meta name="twitter:description" content="." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Reza Bonyadi, Ph.D." />
 
 
-<meta name="date" content="2020-03-23" />
+<meta name="date" content="2020-03-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -88,13 +88,13 @@
 <li class="chapter" data-level="2.5.1" data-path="classification.html"><a href="classification.html#interpretability-1"><i class="fa fa-check"></i><b>2.5.1</b> Interpretability</a></li>
 <li class="chapter" data-level="2.5.2" data-path="classification.html"><a href="classification.html#improvements-1"><i class="fa fa-check"></i><b>2.5.2</b> Improvements</a></li>
 <li class="chapter" data-level="2.5.3" data-path="classification.html"><a href="classification.html#implementation-3"><i class="fa fa-check"></i><b>2.5.3</b> Implementation</a></li>
+<li class="chapter" data-level="2.5.4" data-path="classification.html"><a href="classification.html#improvements-2"><i class="fa fa-check"></i><b>2.5.4</b> Improvements</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="classification.html"><a href="classification.html#sec:descisiontree"><i class="fa fa-check"></i><b>2.6</b> Decision tree</a></li>
 <li class="chapter" data-level="2.7" data-path="classification.html"><a href="classification.html#sec:KNN"><i class="fa fa-check"></i><b>2.7</b> K-nearest neighbor</a><ul>
-<li class="chapter" data-level="2.7.1" data-path="classification.html"><a href="classification.html#improvements-2"><i class="fa fa-check"></i><b>2.7.1</b> Improvements</a></li>
+<li class="chapter" data-level="2.7.1" data-path="classification.html"><a href="classification.html#improvements-3"><i class="fa fa-check"></i><b>2.7.1</b> Improvements</a></li>
 <li class="chapter" data-level="2.7.2" data-path="classification.html"><a href="classification.html#pros-and-cons-3"><i class="fa fa-check"></i><b>2.7.2</b> Pros and cons</a></li>
-<li class="chapter" data-level="2.7.3" data-path="classification.html"><a href="classification.html#more-details"><i class="fa fa-check"></i><b>2.7.3</b> More details</a></li>
-<li class="chapter" data-level="2.7.4" data-path="classification.html"><a href="classification.html#implementation-4"><i class="fa fa-check"></i><b>2.7.4</b> Implementation</a></li>
+<li class="chapter" data-level="2.7.3" data-path="classification.html"><a href="classification.html#implementation-4"><i class="fa fa-check"></i><b>2.7.3</b> Implementation</a></li>
 </ul></li>
 <li class="chapter" data-level="2.8" data-path="classification.html"><a href="classification.html#gaussianprocessclassifier"><i class="fa fa-check"></i><b>2.8</b> Gaussian process classifier</a></li>
 <li class="chapter" data-level="2.9" data-path="classification.html"><a href="classification.html#general-additive-model"><i class="fa fa-check"></i><b>2.9</b> General additive model</a></li>
@@ -117,7 +117,7 @@
 <li class="chapter" data-level="3.5" data-path="regression.html"><a href="regression.html#performance-measures"><i class="fa fa-check"></i><b>3.5</b> Performance measures</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="dimensionality-reduction.html"><a href="dimensionality-reduction.html"><i class="fa fa-check"></i><b>4</b> Dimensionality reduction</a><ul>
-<li class="chapter" data-level="4.1" data-path="dimensionality-reduction.html"><a href="dimensionality-reduction.html#more-details-1"><i class="fa fa-check"></i><b>4.1</b> More details</a></li>
+<li class="chapter" data-level="4.1" data-path="dimensionality-reduction.html"><a href="dimensionality-reduction.html#more-details"><i class="fa fa-check"></i><b>4.1</b> More details</a></li>
 <li class="chapter" data-level="4.2" data-path="dimensionality-reduction.html"><a href="dimensionality-reduction.html#principal-component-analysis"><i class="fa fa-check"></i><b>4.2</b> Principal component analysis</a></li>
 <li class="chapter" data-level="4.3" data-path="dimensionality-reduction.html"><a href="dimensionality-reduction.html#t-sne"><i class="fa fa-check"></i><b>4.3</b> T-SNE</a></li>
 <li class="chapter" data-level="4.4" data-path="dimensionality-reduction.html"><a href="dimensionality-reduction.html#independent-component-analysis"><i class="fa fa-check"></i><b>4.4</b> Independent component analysis</a></li>
@@ -162,15 +162,19 @@
 <li class="chapter" data-level="14" data-path="sec-causal-models.html"><a href="sec-causal-models.html"><i class="fa fa-check"></i><b>14</b> Causal models</a><ul>
 <li class="chapter" data-level="14.1" data-path="sec-causal-models.html"><a href="sec-causal-models.html#graphical-models"><i class="fa fa-check"></i><b>14.1</b> Graphical models</a></li>
 <li class="chapter" data-level="14.2" data-path="sec-causal-models.html"><a href="sec-causal-models.html#bayesian-networks"><i class="fa fa-check"></i><b>14.2</b> Bayesian networks</a><ul>
-<li class="chapter" data-level="14.2.1" data-path="sec-causal-models.html"><a href="sec-causal-models.html#improvements-3"><i class="fa fa-check"></i><b>14.2.1</b> Improvements</a></li>
+<li class="chapter" data-level="14.2.1" data-path="sec-causal-models.html"><a href="sec-causal-models.html#improvements-4"><i class="fa fa-check"></i><b>14.2.1</b> Improvements</a></li>
+<li class="chapter" data-level="14.2.2" data-path="sec-causal-models.html"><a href="sec-causal-models.html#implementations-and-libraries"><i class="fa fa-check"></i><b>14.2.2</b> Implementations and libraries:</a></li>
 </ul></li>
-<li class="chapter" data-level="14.3" data-path="sec-causal-models.html"><a href="sec-causal-models.html#markov-random-field"><i class="fa fa-check"></i><b>14.3</b> Markov random field</a></li>
+<li class="chapter" data-level="14.3" data-path="sec-causal-models.html"><a href="sec-causal-models.html#markov-random-field"><i class="fa fa-check"></i><b>14.3</b> Markov random field</a><ul>
+<li class="chapter" data-level="14.3.1" data-path="sec-causal-models.html"><a href="sec-causal-models.html#implementation-5"><i class="fa fa-check"></i><b>14.3.1</b> Implementation</a></li>
+<li class="chapter" data-level="14.3.2" data-path="sec-causal-models.html"><a href="sec-causal-models.html#applications"><i class="fa fa-check"></i><b>14.3.2</b> Applications</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="important-considerations-in-machine-learning-methods.html"><a href="important-considerations-in-machine-learning-methods.html"><i class="fa fa-check"></i><b>15</b> Important considerations in machine learning methods</a><ul>
 <li class="chapter" data-level="15.1" data-path="important-considerations-in-machine-learning-methods.html"><a href="important-considerations-in-machine-learning-methods.html#sec:biasVariance"><i class="fa fa-check"></i><b>15.1</b> The bias-variance debate</a></li>
 <li class="chapter" data-level="15.2" data-path="important-considerations-in-machine-learning-methods.html"><a href="important-considerations-in-machine-learning-methods.html#sec:regularization"><i class="fa fa-check"></i><b>15.2</b> Regularization</a><ul>
 <li class="chapter" data-level="15.2.1" data-path="important-considerations-in-machine-learning-methods.html"><a href="important-considerations-in-machine-learning-methods.html#famous-types"><i class="fa fa-check"></i><b>15.2.1</b> Famous types</a></li>
-<li class="chapter" data-level="15.2.2" data-path="important-considerations-in-machine-learning-methods.html"><a href="important-considerations-in-machine-learning-methods.html#more-details-2"><i class="fa fa-check"></i><b>15.2.2</b> More details</a></li>
+<li class="chapter" data-level="15.2.2" data-path="important-considerations-in-machine-learning-methods.html"><a href="important-considerations-in-machine-learning-methods.html#more-details-1"><i class="fa fa-check"></i><b>15.2.2</b> More details</a></li>
 </ul></li>
 <li class="chapter" data-level="15.3" data-path="important-considerations-in-machine-learning-methods.html"><a href="important-considerations-in-machine-learning-methods.html#raw-data-vs-characterized-data-features"><i class="fa fa-check"></i><b>15.3</b> Raw data vs characterized data (features)</a></li>
 <li class="chapter" data-level="15.4" data-path="important-considerations-in-machine-learning-methods.html"><a href="important-considerations-in-machine-learning-methods.html#variable-importance-and-insights-considerations"><i class="fa fa-check"></i><b>15.4</b> Variable importance and insights considerations</a></li>
@@ -231,7 +235,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Machine learning, statistics, and optimization: A collection of intuitions</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Hand book of machine learning, statistics, and optimization</a>
           </h1>
         </div>
 

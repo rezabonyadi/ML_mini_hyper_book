@@ -6,7 +6,7 @@ https://www.bayesfusion.com/bayesian-networks/?gclid=Cj0KCQjwmdzzBRC7ARIsANdqRRl
 https://arxiv.org/pdf/1803.01422.pdf
 
 
-Library:
+### Implementations and libraries:
 
 https://github.com/xunzheng/notears
 

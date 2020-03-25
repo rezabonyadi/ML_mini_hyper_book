@@ -1,1 +1,14 @@
 ## Markov random field
+
+
+### Implementation
+
+Sklearn: GraphicalLasso
+https://scikit-learn.org/stable/modules/generated/sklearn.covariance.GraphicalLasso.html#sklearn.covariance.GraphicalLasso
+https://github.com/skggm/skggm
+
+### Applications 
+
+**In clustering**: 
+
+https://cs.stanford.edu/people/jure/pubs/ticc-kdd17.pdf

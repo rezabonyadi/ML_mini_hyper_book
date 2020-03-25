@@ -1,7 +1,7 @@
 ## Support vector machines
 ***Category Intuitive***
 
-* Consider a binary classification problem and assume we want to use a hyperplane (linear model) to separate the classes. 
+* Consider a binary classification problem and assume we want to optimize a hyperplane (linear model) to separate the classes. 
 * There might be many hyperplanes which separate the classes, all of which would result in the same mis-classification error. This encourages design of constraints which narrow down acceptable hyperplanes. 
 * One reasonable constraint is to pick the hyperplane which has maximum distance from the instances from both classes. This idea forms the bases for the support vector machine (SVM). 
 
@@ -14,7 +14,7 @@ knitr::include_graphics('images/classification/svm_lots_of_choices.gif')
 knitr::include_graphics('images/classification/svm_1.PNG')
 ```
 
-* It is expected that SVM works better than Logistic Regression on the unseen instances. This, however, is not always true as the assumption behind SVM might not be always true and it is bound by the quality of the training data (see Section \@ref(sec:supervisedmodels)). 
+* It is expected that SVM works better than Logistic Regression on the unseen instances as it minimizes the empirical risk. This, however, is not always true as the assumption behind SVM might not be always true and it is bound by the quality of the training data (see Section \@ref(sec:supervisedmodels)). 
 
 See [wikipedia](https://en.wikipedia.org/wiki/Support-vector_machine#Linear_SVM) for more details on how this is formulated by the hinge loss and how it can be solved by gradient descent. See also [this](https://jeremykun.com/2017/06/05/formulating-the-support-vector-machine-optimization-problem/) which describes SVM nicely.
 
@@ -27,8 +27,9 @@ See [wikipedia](https://en.wikipedia.org/wiki/Support-vector_machine#Linear_SVM)
 
 ### Improvements
 * While SVM aims can be formulated as a quadratic program, it can also be formulated by a linear program. See [@zhou2002linear] for details.
-* SVM can be also used for supervised dimensionality reduction, see [@tao2008recursive].
-* One-class SVM is also used for anomaly/outlier/novelty detection. See ????...
+* SVM can be also used for supervised dimensionality reduction, see [@tao2008recursive] and section ????.
+* Twin SVM, a more recent variant of SVM, is very powerful (much better and faster than SVM). See an implementation [here](https://github.com/AK101111/Twin-SVM)
+* One-class SVM is also used for anomaly/outlier/novelty detection. See ????.
 * SVM can be extended to provide non-linear hyperplanes to seperate the classes. This can be done by adding Kernel (see [kernel trick](https://en.wikipedia.org/wiki/Kernel_method) and [representer theorem](https://en.wikipedia.org/wiki/Representer_theorem)) to the algorithm. See [wikipedia](https://en.wikipedia.org/wiki/Support-vector_machine#Linear_SVM) for how.
 
 ```{r svmRBF, echo = FALSE, out.width = '50%', fig.cap = 'The blue line has the same distance from the instances in each class, which is the idea behind SVM.'}
@@ -40,3 +41,6 @@ knitr::include_graphics('images/classification/svm_RBF.gif')
 
 * See ??? for implementation from scratch.
 * It is also available with [sklearn](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html) in Python.
+
+### Improvements
+
