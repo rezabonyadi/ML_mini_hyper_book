@@ -40,7 +40,6 @@ This indeed leads to an in-accuracy in KNN; the algorithm does not take into acc
 * Some of the dimensions may lead to biasing the distance
 * KNN does not provide any information about the importance of attributes. This, however, is resolved by optimizing a metric to transform the space to represent the training data optimally (see section \@ref(sec:metricslearning))
 
-
 ### Implementation
 ***Category Code***
 

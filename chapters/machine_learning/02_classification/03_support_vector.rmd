@@ -1,5 +1,4 @@
 ## Support vector machines
-***Category Intuitive***
 
 * Consider a binary classification problem and assume we want to optimize a hyperplane (linear model) to separate the classes. 
 * There might be many hyperplanes which separate the classes, all of which would result in the same mis-classification error. This encourages design of constraints which narrow down acceptable hyperplanes. 
@@ -21,14 +20,13 @@ See [wikipedia](https://en.wikipedia.org/wiki/Support-vector_machine#Linear_SVM)
 ### Interpretability
 * Similar to Logistic Regression, absolute value of coefficients of linear SVM provide variable importance only if the variables values have been standidized (see section \@ref(sec:preprocessing))
 * L1 regularization in SVM can be used for "feature selection" (see Section \@ref(sec:regularization))
-* 
 
 
 
 ### Improvements
 * While SVM aims can be formulated as a quadratic program, it can also be formulated by a linear program. See [@zhou2002linear] for details.
 * SVM can be also used for supervised dimensionality reduction, see [@tao2008recursive] and section ????.
-* Twin SVM, a more recent variant of SVM, is very powerful (much better and faster than SVM). See an implementation [here](https://github.com/AK101111/Twin-SVM)
+* Twin SVM, a more recent variant of SVM, is very powerful (much better and faster than SVM) [@khemchandani2007twin]. See an implementation [here](https://github.com/AK101111/Twin-SVM)
 * One-class SVM is also used for anomaly/outlier/novelty detection. See ????.
 * SVM can be extended to provide non-linear hyperplanes to seperate the classes. This can be done by adding Kernel (see [kernel trick](https://en.wikipedia.org/wiki/Kernel_method) and [representer theorem](https://en.wikipedia.org/wiki/Representer_theorem)) to the algorithm. See [wikipedia](https://en.wikipedia.org/wiki/Support-vector_machine#Linear_SVM) for how.
 
@@ -37,10 +35,7 @@ knitr::include_graphics('images/classification/svm_RBF.gif')
 ```
 
 ### Implementation
-***Category Code***
 
 * See ??? for implementation from scratch.
 * It is also available with [sklearn](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html) in Python.
-
-### Improvements
 

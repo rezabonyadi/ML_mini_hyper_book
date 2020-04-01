@@ -7,8 +7,9 @@ Sklearn: GraphicalLasso
 https://scikit-learn.org/stable/modules/generated/sklearn.covariance.GraphicalLasso.html#sklearn.covariance.GraphicalLasso
 https://github.com/skggm/skggm
 
+
 ### Applications 
 
 **In clustering**: 
-
+https://scikit-learn.org/stable/auto_examples/applications/plot_stock_market.html#sphx-glr-auto-examples-applications-plot-stock-market-py 
 https://cs.stanford.edu/people/jure/pubs/ticc-kdd17.pdf

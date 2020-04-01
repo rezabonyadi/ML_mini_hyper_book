@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Classification | Hand book of machine learning, statistics, and optimization</title>
+  <title>Chapter 2 Classification | A live hand book machine learning, statistics, and optimization</title>
   <meta name="description" content="." />
   <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Classification | Hand book of machine learning, statistics, and optimization" />
+  <meta property="og:title" content="Chapter 2 Classification | A live hand book machine learning, statistics, and optimization" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rezabontadi/machine-learning-hyper-book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Classification | Hand book of machine learning, statistics, and optimization" />
+  <meta name="twitter:title" content="Chapter 2 Classification | A live hand book machine learning, statistics, and optimization" />
   
   <meta name="twitter:description" content="." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Reza Bonyadi, Ph.D." />
 
 
-<meta name="date" content="2020-03-26" />
+<meta name="date" content="2020-04-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -88,11 +88,10 @@
 <li class="chapter" data-level="2.5.1" data-path="classification.html"><a href="classification.html#interpretability-1"><i class="fa fa-check"></i><b>2.5.1</b> Interpretability</a></li>
 <li class="chapter" data-level="2.5.2" data-path="classification.html"><a href="classification.html#improvements-1"><i class="fa fa-check"></i><b>2.5.2</b> Improvements</a></li>
 <li class="chapter" data-level="2.5.3" data-path="classification.html"><a href="classification.html#implementation-3"><i class="fa fa-check"></i><b>2.5.3</b> Implementation</a></li>
-<li class="chapter" data-level="2.5.4" data-path="classification.html"><a href="classification.html#improvements-2"><i class="fa fa-check"></i><b>2.5.4</b> Improvements</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="classification.html"><a href="classification.html#sec:descisiontree"><i class="fa fa-check"></i><b>2.6</b> Decision tree</a></li>
 <li class="chapter" data-level="2.7" data-path="classification.html"><a href="classification.html#sec:KNN"><i class="fa fa-check"></i><b>2.7</b> K-nearest neighbor</a><ul>
-<li class="chapter" data-level="2.7.1" data-path="classification.html"><a href="classification.html#improvements-3"><i class="fa fa-check"></i><b>2.7.1</b> Improvements</a></li>
+<li class="chapter" data-level="2.7.1" data-path="classification.html"><a href="classification.html#improvements-2"><i class="fa fa-check"></i><b>2.7.1</b> Improvements</a></li>
 <li class="chapter" data-level="2.7.2" data-path="classification.html"><a href="classification.html#pros-and-cons-3"><i class="fa fa-check"></i><b>2.7.2</b> Pros and cons</a></li>
 <li class="chapter" data-level="2.7.3" data-path="classification.html"><a href="classification.html#implementation-4"><i class="fa fa-check"></i><b>2.7.3</b> Implementation</a></li>
 </ul></li>
@@ -162,7 +161,7 @@
 <li class="chapter" data-level="14" data-path="sec-causal-models.html"><a href="sec-causal-models.html"><i class="fa fa-check"></i><b>14</b> Causal models</a><ul>
 <li class="chapter" data-level="14.1" data-path="sec-causal-models.html"><a href="sec-causal-models.html#graphical-models"><i class="fa fa-check"></i><b>14.1</b> Graphical models</a></li>
 <li class="chapter" data-level="14.2" data-path="sec-causal-models.html"><a href="sec-causal-models.html#bayesian-networks"><i class="fa fa-check"></i><b>14.2</b> Bayesian networks</a><ul>
-<li class="chapter" data-level="14.2.1" data-path="sec-causal-models.html"><a href="sec-causal-models.html#improvements-4"><i class="fa fa-check"></i><b>14.2.1</b> Improvements</a></li>
+<li class="chapter" data-level="14.2.1" data-path="sec-causal-models.html"><a href="sec-causal-models.html#improvements-3"><i class="fa fa-check"></i><b>14.2.1</b> Improvements</a></li>
 <li class="chapter" data-level="14.2.2" data-path="sec-causal-models.html"><a href="sec-causal-models.html#implementations-and-libraries"><i class="fa fa-check"></i><b>14.2.2</b> Implementations and libraries:</a></li>
 </ul></li>
 <li class="chapter" data-level="14.3" data-path="sec-causal-models.html"><a href="sec-causal-models.html#markov-random-field"><i class="fa fa-check"></i><b>14.3</b> Markov random field</a><ul>
@@ -235,7 +234,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Hand book of machine learning, statistics, and optimization</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A live hand book machine learning, statistics, and optimization</a>
           </h1>
         </div>
 
@@ -245,7 +244,6 @@
             <section class="normal" id="section-">
 <div id="classification" class="section level1">
 <h1><span class="header-section-number">Chapter 2</span> Classification</h1>
-<p><strong><em>Category Intuitive</em></strong></p>
 <ul>
 <li>Classification aims to optimize a mathematical rule, aka model, that provides the category to which an instance belongs using a set of given examples (see Section <a href="introduction.html#sec:supervisedvsunsupervised">1.1</a> and <a href="introduction.html#sec:supervisedmodels">1.2</a>). An example of a classification problem is: given characteristics of a person, such as smoking habits, history of a heart attack in the family, number of hours of exercise per day, height, weight, among others, whether the person going to have a heart attack after their 50’s (yes/no). Another example of a classification problem is to find the type of a tumor (benign, type 1, type 2, or type 3) given its characteristics (e.g., shape, color, genetic information, history of the patient, among others).</li>
 <li>As the training data-set is a subset of all possible data points, any model, in any shape and form, that separates the given instances and optimizes the evaluation measure is acceptable (purple, green, and orange lines in the Fig. <a href="classification.html#fig:classExample">2.1</a>).</li>
@@ -259,12 +257,10 @@
 Figure 2.1: Two attributes (horizontal and vertical axes), two classes (red and blue), and three lines which can separate the classes successfully.
 </p>
 </div>
-<p> </p>
 <p>To design a classifier, one would need the training data, the model (e.g., linear), an evaluation metric (e.g., maximum empirical margin in support vector machines), and an optimization algorithm to optimize the model parameters given the evaluation metric and the data. The evaluation metric is responsible to inform the optimizer on how well the current parameters perform while ensure the generalization ability is not sacrificed.</p>
-<p>See <span class="citation">(Ng and Jordan <a href="#ref-ng2002discriminative">2002</a>)</span> for a formal definition of discriminative classification.</p>
 <div id="generative-vs.discriminative-classifiers" class="section level2">
 <h2><span class="header-section-number">2.1</span> Generative vs. discriminative classifiers</h2>
-<p><strong><em>Category Intuitive, Deep</em></strong></p>
+<p>See <span class="citation">(Ng and Jordan <a href="#ref-ng2002discriminative">2002</a>)</span> for a formal definition of discriminative classification.</p>
 
 </div>
 <div id="loss-function-for-classification" class="section level2">
@@ -408,7 +404,6 @@ Figure 2.6: ????.
 </div>
 <div id="support-vector-machines" class="section level2">
 <h2><span class="header-section-number">2.5</span> Support vector machines</h2>
-<p><strong><em>Category Intuitive</em></strong></p>
 <ul>
 <li>Consider a binary classification problem and assume we want to optimize a hyperplane (linear model) to separate the classes.</li>
 <li>There might be many hyperplanes which separate the classes, all of which would result in the same mis-classification error. This encourages design of constraints which narrow down acceptable hyperplanes.</li>
@@ -435,7 +430,6 @@ Figure 2.8: The blue line has the same distance from the instances in each class
 <ul>
 <li>Similar to Logistic Regression, absolute value of coefficients of linear SVM provide variable importance only if the variables values have been standidized (see section <a href="sec-preprocessing.html#sec:preprocessing">12</a>)</li>
 <li>L1 regularization in SVM can be used for “feature selection” (see Section <a href="important-considerations-in-machine-learning-methods.html#sec:regularization">15.2</a>)</li>
-<li></li>
 </ul>
 </div>
 <div id="improvements-1" class="section level3">
@@ -443,7 +437,7 @@ Figure 2.8: The blue line has the same distance from the instances in each class
 <ul>
 <li>While SVM aims can be formulated as a quadratic program, it can also be formulated by a linear program. See <span class="citation">(Zhou, Zhang, and Jiao <a href="#ref-zhou2002linear">2002</a>)</span> for details.</li>
 <li>SVM can be also used for supervised dimensionality reduction, see <span class="citation">(Tao, Chu, and Wang <a href="#ref-tao2008recursive">2008</a>)</span> and section ????.</li>
-<li>Twin SVM, a more recent variant of SVM, is very powerful (much better and faster than SVM). See an implementation <a href="https://github.com/AK101111/Twin-SVM">here</a></li>
+<li>Twin SVM, a more recent variant of SVM, is very powerful (much better and faster than SVM) <span class="citation">(Khemchandani, Chandra, and others <a href="#ref-khemchandani2007twin">2007</a>)</span>. See an implementation <a href="https://github.com/AK101111/Twin-SVM">here</a></li>
 <li>One-class SVM is also used for anomaly/outlier/novelty detection. See ????.</li>
 <li>SVM can be extended to provide non-linear hyperplanes to seperate the classes. This can be done by adding Kernel (see <a href="https://en.wikipedia.org/wiki/Kernel_method">kernel trick</a> and <a href="https://en.wikipedia.org/wiki/Representer_theorem">representer theorem</a>) to the algorithm. See <a href="https://en.wikipedia.org/wiki/Support-vector_machine#Linear_SVM">wikipedia</a> for how.</li>
 </ul>
@@ -456,14 +450,10 @@ Figure 2.9: The blue line has the same distance from the instances in each class
 </div>
 <div id="implementation-3" class="section level3">
 <h3><span class="header-section-number">2.5.3</span> Implementation</h3>
-<p><strong><em>Category Code</em></strong></p>
 <ul>
 <li>See ??? for implementation from scratch.</li>
 <li>It is also available with <a href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html">sklearn</a> in Python.</li>
 </ul>
-</div>
-<div id="improvements-2" class="section level3">
-<h3><span class="header-section-number">2.5.4</span> Improvements</h3>
 
 </div>
 </div>
@@ -483,7 +473,7 @@ Figure 2.10: Example of how KNN works. The “closest” instances to a new inst
 </p>
 </div>
 <p>The “closeness” is defined by a distance measure, such as Euclidean distance.</p>
-<div id="improvements-3" class="section level3">
+<div id="improvements-2" class="section level3">
 <h3><span class="header-section-number">2.7.1</span> Improvements</h3>
 <p><strong><em>Category intuitive</em></strong></p>
 <p>In KNN, some attributes may lead to a biased distance. For example, if one of the attributes is in the order of 1,000 and another is in the order of 0.1, the latter would have a small impact on the calculation of the distance. This is usually resolved by standardizing the variables, which ensures all attributes are in the same range. This method, however, may break some structural integrity of the instances. See section ????.</p>
@@ -589,6 +579,9 @@ Figure 2.11: Example of how KNN works. The “closest” instances to a new inst
 </div>
 <div id="ref-doerr2015direct">
 <p>Doerr, Andreas, Nathan D Ratliff, Jeannette Bohg, Marc Toussaint, and Stefan Schaal. 2015. “Direct Loss Minimization Inverse Optimal Control.” In <em>Robotics: Science and Systems</em>. <a href="http://proceedings.mlr.press/v28/nguyen13a.pdf" class="uri">http://proceedings.mlr.press/v28/nguyen13a.pdf</a>.</p>
+</div>
+<div id="ref-khemchandani2007twin">
+<p>Khemchandani, R, Suresh Chandra, and others. 2007. “Twin Support Vector Machines for Pattern Classification.” <em>IEEE Transactions on Pattern Analysis and Machine Intelligence</em> 29 (5). IEEE: 905–10.</p>
 </div>
 <div id="ref-ng2002discriminative">
 <p>Ng, Andrew Y, and Michael I Jordan. 2002. “On Discriminative Vs. Generative Classifiers: A Comparison of Logistic Regression and Naive Bayes.” In <em>Advances in Neural Information Processing Systems</em>, 841–48.</p>
