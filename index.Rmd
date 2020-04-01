@@ -1,5 +1,5 @@
 ---
-title: "A live hand book machine learning, statistics, and optimization"
+title: "A Live Handbook of Machine learning, Statistics, and Optimization"
 author: "Reza Bonyadi, Ph.D."
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
