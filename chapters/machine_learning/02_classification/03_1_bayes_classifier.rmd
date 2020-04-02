@@ -1,5 +1,4 @@
 ## Bayes classifier
-***Category Intuitive***
 
 For a classification task, Bayes classifier calculates how likely it is that a given instance belongs to each class. Intuitively, the probability that a given instance, $\vec x$, belongs to a class $c$ depends on two main components:
 
@@ -17,7 +16,6 @@ See [wikipedia page](https://en.wikipedia.org/wiki/Naive_Bayes_classifier) and [
 For discrete variables it is rather easy to calculate the probabilities based on the given instances. For continuous variables (e.g., age, weight), however, this probability needs to follow a distribution. Given the distribution, one can calculate the probabilities. The [wikipedia page](https://en.wikipedia.org/wiki/Naive_Bayes_classifier) provides very good description on this algorithm.
 
 ### Pros and cons
-***Category Intuitive***
 
 **Pros**:
 
@@ -37,7 +35,7 @@ For discrete variables it is rather easy to calculate the probabilities based on
 * For continuous variables, it is assumed that the variables follow a given distribution (usually normal) to be able to calculate the probability, which may not be accurate. 
 
 ### Implementation
-***Category Code***
 
-For implementation from scratch see [here](https://www.analyticsvidhya.com/blog/2017/09/naive-bayes-explained/). In Python, [scikit-learn](https://scikit-learn.org/stable/modules/naive_bayes.html) can be used.
+- For implementation from scratch see [here](https://www.analyticsvidhya.com/blog/2017/09/naive-bayes-explained/). 
+- In Python, [scikit-learn](https://scikit-learn.org/stable/modules/naive_bayes.html) can be used.
 
